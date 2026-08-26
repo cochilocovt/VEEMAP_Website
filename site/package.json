@@ -9,7 +9,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "handoff": "node ../tools/update-handoff.mjs",
+    "prepare": "node ../tools/install-git-hooks.mjs",
+    "video:prepare": "python video/process-layers.py",
+    "video:render:desktop": "remotion render video/index.ts VEEMAPAssemblyDesktop video/output/desktop-source.mp4 --codec=h264 --crf=8 --pixel-format=yuv420p",
+    "video:render:portrait": "remotion render video/index.ts VEEMAPAssemblyPortrait video/output/portrait-source.mp4 --codec=h264 --crf=8 --pixel-format=yuv420p"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -20,12 +25,14 @@
     "react-dom": "19.2.6"
   },
   "devDependencies": {
+    "@remotion/cli": "^4.0.517",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
+    "remotion": "^4.0.517",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3"
   },

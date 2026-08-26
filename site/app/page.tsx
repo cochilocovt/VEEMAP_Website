@@ -17,48 +17,17 @@ import {
   Menu,
   MonitorUp,
   Moon,
-  Move3d,
   Sun,
   X,
 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import CommissioningVideoSequence from './CommissioningVideoSequence';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
-
-const capabilitySteps = [
-  {
-    name: 'AI vision',
-    code: 'OPTICAL / 01',
-    title: 'See the process before it becomes a problem.',
-    body: 'Machine vision can verify presence, orientation and critical geometry before a component advances—bringing inspection into the motion sequence.',
-    Icon: Camera,
-  },
-  {
-    name: 'High-speed motion',
-    code: 'KINETIC / 02',
-    title: 'Move faster without losing control.',
-    body: 'In-house pick-and-place mechanisms, indexing systems and motion studies are designed around the real product, cycle and changeover requirement.',
-    Icon: Move3d,
-  },
-  {
-    name: 'Industry 4.0 HMI',
-    code: 'CONNECTED / 03',
-    title: 'Turn machine activity into operating context.',
-    body: 'Connected HMI and SCADA layers bring production trends, traceability and machine state into one commissioning view for operators and leaders.',
-    Icon: MonitorUp,
-  },
-  {
-    name: 'Predictive health',
-    code: 'CONDITION / 04',
-    title: 'Act on drift before it becomes downtime.',
-    body: 'Condition signals, machine-health logic and preventive alerts give maintenance teams earlier context for investigation and intervention.',
-    Icon: HeartPulse,
-  },
-];
 
 const systemRange = [
   {
@@ -131,16 +100,12 @@ export default function Home() {
           reduceMotion: '(prefers-reduced-motion: reduce)',
         },
         (context) => {
-          const { desktop, reduceMotion } = context.conditions as {
-            desktop: boolean;
-            mobile: boolean;
+          const { reduceMotion } = context.conditions as {
             reduceMotion: boolean;
           };
 
           if (reduceMotion) {
             gsap.set('.focus-title', { autoAlpha: 0 });
-            gsap.set('.commissioning-assembled', { autoAlpha: 1 });
-            gsap.set('.commissioning-exploded', { autoAlpha: 0 });
             return;
           }
 
@@ -163,38 +128,6 @@ export default function Home() {
             ease: 'power3.out',
             clearProps: 'transform,opacity,visibility',
           });
-
-          if (desktop) {
-            const assembly = gsap.timeline({
-              scrollTrigger: {
-                id: 'commissioning-sequence',
-                trigger: '.commissioning',
-                start: 'top top',
-                end: '+=3600',
-                scrub: 0.8,
-                pin: '.commissioning-pin',
-                invalidateOnRefresh: true,
-              },
-            });
-
-            assembly
-              .to('.commissioning-exploded', { autoAlpha: 0.12, scale: 0.985, ease: 'none' }, 0)
-              .to('.commissioning-assembled', { autoAlpha: 1, scale: 1, ease: 'none' }, 0)
-              .to('.assembly-fill', { scaleX: 1, ease: 'none' }, 0)
-              .to('.sequence-marker', {
-                x: () => (document.querySelector('.sequence-track') as HTMLElement)?.clientWidth || 0,
-                ease: 'none',
-              }, 0)
-              .to('.commissioning-stage', { '--stage-focus': '84%', ease: 'none' }, 0)
-              .to('.tech-step', { autoAlpha: 0.2, filter: 'blur(3px)', duration: 0.08 }, 0)
-              .to('.tech-step:nth-child(1)', { autoAlpha: 1, filter: 'blur(0px)', duration: 0.12 }, 0.04)
-              .to('.tech-step:nth-child(1)', { autoAlpha: 0.2, filter: 'blur(3px)', duration: 0.1 }, 0.2)
-              .to('.tech-step:nth-child(2)', { autoAlpha: 1, filter: 'blur(0px)', duration: 0.12 }, 0.23)
-              .to('.tech-step:nth-child(2)', { autoAlpha: 0.2, filter: 'blur(3px)', duration: 0.1 }, 0.43)
-              .to('.tech-step:nth-child(3)', { autoAlpha: 1, filter: 'blur(0px)', duration: 0.12 }, 0.47)
-              .to('.tech-step:nth-child(3)', { autoAlpha: 0.2, filter: 'blur(3px)', duration: 0.1 }, 0.67)
-              .to('.tech-step:nth-child(4)', { autoAlpha: 1, filter: 'blur(0px)', duration: 0.12 }, 0.72);
-          }
 
           gsap.utils.toArray<HTMLElement>('.depth-reveal').forEach((section) => {
             gsap.from(section.querySelectorAll('.depth-line'), {
@@ -237,8 +170,8 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="VEEMAP Technologies home">
           <span className="brand-mark" aria-hidden="true">
-            <Image className="brand-mark-dark" src="/images/veemap-mark-dark.png" alt="" width={44} height={44} priority />
-            <Image className="brand-mark-light" src="/images/veemap-mark-light.jpg" alt="" width={44} height={44} priority />
+            <Image className="brand-mark-dark" src="/images/veemap-mark-dark.png" alt="" fill sizes="44px" priority />
+            <Image className="brand-mark-light" src="/images/veemap-mark-light.jpg" alt="" fill sizes="44px" priority />
           </span>
           <span className="brand-type"><strong>VEEMAP</strong><small>TECHNOLOGIES</small></span>
         </a>
@@ -286,45 +219,10 @@ export default function Home() {
           <a className="primary-action hero-intro" href="#enquiry">Tell us about your process <ArrowUpRight aria-hidden="true" /></a>
         </div>
 
-        <div className="machine-stage" aria-label="Conceptual exploded special-purpose assembly machine">
-          <div className="machine-orbit orbit-one" aria-hidden="true" /><div className="machine-orbit orbit-two" aria-hidden="true" />
-          <Image className="machine-image machine-exploded" src="/images/machine-exploded-dark.png" alt="Conceptual exploded view of a guarded automated assembly machine" fill sizes="(max-width: 800px) 100vw, 68vw" priority />
-          <div className="capability-rail">
-            {capabilitySteps.map(({ name, Icon }, index) => (
-              <span key={name} style={{ '--rail-index': index } as React.CSSProperties}><Icon aria-hidden="true" />{name}</span>
-            ))}
-          </div>
-        </div>
-
-        <div className="assembly-progress" aria-label="Machine assembly sequence">
-          <span className="progress-caption">Scroll to assemble</span><div className="progress-line" aria-hidden="true"><span /></div>
-          <div className="progress-labels"><strong>Exploded</strong><span>Align</span><span>Assembled</span></div>
-        </div>
         <a className="hero-scroll" href="#commissioning">Explore the commissioning sequence <ArrowDownRight aria-hidden="true" /></a>
       </section>
 
-      <section id="commissioning" className="commissioning">
-        <div className="commissioning-pin">
-          <div className="commissioning-heading">
-            <h2>One machine.<br />Four technology planes.</h2>
-            <p>Scroll to bring the mechanism into focus.</p>
-          </div>
-          <div className="commissioning-stage">
-            <Image className="commissioning-machine commissioning-exploded" src="/images/machine-exploded-dark.png" alt="Conceptual machine in an exploded engineering state" fill sizes="(max-width: 900px) 100vw, 62vw" />
-            <Image className="commissioning-machine commissioning-assembled" src="/images/machine-assembled-dark.png" alt="Conceptual machine in its assembled commissioning state" fill sizes="(max-width: 900px) 100vw, 62vw" />
-            <span className="machine-state">Concept machine / non-proprietary</span>
-          </div>
-          <div className="tech-steps">
-            {capabilitySteps.map(({ name, code, title, body, Icon }) => (
-              <article className="tech-step" key={name}>
-                <div className="tech-step-heading"><Icon aria-hidden="true" /><span>{code}</span></div>
-                <h3>{title}</h3><p>{body}</p><strong>{name}</strong>
-              </article>
-            ))}
-          </div>
-          <div className="sequence-track" aria-hidden="true"><span className="assembly-fill" /><i className="sequence-marker" /></div>
-        </div>
-      </section>
+      <CommissioningVideoSequence />
 
       <section id="proof" className="proof-section depth-reveal">
         <div className="proof-intro">

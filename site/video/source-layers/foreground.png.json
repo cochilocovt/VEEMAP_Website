@@ -1,0 +1,7 @@
+{
+  "prompt": "Isolate the foreground machine frame, guard and conveyor occlusion geometry from the approved non-proprietary machine anchor on the same canvas and camera, surrounded only by a clean transparency-reference background. Preserve scale, perspective and engineering appearance; no text, people, logos, new geometry or proprietary detail.",
+  "createdAt": "2026-08-26T12:00:00+05:30",
+  "approved": true,
+  "useCase": "source for true-alpha foreground occlusion layer",
+  "origin": "site/public/images/machine-assembled-dark.png"
+}

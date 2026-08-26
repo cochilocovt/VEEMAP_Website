@@ -1,0 +1,7 @@
+{
+  "prompt": "Deterministically composite the approved fixed machine layers at the final assembled state using the portrait virtual camera; do not generate or alter geometry.",
+  "createdAt": "2026-08-26T12:00:00+05:30",
+  "approved": true,
+  "useCase": "portrait commissioning video poster",
+  "origin": "site/video/Root.tsx"
+}

@@ -1,0 +1,7 @@
+{
+  "createdAt": "2026-08-26T12:00:00+05:30",
+  "approved": true,
+  "useCase": "portrait scroll-controlled commissioning sequence",
+  "origin": "site/video/Root.tsx",
+  "encoding": "H.264, yuv420p, 1080x1920, 24 fps, 8 seconds, silent, six-frame GOP, fast-start"
+}

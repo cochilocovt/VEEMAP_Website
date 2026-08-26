@@ -1,0 +1,8 @@
+{
+  "prompt": "Isolate a concept industrial HMI and control-panel module from the approved non-proprietary machine anchor on the same 1692 by 929 canvas and camera. Preserve exact scale and orientation; no text, people, logos, extra parts or proprietary detail.",
+  "createdAt": "2026-08-26T12:00:00+05:30",
+  "approved": true,
+  "useCase": "transparent HMI assembly layer",
+  "origin": "site/video/source-layers/hmi.png",
+  "processing": "checkerboard converted to true alpha by site/video/process-layers.py"
+}

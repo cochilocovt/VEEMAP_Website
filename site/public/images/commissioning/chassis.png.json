@@ -1,0 +1,7 @@
+{
+  "prompt": "Create a conceptually accurate, non-proprietary special-purpose machine chassis from the approved assembled machine anchor. Keep the exact camera, canvas, frame, conveyor and base while removing the four featured capability modules. Preserve the black background and metallic engineering aesthetic; no text, people, logos, proprietary geometry or watermark.",
+  "createdAt": "2026-08-26T12:00:00+05:30",
+  "approved": true,
+  "useCase": "stationary commissioning-sequence chassis",
+  "origin": "site/public/images/machine-assembled-dark.png"
+}
