@@ -25,22 +25,17 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `4e4ecbfdcbe8e9768308a122b2bd238fab95a246` — build: restore Sites publish target (2026-08-26 09:42:32 +0530)
-- Generated: 2026-08-26T09:02:41.829Z
+- Last commit: `29af4377a5f4059ce2210e7944b5d18d1beafa44` — design: add VEEMAP logo overdrive concepts (2026-08-26 14:32:41 +0530)
+- Generated: 2026-08-26T09:14:23.271Z
 
 ### Uncommitted work (preserve)
 
-- `A  docs/brand-exploration/veemap-logo-overdrive/01-apex-drive.png`
-- `A  docs/brand-exploration/veemap-logo-overdrive/01-apex-drive.svg`
-- `A  docs/brand-exploration/veemap-logo-overdrive/02-servo-loop.png`
-- `A  docs/brand-exploration/veemap-logo-overdrive/02-servo-loop.svg`
-- `A  docs/brand-exploration/veemap-logo-overdrive/03-vision-aperture.png`
-- `A  docs/brand-exploration/veemap-logo-overdrive/03-vision-aperture.svg`
-- `A  docs/brand-exploration/veemap-logo-overdrive/04-modular-cell.png`
-- `A  docs/brand-exploration/veemap-logo-overdrive/04-modular-cell.svg`
-- `A  docs/brand-exploration/veemap-logo-overdrive/05-axis-monogram.png`
-- `A  docs/brand-exploration/veemap-logo-overdrive/05-axis-monogram.svg`
-- `A  docs/brand-exploration/veemap-logo-overdrive/manifest.json`
+- `A  docs/flow-agent-instructions.md`
+- `A  site/public/images/flow-assembly-frames/00-exploded-base.png`
+- `A  site/public/images/flow-assembly-frames/01-vision-installed.png`
+- `A  site/public/images/flow-assembly-frames/02-motion-installed.png`
+- `A  site/public/images/flow-assembly-frames/03-hmi-installed.png`
+- `A  site/public/images/flow-assembly-frames/04-assembled.png`
 - `?? .cursor/`
 - `?? .githooks/`
 - `?? .github/copilot-instructions.md`
@@ -51,11 +46,11 @@
 
 ### Recent commits
 
+- `29af437 design: add VEEMAP logo overdrive concepts`
 - `4e4ecbf build: restore Sites publish target`
 - `0403f54 feat: add scroll-driven commissioning sequence`
 - `33102af Migrate website deployment to Vercel`
 - `a1e9d05 Validate all workflow changes in CI`
-- `ab960e7 Skip production deploy until Cloudflare is configured`
 
 ## Architecture map
 
