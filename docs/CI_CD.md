@@ -1,36 +1,26 @@
 # CI/CD
 
-GitHub Actions validates every pull request to `main` and every direct push to
-`main`. The production workflow only deploys after dependencies install, lint,
-and build all succeed.
+GitHub Actions validates every pull request and every relevant push to `main`.
+Vercel deploys the same GitHub repository after it is connected through the
+Vercel dashboard.
 
-## One-time repository setup
+## One-time Vercel setup
 
-In the GitHub repository settings, create these Actions secrets:
+1. In Vercel, import `cochilocovt/VEEMAP_Website` as a new project.
+2. Set the project's Root Directory to `site`.
+3. Leave the detected framework as Next.js and use the repository's install and
+   build commands.
+4. Link the `main` branch to Production. Pull requests then receive Vercel
+   preview deployments automatically.
 
-- `CLOUDFLARE_API_TOKEN` — a least-privilege Cloudflare API token that can edit
-  the intended Worker.
-- `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account that owns that Worker.
-
-Also create this Actions variable:
-
-- `CLOUDFLARE_WORKER_NAME` — the exact Worker name that should receive
-  production deployments.
-
-The deployment job uses GitHub's `production` environment. Configure required
-reviewers there if production releases should require approval.
-
-Until `CLOUDFLARE_WORKER_NAME` is set, the production job intentionally skips.
-This allows pull-request and main-branch validation to remain green without
-inventing a Cloudflare target. Once all three values are configured, the next
-push to `main` deploys automatically.
+No GitHub deployment secrets are required for this Git-integration approach.
+Vercel stores its deployment credentials and environment values in the Vercel
+project rather than in this repository.
 
 ## Workflow behavior
 
-- `.github/workflows/ci.yml` runs dependency installation, linting, and the
-  production build for pull requests and pushes affecting `site/`.
-- `.github/workflows/deploy.yml` repeats those gates and deploys the generated
-  Cloudflare Worker after a successful push to `main`, or when run manually.
-
-The deployment command keeps Cloudflare dashboard-managed runtime variables in
-place. Do not store API tokens or runtime secrets in this repository.
+- `.github/workflows/ci.yml` runs a clean dependency installation, linting,
+  and the production build for pull requests and pushes affecting the site or
+  a GitHub workflow.
+- Vercel uses `site/vercel.json` and the standard Next.js build to create
+  previews for pull requests and deploy `main` to production.
