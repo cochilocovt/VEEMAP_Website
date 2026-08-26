@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" shape-rendering="geometricPrecision">
+  <title id="title">VEEMAP Modular Cell logo concept</title>
+  <desc id="desc">Repeatable orange and green precision modules form an engineered apex.</desc>
+  <path fill="#15191C" d="M36 388 226 42l40 22L76 432Z"/>
+  <path fill="#15191C" d="M476 388 286 42l-40 22 190 368Z"/>
+  <path fill="#FA4C14" d="m65 381 45-82 29 16-45 82Z"/>
+  <path fill="#FA4C14" d="m122 277 51-93 29 16-51 93Z"/>
+  <path fill="#FA4C14" d="m185 162 48-88 29 16-48 88Z"/>
+  <path fill="#FA4C14" d="m447 381-45-82-29 16 45 82Z"/>
+  <path fill="#FA4C14" d="m390 277-51-93-29 16 51 93Z"/>
+  <path fill="#FA4C14" d="m327 162-48-88-29 16 48 88Z"/>
+  <path fill="#15191C" d="m113 427 127-201 34 22-127 201Z"/>
+  <path fill="#15191C" d="m399 427-127-201-34 22 127 201Z"/>
+  <path fill="#21DB2C" d="m145 414 42-67 28 18-42 67Z"/>
+  <path fill="#21DB2C" d="m199 328 48-76 28 18-48 76Z"/>
+  <path fill="#21DB2C" d="m367 414-42-67-28 18 42 67Z"/>
+  <path fill="#21DB2C" d="m313 328-48-76-28 18 48 76Z"/>
+</svg>

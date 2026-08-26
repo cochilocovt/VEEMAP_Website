@@ -1,0 +1,53 @@
+{
+  "name": "VEEMAP Logo Overdrive",
+  "boardId": "e799b8c1-1806-4517-bb0b-370bf3a95be0",
+  "parentItemId": "veemap-3d-kinetic-edge",
+  "sourceAsset": "site/public/images/veemap-mark-dark.png",
+  "provenance": "Deterministic SVG concepts authored from the selected Kinetic Edge Light direction and the incumbent VEEMAP nested-chevron asset. No generated claims, client marks, or proprietary machine geometry are present.",
+  "palette": {
+    "signalOrange": "#FA4C14",
+    "automationGreen": "#21DB2C",
+    "graphite": "#15191C",
+    "paper": "#F2F2F2"
+  },
+  "constraints": [
+    "Solid fills only",
+    "No gradients",
+    "No filters",
+    "No reflections",
+    "No embedded raster imagery",
+    "No text or wordmark"
+  ],
+  "concepts": [
+    {
+      "itemId": "veemap-vector-apex-drive",
+      "title": "Apex Drive",
+      "vector": "01-apex-drive.svg",
+      "preview": "01-apex-drive.png"
+    },
+    {
+      "itemId": "veemap-vector-servo-loop",
+      "title": "Servo Loop",
+      "vector": "02-servo-loop.svg",
+      "preview": "02-servo-loop.png"
+    },
+    {
+      "itemId": "veemap-vector-vision-aperture",
+      "title": "Vision Aperture",
+      "vector": "03-vision-aperture.svg",
+      "preview": "03-vision-aperture.png"
+    },
+    {
+      "itemId": "veemap-vector-modular-cell",
+      "title": "Modular Cell",
+      "vector": "04-modular-cell.svg",
+      "preview": "04-modular-cell.png"
+    },
+    {
+      "itemId": "veemap-vector-axis-monogram",
+      "title": "Axis Monogram",
+      "vector": "05-axis-monogram.svg",
+      "preview": "05-axis-monogram.png"
+    }
+  ]
+}

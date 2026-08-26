@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" shape-rendering="geometricPrecision">
+  <title id="title">VEEMAP Servo Loop logo concept</title>
+  <desc id="desc">Interlocking orange and green rails express closed-loop motion control.</desc>
+  <path fill="none" stroke="#15191C" stroke-width="88" stroke-linejoin="miter" d="m84 304 148-204 188 144-58 76-106-82"/>
+  <path fill="none" stroke="#FA4C14" stroke-width="54" stroke-linejoin="miter" d="m84 304 148-204 188 144-58 76-106-82"/>
+  <path fill="none" stroke="#15191C" stroke-width="88" stroke-linejoin="miter" d="m428 208-148 204L92 268l58-76 106 82"/>
+  <path fill="none" stroke="#21DB2C" stroke-width="54" stroke-linejoin="miter" d="m428 208-148 204L92 268l58-76 106 82"/>
+  <path fill="#15191C" d="m256 218 44 38-44 38-44-38Z"/>
+  <path fill="#F2F2F2" d="m256 243 15 13-15 13-15-13Z"/>
+</svg>

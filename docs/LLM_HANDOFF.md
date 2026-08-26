@@ -25,14 +25,22 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `0403f5413a88de4685eedc258b91fdfe61c00589` — feat: add scroll-driven commissioning sequence (2026-08-26 09:37:46 +0530)
-- Generated: 2026-08-26T04:12:32.371Z
+- Last commit: `4e4ecbfdcbe8e9768308a122b2bd238fab95a246` — build: restore Sites publish target (2026-08-26 09:42:32 +0530)
+- Generated: 2026-08-26T09:02:41.829Z
 
 ### Uncommitted work (preserve)
 
-- `M  site/package-lock.json`
-- `M  site/package.json`
-- `A  site/vite.config.ts`
+- `A  docs/brand-exploration/veemap-logo-overdrive/01-apex-drive.png`
+- `A  docs/brand-exploration/veemap-logo-overdrive/01-apex-drive.svg`
+- `A  docs/brand-exploration/veemap-logo-overdrive/02-servo-loop.png`
+- `A  docs/brand-exploration/veemap-logo-overdrive/02-servo-loop.svg`
+- `A  docs/brand-exploration/veemap-logo-overdrive/03-vision-aperture.png`
+- `A  docs/brand-exploration/veemap-logo-overdrive/03-vision-aperture.svg`
+- `A  docs/brand-exploration/veemap-logo-overdrive/04-modular-cell.png`
+- `A  docs/brand-exploration/veemap-logo-overdrive/04-modular-cell.svg`
+- `A  docs/brand-exploration/veemap-logo-overdrive/05-axis-monogram.png`
+- `A  docs/brand-exploration/veemap-logo-overdrive/05-axis-monogram.svg`
+- `A  docs/brand-exploration/veemap-logo-overdrive/manifest.json`
 - `?? .cursor/`
 - `?? .githooks/`
 - `?? .github/copilot-instructions.md`
@@ -43,11 +51,11 @@
 
 ### Recent commits
 
+- `4e4ecbf build: restore Sites publish target`
 - `0403f54 feat: add scroll-driven commissioning sequence`
 - `33102af Migrate website deployment to Vercel`
 - `a1e9d05 Validate all workflow changes in CI`
 - `ab960e7 Skip production deploy until Cloudflare is configured`
-- `213872f Set up VEEMAP website CI/CD`
 
 ## Architecture map
 

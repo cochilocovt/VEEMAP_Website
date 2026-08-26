@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" shape-rendering="geometricPrecision">
+  <title id="title">VEEMAP Vision Aperture logo concept</title>
+  <desc id="desc">A six-segment aperture represents machine vision and multi-axis inspection.</desc>
+  <g stroke="#15191C" stroke-width="12" stroke-linejoin="miter">
+    <path fill="#FA4C14" d="m256 42 181 105-85 58-96-56Z"/>
+    <path fill="#FA4C14" d="m256 42v107l-96 56-85-58Z"/>
+    <path fill="#15191C" d="m437 147-1 218-84-54V205Z"/>
+    <path fill="#21DB2C" d="m436 365-180 105V363l96-52Z"/>
+    <path fill="#21DB2C" d="M256 470 76 365l84-54 96 52Z"/>
+    <path fill="#15191C" d="m76 365-1-218 85 58v106Z"/>
+  </g>
+  <path fill="#F2F2F2" d="m198 316 58-96 58 96h-28l-30-48-30 48Z"/>
+</svg>
