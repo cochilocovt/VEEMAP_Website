@@ -25,16 +25,12 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `878cf2c1dd14380d597886ec4416bfcfbe2f2099` — assets: add Flow assembly frame pack (2026-08-26 14:44:23 +0530)
-- Generated: 2026-08-26T09:34:44.153Z
+- Last commit: `2ca414e51d5121088290916d9db1e8477013f5fb` — feat: add spinning VEEMAP vector mark (2026-08-26 15:04:44 +0530)
+- Generated: 2026-08-26T09:57:33.306Z
 
 ### Uncommitted work (preserve)
 
-- `A  site/app/SpinningBrandMark.tsx`
-- `M  site/app/globals.css`
-- `M  site/app/page.tsx`
-- `A  site/public/images/veemap-mark.svg`
-- `A  site/public/images/veemap-mark.svg.json`
+- `A  site/public/images/machine-exploded-master-dark.png`
 - `?? .cursor/`
 - `?? .githooks/`
 - `?? .github/copilot-instructions.md`
@@ -45,11 +41,11 @@
 
 ### Recent commits
 
+- `2ca414e feat: add spinning VEEMAP vector mark`
 - `878cf2c assets: add Flow assembly frame pack`
 - `29af437 design: add VEEMAP logo overdrive concepts`
 - `4e4ecbf build: restore Sites publish target`
 - `0403f54 feat: add scroll-driven commissioning sequence`
-- `33102af Migrate website deployment to Vercel`
 
 ## Architecture map
 
