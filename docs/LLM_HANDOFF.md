@@ -25,50 +25,14 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `33102afec0a8d339236dcf5083f15fd5d309f3ea` — Migrate website deployment to Vercel (2026-08-26 08:02:49 +0530)
-- Generated: 2026-08-26T04:07:46.578Z
+- Last commit: `0403f5413a88de4685eedc258b91fdfe61c00589` — feat: add scroll-driven commissioning sequence (2026-08-26 09:37:46 +0530)
+- Generated: 2026-08-26T04:12:32.371Z
 
 ### Uncommitted work (preserve)
 
-- `M  site/.gitignore`
-- `A  site/app/CommissioningVideoSequence.tsx`
-- `M  site/app/globals.css`
-- `M  site/app/page.tsx`
 - `M  site/package-lock.json`
 - `M  site/package.json`
-- `A  site/public/images/commissioning/chassis.png`
-- `A  site/public/images/commissioning/chassis.png.json`
-- `A  site/public/images/commissioning/condition-layer.png`
-- `A  site/public/images/commissioning/condition-layer.png.json`
-- `A  site/public/images/commissioning/foreground-layer.png`
-- `A  site/public/images/commissioning/foreground-layer.png.json`
-- `A  site/public/images/commissioning/hmi-layer.png`
-- `A  site/public/images/commissioning/hmi-layer.png.json`
-- `A  site/public/images/commissioning/motion-layer.png`
-- `A  site/public/images/commissioning/motion-layer.png.json`
-- `A  site/public/images/commissioning/vision-layer.png`
-- `A  site/public/images/commissioning/vision-layer.png.json`
-- `A  site/public/video/commissioning-desktop.mp4`
-- `A  site/public/video/commissioning-desktop.mp4.json`
-- `A  site/public/video/commissioning-desktop.webp`
-- `A  site/public/video/commissioning-desktop.webp.json`
-- `A  site/public/video/commissioning-portrait.mp4`
-- `A  site/public/video/commissioning-portrait.mp4.json`
-- `A  site/public/video/commissioning-portrait.webp`
-- `A  site/public/video/commissioning-portrait.webp.json`
-- `A  site/video/Root.tsx`
-- `A  site/video/index.ts`
-- `A  site/video/process-layers.py`
-- `A  site/video/source-layers/condition.png`
-- `A  site/video/source-layers/condition.png.json`
-- `A  site/video/source-layers/foreground.png`
-- `A  site/video/source-layers/foreground.png.json`
-- `A  site/video/source-layers/hmi.png`
-- `A  site/video/source-layers/hmi.png.json`
-- `A  site/video/source-layers/motion.png`
-- `A  site/video/source-layers/motion.png.json`
-- `A  site/video/source-layers/vision.png`
-- `A  site/video/source-layers/vision.png.json`
+- `A  site/vite.config.ts`
 - `?? .cursor/`
 - `?? .githooks/`
 - `?? .github/copilot-instructions.md`
@@ -79,11 +43,11 @@
 
 ### Recent commits
 
+- `0403f54 feat: add scroll-driven commissioning sequence`
 - `33102af Migrate website deployment to Vercel`
 - `a1e9d05 Validate all workflow changes in CI`
 - `ab960e7 Skip production deploy until Cloudflare is configured`
 - `213872f Set up VEEMAP website CI/CD`
-- `2649664 Initial commit`
 
 ## Architecture map
 
