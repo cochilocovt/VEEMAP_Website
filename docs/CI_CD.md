@@ -20,6 +20,11 @@ Also create this Actions variable:
 The deployment job uses GitHub's `production` environment. Configure required
 reviewers there if production releases should require approval.
 
+Until `CLOUDFLARE_WORKER_NAME` is set, the production job intentionally skips.
+This allows pull-request and main-branch validation to remain green without
+inventing a Cloudflare target. Once all three values are configured, the next
+push to `main` deploys automatically.
+
 ## Workflow behavior
 
 - `.github/workflows/ci.yml` runs dependency installation, linting, and the
