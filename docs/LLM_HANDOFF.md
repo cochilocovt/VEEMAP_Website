@@ -25,12 +25,12 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `2ca414e51d5121088290916d9db1e8477013f5fb` — feat: add spinning VEEMAP vector mark (2026-08-26 15:04:44 +0530)
-- Generated: 2026-08-26T09:57:33.306Z
+- Last commit: `fb8c0e5fef304821cafc5c1e190b5452f26cdadf` — assets: add exploded machine master (2026-08-26 15:27:33 +0530)
+- Generated: 2026-08-26T18:36:26.667Z
 
 ### Uncommitted work (preserve)
 
-- `A  site/public/images/machine-exploded-master-dark.png`
+- `A  docs/WEBSITE_IMPLEMENTATION_PLAN.md`
 - `?? .cursor/`
 - `?? .githooks/`
 - `?? .github/copilot-instructions.md`
@@ -41,11 +41,11 @@
 
 ### Recent commits
 
+- `fb8c0e5 assets: add exploded machine master`
 - `2ca414e feat: add spinning VEEMAP vector mark`
 - `878cf2c assets: add Flow assembly frame pack`
 - `29af437 design: add VEEMAP logo overdrive concepts`
 - `4e4ecbf build: restore Sites publish target`
-- `0403f54 feat: add scroll-driven commissioning sequence`
 
 ## Architecture map
 
