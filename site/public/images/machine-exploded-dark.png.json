@@ -1,0 +1,6 @@
+{
+  "prompt": "Use case: precise-object-edit\nAsset type: dark-theme website hero machine layer\nInput images: Image 1 is the exact exploded-state machine and the edit target.\nPrimary request: replace only the checkerboard background with a perfectly uniform pure black #000000 background.\nConstraints: preserve every exploded component, alignment ray, point fragment, machine frame, HMI, conveyor, status tower, framing, perspective, scale, metallic lighting and orange accent exactly; no text, no labels, no logos, no people, no floor, no new parts, no missing parts, no watermark. The black background must be truly flat, edge-to-edge, with no checker pattern, gradient, room, horizon, vignette or shadow.\nAvoid: transparency checkerboard, gray background, studio floor, changing the machine or exploded arrangement, changing crop.",
+  "createdAt": "2026-08-26T04:31:02.9933228+05:30",
+  "approved": true,
+  "useCase": "exploded machine keyframe"
+}

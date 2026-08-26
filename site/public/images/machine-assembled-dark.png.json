@@ -1,0 +1,6 @@
+{
+  "prompt": "Use case: precise-object-edit\nAsset type: dark-theme website hero machine layer\nInput images: Image 1 is the exact assembled-state machine and the edit target.\nPrimary request: replace only the checkerboard background with a perfectly uniform pure black #000000 background.\nConstraints: preserve the machine, framing, perspective, scale, metallic lighting, HMI, conveyor, status tower, orange accents and every edge exactly; no text, no labels, no logos, no people, no floor, no new parts, no watermark. The black background must be truly flat, edge-to-edge, with no checker pattern, gradient, room, horizon, vignette or shadow.\nAvoid: transparency checkerboard, gray background, studio floor, changing the machine, changing crop.",
+  "createdAt": "2026-08-26T04:31:02.9933228+05:30",
+  "approved": true,
+  "useCase": "assembled machine keyframe"
+}

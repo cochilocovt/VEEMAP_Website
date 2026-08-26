@@ -1,0 +1,6 @@
+{
+  "prompt": "Use case: precise-object-edit\nAsset type: dark-theme website brand mark\nInput images: Image 1 is the exact VEEMAP logo mark and the edit target.\nPrimary request: replace only the white background with perfectly uniform pure black #000000.\nConstraints: preserve the exact orange and green chevrons, black outlines, proportions, edges, orientation and framing; no redrawing, no geometry or color changes, no text, no shadow, no watermark.\nAvoid: checkerboard, transparency preview, gradients, changing logo.",
+  "createdAt": "2026-08-26T04:31:02.9933228+05:30",
+  "approved": true,
+  "useCase": "dark theme logo mark"
+}

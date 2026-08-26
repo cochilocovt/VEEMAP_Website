@@ -1,0 +1,239 @@
+{
+  "title": "Choose VEEMAP's visual world",
+  "question": "Which world should shape the homepage? Lock one, steer the hand, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Cycle Ledger",
+      "kicker": "THE ROLL",
+      "lineage": "machine-builder kinematic sequence charts and line-cycle timing diagrams",
+      "thesis": "Scroll becomes one complete machine cycle, proving how VEEMAP combines mechanisms, controls, vision, and data into speed.",
+      "palette": [
+        "#1038C5",
+        "#E9EDF0",
+        "#121820",
+        "#FF982E",
+        "#15D43A"
+      ],
+      "materials": [
+        "anodized cobalt plate",
+        "brushed aluminium",
+        "calibration vellum",
+        "laser-etched timing traces"
+      ],
+      "viewport": "A non-proprietary pick-and-place machine spans two-thirds of the fold at mid-cycle; a vertical 0-2.5 s timing ledger drives it while the proposition and requirements CTA lock into a fixed rail.",
+      "risk": "Dense telemetry could bury the special-purpose-machine story unless only one cycle phase is active at a time.",
+      "raised": [
+        {
+          "from": "Certified Signal Stack",
+          "raise": "The timing ledger now owns the viewport edge to edge instead of sitting inside a polite hero shell."
+        },
+        {
+          "from": "Commissioning Premiere",
+          "raise": "Every scroll threshold is staged as a decisive commissioned state change."
+        },
+        {
+          "from": "High-Speed Contact Sheet",
+          "raise": "Motion is edited frame-exactly around the machine cycle rather than scattered as decoration."
+        },
+        {
+          "from": "Signal Path Schedule",
+          "raise": "Live, held, disabled, selected, and alert states remain legible without relying on colour alone."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "The Metrology Dossier",
+      "kicker": "IMPECCABLE'S PICK",
+      "lineage": "CMM inspection reports, first-article certificates, and optical metrology screens",
+      "thesis": "VEEMAP's story arrives as measured evidence: every claim is tied to a mechanism, tolerance, cycle, or verified result.",
+      "palette": [
+        "#F4F7F8",
+        "#172027",
+        "#1754D1",
+        "#FF982E",
+        "#B9FF37"
+      ],
+      "materials": [
+        "inspection glass",
+        "satin aluminium",
+        "measurement paper",
+        "optical scan light"
+      ],
+      "viewport": "A precise 3D mechanism floats over a coordinate field with three decisive tolerance callouts; one evidence rail leads directly to Start a requirement review.",
+      "risk": "The most immediately credible direction may over-emphasize inspection and underplay speed, invention, and complete-machine thinking.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-build-sequence",
+      "label": "Exploded Build Sequence",
+      "verdict": "competitive",
+      "lineage": "numbered exploded assembly instructions",
+      "thesis": "Every capability appears as the next module in a special-purpose machine being assembled on scroll.",
+      "palette": [
+        "#AEE1FF",
+        "#111111",
+        "#F04A2B",
+        "#FFD21A",
+        "#F7F7F4"
+      ],
+      "materials": [
+        "instruction paper",
+        "black keyline ink",
+        "machined polymer callouts",
+        "stud-grid alignment"
+      ],
+      "viewport": "Step 01 fills the fold: an exploded non-proprietary pick-and-place cell, one highlighted new subassembly, a 1:1 part callout, and a requirements action in the instruction legend.",
+      "case": "It matches VEEMAP's modular engineering and makes complex mechanisms exceptionally clear; it loses audience identification when the assembly language feels toy-like.",
+      "risk": "Without industrial material realism and disciplined scale, the machine could feel educational rather than premium and production-proven.",
+      "comp": ".impeccable/mocks/decision/challenger-build-sequence.webp",
+      "hero": "https://impeccable.style/worlds/cards/games-toys-physics-play-brick-build-instructions-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/games-toys-physics-play-brick-build-instructions.webp"
+    },
+    {
+      "id": "challenger-cycle-counter",
+      "label": "The Cycle Counter",
+      "verdict": "competitive",
+      "lineage": "seven-segment machine displays, scoreboards, and production counters",
+      "thesis": "The homepage behaves like a live machine display in which every metric and state is illuminated only when it matters.",
+      "palette": [
+        "#070707",
+        "#FF3B30",
+        "#FFB000",
+        "#00F566",
+        "#282828"
+      ],
+      "materials": [
+        "matte black enclosure",
+        "ghost segment cells",
+        "brushed aluminium",
+        "LED diffusion"
+      ],
+      "viewport": "A monumental 170 PPM display shares the fold with a machine silhouette and a compact systems board; Tell us your target is the one illuminated control.",
+      "case": "It identifies instantly with production equipment and makes performance memorable; it cannot explain VEEMAP's custom mechanisms as clearly as the assigned direction.",
+      "risk": "A display-only language can become nostalgic, restrictive, or indistinguishable from a generic monitoring dashboard.",
+      "comp": ".impeccable/mocks/decision/challenger-cycle-counter.webp",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-seven-segment-alarm-clock-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-seven-segment-alarm-clock.webp"
+    },
+    {
+      "id": "challenger-signal-stack",
+      "label": "Certified Signal Stack",
+      "verdict": "declined",
+      "lineage": "Designers Republic information-noise sleeves",
+      "thesis": "Machine codes, warnings, registration marks, and certification stamps form a deliberately dense engineering identity.",
+      "palette": [
+        "#050505",
+        "#FF2C93",
+        "#FF7A00",
+        "#FFFFFF"
+      ],
+      "materials": [
+        "flat process ink",
+        "registration marks",
+        "hazard labels"
+      ],
+      "viewport": "A shouting machine code cuts through layered warnings and process marks around one product silhouette.",
+      "case": "It loses both audience identification and product clarity because hostile branding noise reads less precise than VEEMAP's engineering actually is.",
+      "kept": "Edge-to-edge density and registration discipline.",
+      "risk": "The brand can look adversarial and trend-led rather than accurate, fast, and trustworthy."
+    },
+    {
+      "id": "challenger-premiere",
+      "label": "Commissioning Premiere",
+      "verdict": "declined",
+      "lineage": "Art Deco cinema lobbies at premiere hour",
+      "thesis": "Every commissioned machine arrives like a feature presentation through staged metallic thresholds.",
+      "palette": [
+        "#090807",
+        "#D7B66D",
+        "#6E1020",
+        "#F5EBD7"
+      ],
+      "materials": [
+        "lacquered ebony",
+        "brushed brass",
+        "velvet threshold"
+      ],
+      "viewport": "A symmetrical machine silhouette is revealed behind a stepped brass threshold with the enquiry as the premiere action.",
+      "case": "It loses both axes because theatrical luxury is not the visual culture of machine buyers and does not explain VEEMAP's mechanism.",
+      "kept": "Decisive staged thresholds between operating states.",
+      "risk": "Premium becomes ceremonial and ornamental instead of engineered."
+    },
+    {
+      "id": "challenger-contact-sheet",
+      "label": "High-Speed Contact Sheet",
+      "verdict": "declined",
+      "lineage": "hand-processed 16mm film strips",
+      "thesis": "A machine cycle is inspected frame by frame as speed, light, and mechanism pass through one visual strip.",
+      "palette": [
+        "#11110F",
+        "#B7B6AE",
+        "#FF6B22",
+        "#8A6246"
+      ],
+      "materials": [
+        "silver emulsion",
+        "edge codes",
+        "grease-pencil timing marks"
+      ],
+      "viewport": "A horizontal strip isolates successive moments of pick, inspect, place, and confirm around one active frame.",
+      "case": "It loses both axes because chemical wear suggests documentary nostalgia rather than modern industrial precision.",
+      "kept": "Frame-exact temporal editing around the true machine cycle.",
+      "risk": "The film artifact can romanticize production and weaken technical legibility."
+    },
+    {
+      "id": "challenger-signal-path",
+      "label": "Signal Path Schedule",
+      "verdict": "declined",
+      "lineage": "machine-room jackfield normalling schedules",
+      "thesis": "Every sensor, mechanism, HMI, and health alert is connected by a traceable state-bearing signal path.",
+      "palette": [
+        "#080A0B",
+        "#FFB21C",
+        "#D7D1C2"
+      ],
+      "materials": [
+        "unlit black glass",
+        "amber link rails",
+        "machine-room labels"
+      ],
+      "viewport": "A large machine is indexed by numbered signal lanes whose link patterns expose live, held, disabled, and alert states.",
+      "case": "It identifies with controls specialists but loses product clarity for plant leaders and procurement visitors who need the whole machine story first.",
+      "kept": "State semantics that do not depend on colour alone.",
+      "risk": "The page can become a specialist wiring interface rather than a persuasive company homepage."
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "Premium Industrial Integrator",
+    "thesis": "The established automation-company pattern executed at full craft: factory cinema, proof metrics, capability cards, and a direct enquiry.",
+    "palette": [
+      "#071017",
+      "#123C59",
+      "#FF982E",
+      "#F4F7F8"
+    ],
+    "materials": [
+      "cinematic machine footage",
+      "dark glass panels",
+      "clean technical grid"
+    ],
+    "viewport": "A full-bleed factory video carries the company proposition, proof counters, and one orange enquiry action above a familiar capability grid.",
+    "risk": "Professionally credible but intentionally difficult to distinguish from other premium industrial-automation firms.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}

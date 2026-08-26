@@ -1,0 +1,126 @@
+{
+  "title": "Choose the bolder visual world",
+  "question": "The bolder roll assigned Capability Sound Clash. The assembled/exploded machine pair is now a functional scroll primitive in the strongest candidates. Keep the roll, take an alternate, use the standing canon, or steer again.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Capability Sound Clash",
+      "kicker": "THE BOLDER ROLL",
+      "lineage": "Jamaican sound-system dance posters",
+      "thesis": "VEEMAP’s machine and its capabilities compete for billing in one fluorescent, screen-printed industrial clash.",
+      "palette": ["#FFF200", "#FF3B8D", "#111111", "#F7F2E8"],
+      "materials": ["fluorescent card", "heavy screened ink", "machined aluminium"],
+      "viewport": "An exploded machine strikes across ranked VISION, MOTION, CONTROL and HEALTH billings, then locks assembled on scroll.",
+      "risk": "The poster energy can outrun engineering credibility if the machine stops feeling physically exact.",
+      "raised": [
+        {
+          "from": "challenger-performance-bridge",
+          "raise": "Capability names resolve into instrument-like evidence instead of remaining slogans."
+        },
+        {
+          "from": "challenger-multiplane",
+          "raise": "The machine stays the primary spatial object while type supplies the pressure."
+        }
+      ],
+      "comp": ".impeccable/mocks/decision/reroll1-capability-clash.webp",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-soundsystem-dance-poster-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/posters-covers-sleeves-soundsystem-dance-poster.webp"
+    },
+    {
+      "id": "challenger-machine-aisle",
+      "label": "The Technology Planogram",
+      "verdict": "declined",
+      "lineage": "supermarket cereal-box aisles",
+      "thesis": "Machine capabilities face the visitor as a saturated wall of modules, each turning from promise to engineering proof.",
+      "palette": ["#E83B2E", "#FFD21A", "#F8F2E7", "#17324D"],
+      "materials": ["coated board", "brushed metal", "inspection glass"],
+      "viewport": "A credible machine is flanked by bold module facings that flip to reveal AI vision, HMI, motion and health evidence.",
+      "case": "The modularity is clear, but manufacturing leaders identify less readily with retail shelf language than with the assigned machine-led clash.",
+      "risk": "Packaging cues can make serious capital equipment feel consumerized.",
+      "kept": "Exceptional scanning speed and a strong front-to-proof interaction.",
+      "comp": ".impeccable/mocks/decision/reroll1-technology-planogram.webp",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-cereal-box-aisle-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/pop-culture-shelf-cereal-box-aisle.webp"
+    },
+    {
+      "id": "challenger-performance-bridge",
+      "label": "The Performance Bridge",
+      "verdict": "competitive",
+      "lineage": "VU-meter bridges across recording desks",
+      "thesis": "A row of ballistic instruments makes speed, vision confidence, uptime and machine health feel alive beneath the mechanism.",
+      "palette": ["#EEE4CC", "#17191C", "#984130", "#66513A"],
+      "materials": ["warm meter glass", "blackened steel", "walnut", "brushed aluminium"],
+      "viewport": "The machine assembles above a continuous meter bridge whose needles respond as each technology layer activates.",
+      "case": "It identifies immediately as engineered instrumentation and explains capability well, but the repeated meters are less ownable than the assigned typographic hierarchy.",
+      "risk": "Too many needles can imply decorative dashboards rather than trustworthy machine evidence.",
+      "comp": ".impeccable/mocks/decision/reroll1-performance-bridge.webp",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge.webp"
+    },
+    {
+      "id": "challenger-flowfield",
+      "label": "Flowfield Assembly",
+      "verdict": "declined",
+      "lineage": "ebru floated-pigment marbling",
+      "thesis": "Every mechanism displaces a visible field, turning pick-and-place timing and process flow into one irreversible composition.",
+      "palette": ["#10283B", "#F28C28", "#45B6A8", "#F3E8D2"],
+      "materials": ["floating pigment", "sized paper", "precision steel"],
+      "viewport": "An exploded machine floats over process streamlines that bend around AI vision, motion and control interventions.",
+      "case": "The flow metaphor is memorable but requires more explanation than the assigned direction for both audience identification and product clarity.",
+      "risk": "Organic fluid behavior can obscure VEEMAP’s controlled mechanical precision.",
+      "kept": "A beautiful way to visualize invisible process influence without fake data.",
+      "comp": ".impeccable/mocks/decision/reroll1-flowfield-assembly.webp",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment.webp"
+    },
+    {
+      "id": "challenger-multiplane",
+      "label": "Multiplane Commissioning",
+      "verdict": "wins",
+      "lineage": "multiplane cel-animation camera",
+      "thesis": "A conceptually accurate machine is commissioned layer by layer as scroll moves through painted depth planes and precise mechanical states.",
+      "palette": ["#17363B", "#6F8F88", "#D9DFD4", "#F39A32"],
+      "materials": ["gouache depth planes", "clear technical cels", "machined aluminium"],
+      "viewport": "The camera travels from exploded to assembled state while vision, motion, HMI and health each occupy a focusable depth plane.",
+      "case": "It beats the leader on both axes: the machine remains instantly recognizable and every technology layer becomes spatially legible without exposing proprietary detail.",
+      "risk": "The painted atmosphere must never soften tolerances, mechanisms or control labels into fantasy.",
+      "comp": ".impeccable/mocks/decision/reroll1-multiplane-commissioning.webp",
+      "hero": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn.webp"
+    },
+    {
+      "id": "challenger-dreamfold",
+      "label": "Night-Shift Dreamfold",
+      "verdict": "declined",
+      "lineage": "a sleeping city folded into a quilt",
+      "thesis": "The factory floor folds into one sleeping machine whose districts dream in vision, motion, control and health states.",
+      "palette": ["#101C3B", "#E8B44D", "#E8EDF2", "#5E8199"],
+      "materials": ["stitched night textile", "embroidered light", "blackened steel"],
+      "viewport": "A machine and factory map fold together at night, with predictive alerts appearing as waking seams before dawn.",
+      "case": "It creates emotional distinction but loses to the leader on immediate product clarity and executive manufacturing relevance.",
+      "risk": "The dream metaphor can make preventive machine-health monitoring feel less concrete.",
+      "kept": "A humane night-shift narrative and graceful reduced-motion fallback.",
+      "comp": ".impeccable/mocks/decision/reroll1-night-shift-dreamfold.webp",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-sleeping-city-fold-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-sleeping-city-fold.webp"
+    }
+  ],
+  "reroll": {
+    "registers": ["safer", "bolder"]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "Premium Industrial Integrator",
+    "thesis": "A world-class machine-builder homepage using immaculate product rendering, restrained typography and direct proof.",
+    "palette": ["#F3F5F4", "#13212A", "#F28C28", "#2E6B52"],
+    "materials": ["brushed aluminium", "architectural glass", "clean editorial grid"],
+    "viewport": "A studio-lit machine hero, concise positioning, proven capabilities and a direct requirements enquiry.",
+    "risk": "It is credible and premium, but intentionally less distinctive than the bolder hand.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}
