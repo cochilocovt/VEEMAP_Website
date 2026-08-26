@@ -1,0 +1,14 @@
+{
+  "source": "Creative Production board e799b8c1-1806-4517-bb0b-370bf3a95be0, item veemap-3d-kinetic-edge",
+  "sourceReference": "User-supplied approved 3D VEEMAP logo image",
+  "construction": "Deterministic flat SVG trace using four solid paths",
+  "constraints": [
+    "Transparent background",
+    "No shadows",
+    "No lighting",
+    "No gradients",
+    "No filters",
+    "No embedded raster imagery"
+  ],
+  "useCase": "Primary website brand mark and source geometry for CSS 3D extrusion"
+}

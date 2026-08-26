@@ -25,17 +25,16 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `29af4377a5f4059ce2210e7944b5d18d1beafa44` — design: add VEEMAP logo overdrive concepts (2026-08-26 14:32:41 +0530)
-- Generated: 2026-08-26T09:14:23.271Z
+- Last commit: `878cf2c1dd14380d597886ec4416bfcfbe2f2099` — assets: add Flow assembly frame pack (2026-08-26 14:44:23 +0530)
+- Generated: 2026-08-26T09:34:44.153Z
 
 ### Uncommitted work (preserve)
 
-- `A  docs/flow-agent-instructions.md`
-- `A  site/public/images/flow-assembly-frames/00-exploded-base.png`
-- `A  site/public/images/flow-assembly-frames/01-vision-installed.png`
-- `A  site/public/images/flow-assembly-frames/02-motion-installed.png`
-- `A  site/public/images/flow-assembly-frames/03-hmi-installed.png`
-- `A  site/public/images/flow-assembly-frames/04-assembled.png`
+- `A  site/app/SpinningBrandMark.tsx`
+- `M  site/app/globals.css`
+- `M  site/app/page.tsx`
+- `A  site/public/images/veemap-mark.svg`
+- `A  site/public/images/veemap-mark.svg.json`
 - `?? .cursor/`
 - `?? .githooks/`
 - `?? .github/copilot-instructions.md`
@@ -46,11 +45,11 @@
 
 ### Recent commits
 
+- `878cf2c assets: add Flow assembly frame pack`
 - `29af437 design: add VEEMAP logo overdrive concepts`
 - `4e4ecbf build: restore Sites publish target`
 - `0403f54 feat: add scroll-driven commissioning sequence`
 - `33102af Migrate website deployment to Vercel`
-- `a1e9d05 Validate all workflow changes in CI`
 
 ## Architecture map
 

@@ -24,6 +24,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import CommissioningVideoSequence from './CommissioningVideoSequence';
+import SpinningBrandMark from './SpinningBrandMark';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -169,10 +170,7 @@ export default function Home() {
     <main ref={root} className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="VEEMAP Technologies home">
-          <span className="brand-mark" aria-hidden="true">
-            <Image className="brand-mark-dark" src="/images/veemap-mark-dark.png" alt="" fill sizes="44px" priority />
-            <Image className="brand-mark-light" src="/images/veemap-mark-light.jpg" alt="" fill sizes="44px" priority />
-          </span>
+          <SpinningBrandMark className="brand-mark" />
           <span className="brand-type"><strong>VEEMAP</strong><small>TECHNOLOGIES</small></span>
         </a>
 
