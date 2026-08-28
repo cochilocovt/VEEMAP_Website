@@ -1,0 +1,4 @@
+#!/bin/sh
+# Keep the checked-in LLM handoff aligned with the commit about to be made.
+node tools/update-handoff.mjs || exit $?
+git add docs/LLM_HANDOFF.md

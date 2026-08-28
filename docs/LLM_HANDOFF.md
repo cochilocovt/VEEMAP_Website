@@ -14,8 +14,8 @@
 
 ## Working agreement
 
-- Use the Ponytail skill for coding; if unavailable, ask the user to install
-  and configure it. This does not apply when drafting prompts for other apps.
+- The Ponytail skill is recommended for coding when available. If unavailable,
+  continue with the project instructions; installing it is not required.
 - Run `node tools/update-handoff.mjs` after a meaningful change. The
   versioned pre-commit hook performs the same refresh when hooks are enabled.
 - Do not invent facts, certifications, customer claims, or machine performance.
@@ -25,27 +25,20 @@
 ## Current repository state
 
 - Branch: `main`
-- Last commit: `fb8c0e5fef304821cafc5c1e190b5452f26cdadf` — assets: add exploded machine master (2026-08-26 15:27:33 +0530)
-- Generated: 2026-08-26T18:36:26.667Z
+- Base commit when generated: `591a7407d7c26431b95ac11156f4e3497bfde1dd` — docs: add website implementation plan (2026-08-27 00:06:26 +0530)
+- Generated: 2026-08-28T01:35:04.768Z
 
 ### Uncommitted work (preserve)
 
-- `A  docs/WEBSITE_IMPLEMENTATION_PLAN.md`
-- `?? .cursor/`
-- `?? .githooks/`
-- `?? .github/copilot-instructions.md`
-- `?? AGENTS.md`
-- `?? CLAUDE.md`
-- `?? GEMINI.md`
-- `?? tools/`
+- _None_
 
 ### Recent commits
 
+- `591a740 docs: add website implementation plan`
 - `fb8c0e5 assets: add exploded machine master`
 - `2ca414e feat: add spinning VEEMAP vector mark`
 - `878cf2c assets: add Flow assembly frame pack`
 - `29af437 design: add VEEMAP logo overdrive concepts`
-- `4e4ecbf build: restore Sites publish target`
 
 ## Architecture map
 
