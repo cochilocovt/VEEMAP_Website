@@ -1200,6 +1200,7 @@ Implementation must reconcile copy and assets against:
 - [`brand-context/visual-identity.md`](brand-context/visual-identity.md)
 - [`MEDIA_EVIDENCE_BUDGET.md`](MEDIA_EVIDENCE_BUDGET.md) — which media can carry which page
 - [`LEGACY_SITE_CONTENT.md`](LEGACY_SITE_CONTENT.md) — recovered legacy copy and its rewrite
+- [`CONFIDENTIALITY_DECISIONS.md`](CONFIDENTIALITY_DECISIONS.md) — every open media and confidentiality decision, consolidated
 
 The legacy public website is no longer hosted. A static capture is held at
 `V:\VEEMAP\Website\Scraped_Old_Website\veemap_site` and was read on 2026-08-29;

@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `54676de4390627f4330fcb671e426d9a8808dbad` — feat: complete the four remaining sector pages (2026-08-29 23:06:59 +0530)
-- Generated: 2026-08-29T17:41:19.066Z
+- Base commit when generated: `9c0bdcf84aab594dcea3683864d5bd793722d946` — feat: complete Capabilities, Company, Careers and Contact (2026-08-29 23:11:18 +0530)
+- Generated: 2026-08-29T17:47:07.048Z
 
 ### Uncommitted work (preserve)
 
@@ -34,11 +34,11 @@
 
 ### Recent commits
 
+- `9c0bdcf feat: complete Capabilities, Company, Careers and Contact`
 - `54676de feat: complete the four remaining sector pages`
 - `2a1853a feat: build the Medical & Pharmaceutical flagship page`
 - `5781385 chore: ignore .claude/ so agent worktrees are not indexed`
 - `4e19928 feat: add sector content model and all first-release routes`
-- `ca2eb7e refactor: extract shared site shell from the homepage`
 
 ## Architecture map
 
