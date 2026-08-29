@@ -914,6 +914,31 @@ Section 4 and Section 21.
 
 All routes build and expose meaningful text without relying on animation or unfinished placeholders.
 
+#### Status — 2026-08-29: exit gate met
+
+- shell extracted to `site/components/site-shell/` and
+  `site/components/enquiry/`, verified against a prerendered-HTML diff of the
+  homepage;
+- `site/content/sectors.ts` carries all five sectors with the Section 11 field
+  list, including non-public `sourceNotes`;
+- all nine routes plus `not-found`, `sitemap.ts` and `robots.ts` build as static
+  pages; the five sector routes come from `generateStaticParams` with
+  `dynamicParams = false`;
+- route-scoped composition lives in `route.module.css`, the first CSS Module in
+  the repository;
+- legacy `/blank-*` and `/portfolio` URLs redirect permanently to their nearest
+  replacement, from `next.config.ts`; and
+- Medical & Pharmaceutical now leads the enquiry sector list and the homepage
+  sector tape, which both previously listed it last.
+
+Verified: `npm run lint` and `npm run build` pass; every route's prerendered
+HTML carries its full text with scripts stripped, including the enquiry form's
+labels and controls.
+
+Remaining for later phases, deliberately not built yet: page media, motion, the
+tailored per-sector enquiry variants, and the expanded Section 7.11 contact
+field set.
+
 ### Phase 2 — Medical & Pharmaceutical flagship
 
 #### Deliverables

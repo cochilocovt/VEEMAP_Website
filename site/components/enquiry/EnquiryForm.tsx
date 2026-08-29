@@ -2,10 +2,12 @@
 
 import { FormEvent, useState } from 'react';
 import { ArrowUpRight, Check, ChevronDown } from 'lucide-react';
+import { sectors as sectorRecords } from '@/content/sectors';
 
 export const enquiryEmail = 'info@veemap.co.in';
 
-export const sectors = ['Automotive', 'EV solutions', 'Electronics', 'Consumer goods', 'Medical'];
+/** Ordered by the content model, so Medical & Pharmaceutical leads (plan 2.2). */
+const sectorOptions = sectorRecords.map((sector) => sector.name);
 
 /**
  * Client-side mailto handoff. Plan section 2.10: no backend, no CRM, no upload,
@@ -42,7 +44,7 @@ export default function EnquiryForm() {
       <label><span>Company</span><input name="company" autoComplete="organization" required /></label>
       <label><span>Work email</span><input name="email" type="email" autoComplete="email" required /></label>
       <label><span>Phone <i>optional</i></span><input name="phone" type="tel" autoComplete="tel" /></label>
-      <label><span>Sector</span><span className="select-wrap"><select name="sector" defaultValue="" required><option value="" disabled>Select a sector</option>{sectors.map((sector) => <option key={sector}>{sector}</option>)}<option>Other</option></select><ChevronDown aria-hidden="true" /></span></label>
+      <label><span>Sector</span><span className="select-wrap"><select name="sector" defaultValue="" required><option value="" disabled>Select a sector</option>{sectorOptions.map((sector) => <option key={sector}>{sector}</option>)}<option>Other</option></select><ChevronDown aria-hidden="true" /></span></label>
       <label><span>Project stage</span><span className="select-wrap"><select name="stage" defaultValue="" required><option value="" disabled>Select a stage</option><option>Early feasibility</option><option>Defined requirement / RFQ</option><option>Existing process improvement</option><option>Plant-scale planning</option></select><ChevronDown aria-hidden="true" /></span></label>
       <label className="form-wide"><span>Process or product</span><textarea name="process" rows={3} placeholder="What is being assembled, inspected, tested or moved?" required /></label>
       <label className="form-wide"><span>Current challenge</span><textarea name="challenge" rows={3} placeholder="Where are speed, quality, safety, labour or traceability constrained?" required /></label>

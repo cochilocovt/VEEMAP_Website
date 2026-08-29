@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `ce23eb3009f91e7ec2f56f528fa6480bef5048ef` — docs: approve legacy production figures for publication (2026-08-29 19:20:32 +0530)
-- Generated: 2026-08-29T14:07:07.226Z
+- Base commit when generated: `ca2eb7ebda230e7992377e33503e0476040e968a` — refactor: extract shared site shell from the homepage (2026-08-29 19:37:06 +0530)
+- Generated: 2026-08-29T14:12:51.173Z
 
 ### Uncommitted work (preserve)
 
@@ -34,11 +34,11 @@
 
 ### Recent commits
 
+- `ca2eb7e refactor: extract shared site shell from the homepage`
 - `ce23eb3 docs: approve legacy production figures for publication`
 - `3bf58c8 docs: add media evidence budget and legacy site content recovery`
 - `3b7750b chore: settle deployment lane, logo master and plan amendments`
 - `74ae050 chore: add portable agent handoff guidance`
-- `591a740 docs: add website implementation plan`
 
 ## Architecture map
 

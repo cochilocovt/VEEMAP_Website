@@ -19,7 +19,11 @@ import CommissioningVideoSequence from './CommissioningVideoSequence';
 import SiteHeader from '@/components/site-shell/SiteHeader';
 import SiteFooter from '@/components/site-shell/SiteFooter';
 import { homepageCta, homepageMobileCta, homepageNav } from '@/components/site-shell/nav';
-import EnquiryForm, { sectors } from '@/components/enquiry/EnquiryForm';
+import EnquiryForm from '@/components/enquiry/EnquiryForm';
+
+// Medical leads every sector list (plan 2.2). Short labels: the tape is a
+// typographic rail, not a navigation list.
+const sectors = ['Medical', 'Automotive', 'EV solutions', 'Electronics', 'Consumer goods'];
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
