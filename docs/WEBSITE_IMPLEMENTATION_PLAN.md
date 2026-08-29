@@ -31,7 +31,7 @@ These decisions are approved and must not be reinterpreted during implementation
    - Consumer Goods
 2. **Medical & Pharmaceutical receives deliberate priority.** It leads sector navigation, receives the greatest content depth, and becomes the first sector page designed and implemented.
 3. **Sector content describes available solutions, not named customer machines.** Copy must say what VEEMAP can design, integrate or support for a product/process. It must not imply that a displayed system was delivered to a named company in that sector.
-4. **Keyence is the only external company name or logo permitted.** No other customer, supplier or partner names/logos may appear in public copy, imagery, captions, alt text, metadata, filenames or structured data.
+4. **No customer or client name or logo may appear anywhere public.** This covers public copy, imagery, captions, alt text, metadata, filenames and structured data. Controls and automation technology vendors may be named where the `docs/brand-context/` record supports it: Keyence, Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon and WinCC. Naming a vendor must not imply endorsement, certification, or that a displayed system was delivered to a named customer. Keyence remains the only external party whose **logo** may be shown, and only with an approved logo asset. *(Amended 2026-08-29; see Section 21.)*
 5. **Machinery may be shown only at a safe level of detail.** Public media must not expose proprietary mechanisms, complete machine architecture, client-specific fixtures, detailed CAD, confidential labels or sensitive process information.
 6. **Raw HMI screenshots do not ship.** Approved, sanitized HMI data will be re-authored as VEEMAP-branded motion-graphics dashboard clips.
 7. **The homepage Hero establishes typography and color.** Navigation composition and the broader motion language will be resolved as the full site develops, but they must remain consistent with the Hero's visual authority.
@@ -87,12 +87,14 @@ VEEMAP provides custom automation solutions around the product, process constrai
 - five manufacturing sectors
 - established in 2017
 - the confirmed public address, phone, email and domain
-- sourced capability descriptions that do not identify a prohibited company
+- sourced capability descriptions that do not identify a customer
 - Keyence partnership/name/logo, subject to using an approved Keyence logo asset and appropriate usage treatment
+- the sourced controls and automation vendor stack by name — Keyence, Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon, WinCC — as a competence signal only, with no logo other than Keyence's and no implied endorsement or certification
 
 ### Public proof prohibited or restricted
 
-- all company/customer names and logos other than Keyence;
+- all customer and client names and logos, without exception;
+- any external logo other than Keyence's, including the permitted controls vendors';
 - testimonials, awards, certifications and social links not present in the approved source record;
 - internal team-size, sales or revenue figures;
 - the unverified spine-needle machine dimension;
@@ -453,6 +455,28 @@ During implementation:
 6. verify legibility at header, footer, favicon and social-preview sizes; and
 7. do not redraw, trace or stylistically reinterpret the mark without approval.
 
+Completed 2026-08-29: the master was verified and copied byte-identically to
+`site/public/brand/veemap-logo.svg` with a provenance sidecar at
+`site/public/brand/veemap-logo.svg.json`. Every claim above was confirmed
+against the file — SHA-256 matches, `viewBox="0 0 52.88 94.6"`, and there is no
+embedded text, script, `foreignObject`, raster image or external reference.
+
+Two findings from that verification change what step 5 can deliver:
+
+- **The mark is not monochrome.** It carries 32 fills at `#000000` plus greens
+  `#1d5b25`, `#21672a`, `#329e41` and oranges `#792d12`, `#7d2f13`, `#833114`,
+  `#d24e1f`. The greens sit outside the `site/DESIGN.md` palette entirely, and
+  the logo orange is close to but not identical with `--signal` `#fa4c14`.
+- **CSS recolouring is not available.** The fills are hard-coded rather than
+  `currentColor`, so on the dark ground (`--ink` `#000`) the black portions of
+  the mark disappear and no CSS or context treatment can recover them. A
+  dark-theme treatment therefore requires a separately approved derivative.
+  This is an open owner input, recorded in Section 18.
+
+The asset is not yet wired into the site; the header currently renders the
+CSS-drawn `SpinningBrandMark` component. If the SVG is ever inlined more than
+once in a document, its five fixed `clipPath` ids must be namespaced.
+
 ### Navigation direction
 
 Navigation remains an implementation design decision, but it must meet these requirements:
@@ -481,7 +505,8 @@ Navigation remains an implementation design decision, but it must meet these req
 | --- | --- |
 | Official VEEMAP logo | Approved; preserve original and add provenance |
 | Keyence name/logo | Permitted, but use only an approved source asset and accurate relationship wording |
-| Other company/customer names/logos | Remove from all public output |
+| Customer/client names and logos | Remove from all public output |
+| Controls vendor names (Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon, WinCC) | Name in copy where sourced; never show their logos |
 | Machinery photographs/video | Use after crop, masking and confidentiality review |
 | CAD/isometric imagery | Use only at a level that cannot expose proprietary mechanisms or client configuration |
 | Raw HMI screens | Internal reference only; never ship |
@@ -619,9 +644,11 @@ Every factual claim must be traceable to `docs/brand-context/` or a later writte
 ### Styling
 
 - Preserve the Hero-established global tokens.
-- Use route-scoped CSS Modules for new page composition while the Hero workstream is active.
-- Integrate shared shell styles once, after the Hero merge checkpoint.
-- Do not introduce a second styling paradigm or a component-library dependency.
+- `site/app/globals.css` keeps ownership of design tokens, element defaults and the shared site shell.
+- Use route-scoped CSS Modules for new page composition. This is the one sanctioned addition alongside the global stylesheet; it does not license a third approach.
+- Tailwind was installed and wired into PostCSS but never imported by any stylesheet. It was removed on 2026-08-29 so that exactly two mechanisms exist: the global token/shell sheet and route-scoped CSS Modules.
+- Shared shell styles move out of `globals.css` during the Phase 1 shell extraction, not after the Hero merge checkpoint. See Section 15.
+- Do not introduce any further styling paradigm or a component-library dependency.
 
 ### Media delivery
 
@@ -641,10 +668,27 @@ Every factual claim must be traceable to `docs/brand-context/` or a later writte
 - Service/industry structured data without prohibited client names or unsupported claims.
 - Descriptive Open Graph images without customer identity or proprietary geometry.
 
+### Deployment lane
+
+Resolved 2026-08-29: **Vercel with `next build`**, matching `site/vercel.json` and
+`.github/workflows/ci.yml`.
+
+The repository previously carried a second, unused lane — `build:sites` running
+`vinext` against `@cloudflare/vite-plugin`, `wrangler` and
+`@openai/sites-vite-plugin`. It was never referenced by CI or by
+`docs/CI_CD.md`, and it made `next/image` behaviour, `sitemap.ts`, `robots.ts`
+and server-component semantics ambiguous. It was removed on 2026-08-29 together
+with `site/vite.config.ts`, `site/postcss.config.mjs` and
+`site/.openai/hosting.json`.
+
+Do not reintroduce a second build lane. `npm run lint` and `npm run build` are
+the release verification commands.
+
 ### Dependencies
 
 - Reuse Next.js, React, GSAP, Lucide and Remotion already in the repository.
 - Do not add React Three Fiber, Drei, a CMS, carousel library, animation library or form service without a demonstrated need and explicit approval where required.
+- Do not reintroduce Tailwind, Vite, `vinext`, Wrangler, the Cloudflare Vite plugin or the OpenAI Sites plugin.
 
 ## 13. Accessibility and responsive behavior
 
@@ -688,12 +732,37 @@ Owns:
 - Hero media and choreography; and
 - its immediate shared-style dependencies.
 
-Rest-of-site work must not edit these files while the Hero lane is active:
+Rest-of-site work must not edit these while the Hero lane is active:
 
-- `site/app/page.tsx`
-- `site/app/globals.css`
+- the Hero markup inside `site/app/page.tsx`
+- the Hero, commissioning, range and depth-reveal rules inside `site/app/globals.css`
 - `site/app/CommissioningVideoSequence.tsx`
+- `site/app/SpinningBrandMark.tsx`
 - Hero/commissioning media assets
+
+#### Shell extraction exception — approved 2026-08-29
+
+The original boundary above named `site/app/page.tsx` and
+`site/app/globals.css` as wholly off-limits. That was unbuildable: the shared
+header, desktop nav, mobile nav, theme toggle, footer and enquiry form all live
+inside those two files, so no other route could reach a navigable shell without
+duplicating it.
+
+One scoped diff is therefore approved ahead of the rest of Workstream B:
+
+- move header, navigation, footer and the enquiry form out of
+  `site/app/page.tsx` into `site/components/site-shell/` and
+  `site/components/enquiry/`;
+- move their rules out of `site/app/globals.css` into the matching CSS Modules,
+  leaving tokens and element defaults behind;
+- render the shell as server components with focused client islands for menu
+  state, theme control and enquiry preparation, correcting the existing
+  whole-page `'use client'`; and
+- change no Hero markup, no Hero CSS, and neither Hero component.
+
+The homepage must render identically before and after. `site/app/layout.tsx` is
+shared infrastructure — fonts, metadata base and the theme script — and is owned
+jointly; changes to it need both lanes to agree.
 
 ### Workstream B — Content and new routes
 
@@ -720,7 +789,7 @@ Owns:
 After the Hero visual structure stabilizes:
 
 1. agree the shared navigation behavior;
-2. extract or adapt the site header/footer without rewriting the Hero;
+2. confirm the Phase 1 extracted shell still composes with the settled Hero;
 3. switch homepage anchor-only navigation to the approved route map;
 4. insert the homepage non-Hero sequence;
 5. reconcile shared tokens and responsive breakpoints once; and
@@ -733,7 +802,7 @@ After the Hero visual structure stabilizes:
 #### Deliverables
 
 - approved claim matrix;
-- prohibited-name/logo list with Keyence as the only exception;
+- prohibited-name/logo list: all customer identity banned, controls vendors nameable, Keyence the only permitted external logo;
 - media confidentiality ledger;
 - HMI data-classification worksheet;
 - official logo provenance record; and
@@ -742,6 +811,25 @@ After the Hero visual structure stabilizes:
 #### Exit gate
 
 Every first-release page has an approved evidence set, and no asset is scheduled for public use without a confidentiality treatment.
+
+#### Status — 2026-08-29
+
+Done:
+
+- deployment lane resolved and the unused second lane removed; `npm run lint`
+  and `npm run build` verified green on the pruned tree;
+- official logo verified, copied to `site/public/brand/veemap-logo.svg` and given
+  a provenance sidecar; and
+- the four decisions in Section 21 recorded across Sections 2, 8, 12 and 15.
+
+Outstanding:
+
+- claim matrix, media confidentiality ledger and HMI data-classification
+  worksheet;
+- per-sector evidence budget, with an authored-diagram fallback for any sector
+  whose approved media cannot carry the page; and
+- route/content inventory, including the nav vocabulary and the sector route
+  shape.
 
 ### Phase 1 — Content model and route foundation
 
@@ -841,7 +929,8 @@ All acceptance criteria in Section 17 pass, or unresolved findings are explicitl
 - Medical & Pharmaceutical is visibly prioritized.
 - Sector pages describe solutions, not named customer projects.
 - No prohibited customer/company name or logo appears anywhere public.
-- Keyence is the only permitted external name/logo.
+- Keyence is the only permitted external logo; no customer or client identity appears anywhere.
+- Any named controls vendor is presented as a competence signal only, with no logo and no implied endorsement.
 - No certification, testimonial, internal revenue/team figure or unsupported performance claim is present.
 
 ### Confidentiality
@@ -885,8 +974,9 @@ These do not block writing the page structure, but they gate specific launch con
 2. Approved Keyence logo master and final partnership wording.
 3. Current vacancies and the careers email/application destination.
 4. Whether the enquiry may promise a response time.
-5. Final deployment target and release verification lane.
+5. ~~Final deployment target and release verification lane.~~ **Resolved 2026-08-29:** Vercel with `next build`; `npm run lint` and `npm run build` are the verification commands. See Section 12.
 6. Any medical/pharmaceutical regulatory terminology the company is contractually permitted to use; until supplied, the site uses quality-critical engineering language without compliance claims.
+7. A dark-theme treatment for the official logo. The supplied master hard-codes its fills, so its black portions are invisible on the dark ground and CSS cannot correct this. Either an approved derivative or approval to place the mark on a paper-coloured field is required before the logo can appear in the header. See Section 8.
 
 ## 19. Explicit non-goals
 
@@ -916,3 +1006,53 @@ Implementation must reconcile copy and assets against:
 - [`brand-context/visual-identity.md`](brand-context/visual-identity.md)
 
 Where this implementation plan narrows publication beyond those source documents, this plan controls the public website. In particular, the anonymization, Medical & Pharmaceutical priority, raw-HMI prohibition, proprietary-detail restriction, official-logo authority and team-photo exclusion are direct owner decisions recorded on 2026-08-27.
+
+## 21. Amendment record
+
+### 2026-08-29 — four owner decisions
+
+Taken during the first implementation review of this plan against the actual
+repository. Sections 2, 8, 12, 15, 16 and 18 were updated to match. Where this
+section and an earlier section disagree, this section is later and controls.
+
+#### 1. Repository exposure — accepted as-is
+
+`github.com/cochilocovt/VEEMAP_Website` is public and stays public. The owner
+was shown the following and accepted it:
+
+- `media/` is tracked (159 files, roughly 940 MB, video through Git LFS) and
+  includes `media/Rieke_pump.png`, `media/zenon console.svg`,
+  `media/zenon dsah.svg`, `media/2CC SECOND LINE.mov`,
+  `media/Data_analutics_HMI.mp4` and
+  `media/PPt_Data/assets/client-portfolio.jpg`;
+- `docs/brand-context/` names DENSO, RIEKE, STERIMED, APTAR, STRYKER, MARELLI,
+  BELRISE, Legrand, DNKI, HONDA, Hollister and FCC.
+
+This changes nothing about the public website. Sections 9, 10 and 17 continue to
+govern `site/public/` and the production bundle in full: no customer identity in
+shipped pixels, text, alt text, metadata, filenames or structured data, no raw
+HMI screen, and the raw media library is never shipped.
+
+Note for any later cleanup: because the material is already in Git history and
+in LFS, deleting the files in a new commit would not remove them. Only making
+the repository private, or a history rewrite with an LFS purge and a force push,
+would.
+
+#### 2. Shell extraction moved ahead of route work
+
+The shared shell is extracted from `site/app/page.tsx` and
+`site/app/globals.css` in Phase 1, as one scoped diff, instead of being
+duplicated and reconciled at Phase 5. Full terms in Section 15. Hero markup,
+Hero CSS and both Hero components stay untouched.
+
+#### 3. Deployment lane fixed to Vercel
+
+Vercel with `next build`. The unused `vinext`/Cloudflare Workers lane was
+removed. Details and the removed files are listed in Section 12.
+
+#### 4. Controls vendors may be named; customers may not
+
+Section 2 decision 4 previously read "Keyence is the only external company name
+or logo permitted". It now bans customer and client identity absolutely while
+permitting the controls and automation vendors the brand-context record already
+supports. Keyence remains the only external logo.

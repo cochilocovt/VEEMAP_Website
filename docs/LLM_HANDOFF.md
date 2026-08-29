@@ -24,9 +24,9 @@
 
 ## Current repository state
 
-- Branch: `main`
-- Base commit when generated: `591a7407d7c26431b95ac11156f4e3497bfde1dd` — docs: add website implementation plan (2026-08-27 00:06:26 +0530)
-- Generated: 2026-08-28T01:35:04.768Z
+- Branch: `claude/website-implementation-review-2f2c6d`
+- Base commit when generated: `74ae050fb600e73b0cc9a5d168e37d30e8313f75` — chore: add portable agent handoff guidance (2026-08-28 07:05:04 +0530)
+- Generated: 2026-08-29T13:27:11.874Z
 
 ### Uncommitted work (preserve)
 
@@ -34,11 +34,11 @@
 
 ### Recent commits
 
+- `74ae050 chore: add portable agent handoff guidance`
 - `591a740 docs: add website implementation plan`
 - `fb8c0e5 assets: add exploded machine master`
 - `2ca414e feat: add spinning VEEMAP vector mark`
 - `878cf2c assets: add Flow assembly frame pack`
-- `29af437 design: add VEEMAP logo overdrive concepts`
 
 ## Architecture map
 

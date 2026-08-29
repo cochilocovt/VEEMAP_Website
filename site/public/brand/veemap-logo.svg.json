@@ -1,0 +1,25 @@
+{
+  "origin": "client-supplied official logo master",
+  "sourcePath": "C:/Users/V.T/Downloads/Asset 4.svg",
+  "sourceSha256": "ffce57bbd0f6a49c7aafc25e1e7ea6b5d530f376054fe72527d0221959142306",
+  "derivativeSha256": "ffce57bbd0f6a49c7aafc25e1e7ea6b5d530f376054fe72527d0221959142306",
+  "derivation": "byte-identical copy; no re-drawing, tracing, optimisation or path edits",
+  "createdAt": "2026-08-29T00:00:00+05:30",
+  "approved": true,
+  "authority": "docs/WEBSITE_IMPLEMENTATION_PLAN.md section 2.8 and section 8",
+  "useCase": "official VEEMAP brand mark for header, footer, favicon and social preview",
+  "verified": {
+    "viewBox": "0 0 52.88 94.6",
+    "embeddedText": false,
+    "scriptOrForeignObject": false,
+    "embeddedRasterImages": false,
+    "externalReferences": false
+  },
+  "notes": [
+    "Mark is not monochrome: 32 fills at #000000 plus greens #1d5b25, #21672a, #329e41 and oranges #792d12, #7d2f13, #833114, #d24e1f.",
+    "Fills are hard-coded, so currentColor and CSS recolouring cannot produce a dark-theme treatment. On the dark ground (--ink #000) the black portions of the mark disappear. A dark-theme treatment therefore needs separate owner approval.",
+    "Logo orange #d24e1f is close to but not identical with the site signal colour --signal #fa4c14, and the greens sit outside the DESIGN.md palette entirely.",
+    "Contains 5 clipPath ids with fixed values; if this file is ever inlined more than once per document the ids must be namespaced to avoid collisions.",
+    "Not yet wired into the site. The header currently renders the CSS-drawn SpinningBrandMark component, not this asset."
+  ]
+}

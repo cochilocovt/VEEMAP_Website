@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-bbox="-0.002 -0.007 52.873 94.607" viewBox="0 0 52.88 94.6" xmlns="http://www.w3.org/2000/svg" data-type="color">
+    <g>
+        <defs>
+            <clipPath id="f71bb8dd-9c38-497b-ba1b-3390672cd6c6">
+                <path d="M52.15 79.49 47.74 77a.4.4 0 0 1-.14-.15l4.4 2.49a.4.4 0 0 0 .15.15"/>
+            </clipPath>
+            <clipPath id="2ffa9c64-7023-49bd-92b8-ead965dc9725">
+                <path d="m4.63 86.16-4.41-2.5a.39.39 0 0 1-.2-.48l4.41 2.5a.39.39 0 0 0 .2.48"/>
+            </clipPath>
+            <clipPath id="9a3acf6d-cb58-477c-9078-1adcc94dda95">
+                <path d="m24 22.7 4.42 2.5a.4.4 0 0 1 .15.18l-4.41-2.5a.35.35 0 0 0-.16-.18"/>
+            </clipPath>
+            <clipPath id="a567983e-3f3f-479e-b6c1-d6cc85662d51">
+                <path d="m24 22.7 4.42 2.5a.4.4 0 0 0-.26 0 .53.53 0 0 0-.41.34L23.34 23a.53.53 0 0 1 .41-.34.35.35 0 0 1 .25.04"/>
+            </clipPath>
+            <clipPath id="9aa685b6-04a0-4443-b034-5f8518bcce4a">
+                <path d="m24.22.05 4.41 2.5a.33.33 0 0 0-.24 0 .5.5 0 0 0-.39.35L23.56.4A.52.52 0 0 1 24 0a.4.4 0 0 1 .22.05"/>
+            </clipPath>
+        </defs>
+        <g>
+            <g>
+                <g style="isolation:isolate">
+                    <g clip-path="url(#f71bb8dd-9c38-497b-ba1b-3390672cd6c6)" style="isolation:isolate">
+                        <path d="M52.15 79.49 47.74 77a.4.4 0 0 1-.14-.15l4.4 2.49a.4.4 0 0 0 .14.15" style="isolation:isolate" fill="#000000" data-color="1"/>
+                    </g>
+                    <g clip-path="url(#2ffa9c64-7023-49bd-92b8-ead965dc9725)" style="isolation:isolate">
+                        <path d="m4.63 86.16-4.41-2.5a.39.39 0 0 1-.2-.48l4.41 2.5a.39.39 0 0 0 .2.48" style="isolation:isolate" fill="#000000" data-color="1"/>
+                    </g>
+                    <path d="m49.61 71.72-4.41-2.5L23.98 2.06l4.41 2.5z" fill="#000000" data-color="1"/>
+                    <path fill="#792d12" d="m49.61 71.72-4.41-2.5-21.04-46.34 4.41 2.5z" data-color="2"/>
+                    <path d="m52.02 79.34-4.42-2.5-23.84-52.53 4.41 2.5z" fill="#000000" data-color="1"/>
+                    <g clip-path="url(#9a3acf6d-cb58-477c-9078-1adcc94dda95)" style="isolation:isolate">
+                        <path d="m28.57 25.38-4.41-2.5a.35.35 0 0 0-.16-.18l4.42 2.5a.4.4 0 0 1 .15.18" fill="#7d2f13" style="isolation:isolate" data-color="3"/>
+                    </g>
+                    <path d="m7.84 76.86-4.41-2.5L23.34 23l4.41 2.5z" fill="#000000" data-color="1"/>
+                    <g style="isolation:isolate" clip-path="url(#a567983e-3f3f-479e-b6c1-d6cc85662d51)">
+                        <path d="M27.75 25.5 23.34 23z" fill="#000000" data-color="1"/>
+                        <path d="M27.75 25.5 23.34 23v-.08l4.41 2.51z" fill="#000000" data-color="1"/>
+                        <path d="m27.78 25.43-4.41-2.51v-.05l4.41 2.5z" fill="#000000" data-color="1"/>
+                        <path d="m27.82 25.37-4.41-2.5v-.05l4.41 2.5z" fill="#000000" data-color="1"/>
+                        <path d="m27.86 25.32-4.41-2.5.05-.05 4.41 2.5z" fill="#000000" data-color="1"/>
+                        <path d="m27.91 25.27-4.41-2.5h.05L28 25.23h-.05" fill="#000000" data-color="1"/>
+                        <path d="m28 25.23-4.41-2.5h.08L28 25.19h-.08" fill="#000000" data-color="1"/>
+                        <path d="m28 25.19-4.41-2.5a.3.3 0 0 1 .12 0 .4.4 0 0 1 .18 0l4.41 2.5a.4.4 0 0 0-.18 0 .3.3 0 0 0-.12 0" fill="#000000" data-color="1"/>
+                        <path d="m28.34 25.17-4.41-2.5H24l4.41 2.5z" fill="#000000" data-color="1"/>
+                        <path d="M28.41 25.2 24 22.7z" fill="#000000" data-color="1"/>
+                    </g>
+                    <path fill="#833114" d="m7.84 76.86-4.41-2.5 20.55-72.3 4.41 2.5z" data-color="4"/>
+                    <g style="isolation:isolate" clip-path="url(#9aa685b6-04a0-4443-b034-5f8518bcce4a)">
+                        <path d="M28 2.9 23.56.4a.14.14 0 0 1 0-.06L28 2.84a.14.14 0 0 0 0 .06" fill="#000000" data-color="1"/>
+                        <path d="M28 2.84 23.58.34V.27L28 2.77z" fill="#000000" data-color="1"/>
+                        <path d="M28 2.77 23.61.27V.21l4.41 2.5v.06" fill="#000000" data-color="1"/>
+                        <path d="M28.06 2.71 23.65.21z" fill="#000000" data-color="1"/>
+                        <path d="M28.1 2.66 23.69.16z" fill="#000000" data-color="1"/>
+                        <path d="M28.15 2.62 23.74.12a.1.1 0 0 1 .05 0l4.41 2.5a.1.1 0 0 0-.05 0" fill="#000000" data-color="1"/>
+                        <path d="M28.2 2.58 23.79.08h.07l4.41 2.5z" fill="#000000" data-color="1"/>
+                        <path d="M28.27 2.54 23.86 0H24a.5.5 0 0 1 .17 0l4.41 2.5a.33.33 0 0 0-.17 0 .3.3 0 0 0-.12 0" fill="#000000" data-color="1"/>
+                        <path d="M28.56 2.52 24.15 0h.07l4.41 2.5h-.07" fill="#000000" data-color="1"/>
+                        <path d="M28.63 2.54 24.22.04l.01.01 4.41 2.5z" fill="#000000" data-color="1"/>
+                    </g>
+                    <path d="M52.85 78.87a.56.56 0 0 1-.26.64c-.34.07-.5 0-.58-.17L28.17 26.81 5.27 85.9a.52.52 0 0 1-.42.34c-.37-.07-.49-.31-.42-.56L28 2.9a.5.5 0 0 1 .42-.39.36.36 0 0 1 .42.27ZM28.57 25.38l21 46.34L28.39 4.56 7.84 76.86 27.75 25.5a.53.53 0 0 1 .41-.34.36.36 0 0 1 .41.22" fill="#000000" data-color="1"/>
+                    <path d="m28.39 4.56 21.22 67.16-21-46.34a.36.36 0 0 0-.41-.22.53.53 0 0 0-.41.34L7.84 76.86Z" fill="#d24e1f" data-color="5"/>
+                    <path d="m4.43 85.68-4.41-2.5L23.56.4l4.41 2.5z" fill="#000000" data-color="1"/>
+                </g>
+                <g style="isolation:isolate">
+                    <path d="m47.56 89.01-1.83-.99-20.02-27.68 1.82.99z" fill="#000000" data-color="1"/>
+                    <path d="m45.15 84.01-1.83-.99-17.88-37.15 1.82.99z" fill="#000000" data-color="1"/>
+                    <path fill="#1d5b25" d="m45.15 84.01-1.83-.99L25.7 58.67l1.83.99z" data-color="6"/>
+                    <path d="m9.92 89.22-1.82-.99 17.6-29.56 1.83.99z" fill="#000000" data-color="1"/>
+                    <path fill="#21672a" d="m9.92 89.22-1.82-.99 17.34-42.36 1.82.99z" data-color="7"/>
+                    <path fill="#329e41" d="m27.26 46.86 17.89 37.15-17.62-24.35L9.92 89.22z" data-color="8"/>
+                    <path d="m6.94 94.23-1.82-.99 20.31-49.6 1.82.99z" fill="#000000" data-color="1"/>
+                    <path d="m27.25 44.63 21.08 43.78-.77.6-20-27.68L7.71 94.6l-.77-.37Zm.28 15L45.15 84 27.26 46.86 9.92 89.22l17.61-29.56" fill="#000000" data-color="1"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
