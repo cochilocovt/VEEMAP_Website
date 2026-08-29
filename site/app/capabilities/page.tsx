@@ -96,6 +96,24 @@ export default function CapabilitiesPage() {
         </section>
 
         <section className={styles.section}>
+          <h2 className={styles.sectionHead}>High-speed and flexible automation</h2>
+          <div className={styles.prose}>
+            <p>
+              Rate and flexibility pull against each other, and which one wins is a design
+              decision taken early rather than a setting adjusted later. A line built for one
+              product at maximum rate will not change over quickly; a line built to run six
+              variants will not match the rate of the dedicated one.
+            </p>
+            <p>
+              VEEMAP designs for the point on that curve the requirement actually needs, using
+              indexed or continuous motion, multi-track architectures where the part count
+              demands it, tooling that changes as a set, and parameters held as recipes in the
+              controller rather than set by hand at the machine.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.section}>
           <h2 className={styles.sectionHead}>Quality and inspection</h2>
           <div className={styles.prose}>
             <p>

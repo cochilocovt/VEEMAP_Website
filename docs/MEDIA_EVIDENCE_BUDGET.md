@@ -245,6 +245,55 @@ does not pass. It is Hero-workstream content that is already live, so it has not
 been changed unilaterally — but it is a Section 17 release blocker until the
 owner either approves it explicitly or replaces it.
 
+## The `slide*` pass, 2026-08-29
+
+This document previously called the unclassified `slide*` files "the largest
+untapped reserve" and put the count at 124. Both were wrong.
+
+There are **78**, and **31 are byte-identical duplicates** of assets already
+reviewed under their descriptive names — the named files were extracted copies
+from the same deck. That leaves 47 distinct, of which **19** are at or above
+500×400. Those nineteen were reviewed on a contact sheet.
+
+| What they are | Count |
+| --- | --- |
+| Customer or third-party logos | 7 |
+| CAD renders of complete machines or lines | 5 |
+| Third-party stock concept images | 2 |
+| A third-party component datasheet with dimensions | 1 |
+| A personal portrait photograph | 1 |
+| A social-media brand logo | 1 |
+| Possible candidates | 2 |
+
+The reserve is not a reserve. Of the two candidates, one is held on second
+review; one survives, conditionally:
+
+- **`slide19_img4.jpg` — the only publishable machinery photograph found in the
+  entire library.** A dispensing head over a pot with a fixture, linear rails
+  and a sensor: a station detail rather than a machine architecture, with no
+  logo, person, text or dimension in frame. **Provenance must be confirmed
+  before use.** Two assets in this deck have already turned out to be other
+  companies' marketing material, so its presence in a VEEMAP presentation is
+  not evidence that VEEMAP shot it.
+- `slide21_img5.jpg`, a modular electrical switch on grey, carries no visible
+  branding — but a modular switch of this type is the product of a company on
+  the customer list, so publishing it risks implying that relationship. Held.
+
+### Two findings that go beyond the media budget
+
+**The prohibited-name list is incomplete.** The logo walls contain customers not
+recorded in `brand-context/audience-and-positioning.md`. Add at least: MARUTI
+SUZUKI, AISIN, UNO MINDA, Allied JB Friction (AJF), Bettinelli, TAKAHATA,
+KOKOKU, MUNJAL KIRIU, HITACHI. Alongside the already-known DENSO, HONDA, FCC,
+BELRISE, APTAR and Legrand. Any Phase 6 name scan run against the old list
+would have missed nine names.
+
+**`slide5_img3.jpg` is a photograph of an individual** — an identity-document
+style portrait. It is personal data, it sits in a git-tracked directory of a
+public repository, and it is out of scope under the team-imagery rule
+regardless. It must never be published, and it is worth deciding separately
+whether it should be in the repository at all.
+
 ## Effect on the plan
 
 1. **Automotive moves from assembly-led to inspection-led.** Section 7.5 should

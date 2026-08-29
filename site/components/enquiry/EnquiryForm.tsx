@@ -39,6 +39,8 @@ export default function EnquiryForm({
       ['Process / product', data.get('process')],
       ['Current challenge', data.get('challenge')],
       ['Target output', data.get('output')],
+      ['Required tests / inspection', data.get('tests')],
+      ['Variants and changeover', data.get('variants')],
     ].filter(([, value]) => value);
 
     const subject = encodeURIComponent(`Manufacturing requirement — ${data.get('company') || name}`);
@@ -58,6 +60,8 @@ export default function EnquiryForm({
       <label className="form-wide"><span>Process or product</span><textarea name="process" rows={3} placeholder="What is being assembled, inspected, tested or moved?" required /></label>
       <label className="form-wide"><span>Current challenge</span><textarea name="challenge" rows={3} placeholder="Where are speed, quality, safety, labour or traceability constrained?" required /></label>
       <label className="form-wide"><span>Target output <i>optional</i></span><input name="output" placeholder="For example: required cycle time, parts/minute or shift volume" /></label>
+      <label className="form-wide"><span>Required tests or inspection <i>optional</i></span><input name="tests" placeholder="What has to be verified before a part moves on?" /></label>
+      <label className="form-wide"><span>Variants and changeover <i>optional</i></span><input name="variants" placeholder="How many product variants, and how often does the line change over?" /></label>
       <p className="form-note">Submitting prepares an email to VEEMAP in your default mail application. No files are collected.</p>
       <button className="submit-action" type="submit">Prepare enquiry <ArrowUpRight aria-hidden="true" /></button>
       {enquiryPrepared && <p className="form-success" role="status"><Check aria-hidden="true" /> Your requirement summary is ready in your email application.</p>}

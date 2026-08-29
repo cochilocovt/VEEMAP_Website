@@ -60,6 +60,24 @@ export default function CompanyPage() {
         </section>
 
         <section className={styles.section}>
+          <h2 className={styles.sectionHead}>How the capability grew</h2>
+          <div className={styles.prose}>
+            <p>
+              The sequence below describes capability rather than commercial milestones. It
+              names no customer and no project.
+            </p>
+          </div>
+          <ul className={styles.list}>
+            <li><strong>2017</strong> — founded in IMT Manesar, building single-station special-purpose machines</li>
+            <li><strong>From 2018</strong> — vision and sensing brought in-house through the Keyence relationship</li>
+            <li><strong>Scaling up</strong> — from stations to indexed and continuous-motion lines integrating assembly, test and inspection</li>
+            <li><strong>Scaling out</strong> — multi-station lines and complete plants, with material flow designed as part of the system</li>
+            <li><strong>Connected production</strong> — controls, data collection and dashboards added where the requirement justifies them</li>
+            <li><strong>Now</strong> — 236 projects delivered for 55 clients across five manufacturing sectors</li>
+          </ul>
+        </section>
+
+        <section className={styles.section}>
           <h2 className={styles.sectionHead}>Proof</h2>
           <ul className={styles.list}>
             <li>236 projects delivered</li>

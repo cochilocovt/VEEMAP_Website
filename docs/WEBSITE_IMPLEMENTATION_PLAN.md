@@ -1054,6 +1054,33 @@ approves it explicitly. See `docs/MEDIA_EVIDENCE_BUDGET.md`.
 
 All pages have complete responsive content, accurate metadata and a working no-backend enquiry path.
 
+#### Status — 2026-08-29: met, except the Keyence asset
+
+- **Capabilities** carries the capability thesis, the station-to-line-to-plant
+  continuum, engineering disciplines, the delivery lifecycle, high-speed and
+  flexible automation, quality and inspection, connected production naming the
+  sourced SCADA platforms, sector links and an enquiry close.
+- **Company** carries the Manesar identity, indigenous engineering, the "we
+  believe YES and NO equally" philosophy explained rather than quoted, a
+  capability-only milestone sequence naming no customer and no project, scope of
+  work, the approved proof figures and a contact bridge.
+- **Careers** leads on the production problems rather than job titles, covers the
+  disciplines and the training relationships, and routes applications through
+  `mailto:` with no CV upload. No team photography anywhere.
+- **Contact** carries the confirmed address, phone and email, an explicit
+  explanation that submitting opens the visitor's own mail application, and the
+  warning against sending confidential files.
+
+The enquiry form now collects the **complete Section 7.11 recommended field
+set** — name, company, work email, phone, sector, project stage, product or
+process, current constraint, target production context, required tests or
+inspection, and variants and changeover. No response time is promised.
+
+Outstanding: the Keyence treatment. The relationship is described in words on
+Company, which Section 4 permits, and a visible note records that final
+partnership wording and an approved logo asset are owner inputs. No partner logo
+is displayed.
+
 ### Phase 5 — Homepage integration
 
 #### Deliverables

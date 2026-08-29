@@ -46,6 +46,25 @@ export default function CareersPage() {
         </section>
 
         <section className={styles.section}>
+          <h2 className={styles.sectionHead}>The problems, not the job titles</h2>
+          <div className={styles.prose}>
+            <p>
+              A brief arrives as a part and a constraint: this component, this many per minute,
+              this characteristic that has to be proven. Turning that into a machine is the work.
+            </p>
+          </div>
+          <ul className={styles.list}>
+            <li>Feeding and orienting a component that does not want to be oriented</li>
+            <li>Holding a tolerance at rate, when the fixture and the cycle time disagree</li>
+            <li>Proving a joint or a seal without slowing the line down to do it</li>
+            <li>Designing changeover in, so a second variant is not a second machine</li>
+            <li>Getting vision to give the same answer under factory lighting as on the bench</li>
+            <li>Making the production data legible to the people who have to act on it</li>
+            <li>Commissioning on a live floor, where the process is not what the drawing said</li>
+          </ul>
+        </section>
+
+        <section className={styles.section}>
           <h2 className={styles.sectionHead}>Training is part of the work</h2>
           <div className={styles.prose}>
             <p>
