@@ -196,27 +196,36 @@ folded in here, restated as capability rather than as a delivered result.
 > packaging component handling · screw feeding and controlled tightening ·
 > in-line inspection and reject handling
 
-**Capability framing for the Case Study figures** — drafted so it holds whether
-or not the exact numbers are approved:
+**Production figures** — approved for publication 2026-08-29. These were
+published on VEEMAP's own Case Study page and are the strongest concrete
+evidence in the source record.
 
-> **Cap and liner automation.** Rotary indexing architectures with multiple
-> stations on a single track, designed for outputs above 250 parts per minute
-> and for quick conversion between cap types.
+> **Cap and liner automation.** Two-part assembly with in-line quality control
+> at a target output above 250 parts per minute. Rotary indexing across eight
+> stations on a single track, convertible to another cap type without a
+> rebuild.
 >
-> **Dispensing pump automation.** Linear link conveyor architectures carrying
-> many stations across multiple tracks, designed for eleven-part assemblies at
-> outputs above 120 parts per minute, with in-line quality control segregating
-> non-conforming parts and several hundred sensors feeding the production data
-> layer.
->
-> **Controlled tightening.** Automatic screw feeding with servo torque control
-> on a precision rotary indexer, for assemblies where joint integrity is the
-> quality characteristic.
+> **Dispensing pump automation.** Eleven parts assembled into one pump at
+> above 122 parts per minute, with quality control segregating non-conforming
+> parts in line. Linear link conveyor carrying 50 stations across 11 tracks,
+> more than 200 sensors feeding the production data layer, and dashboards built
+> on Zenon for analysis and connected-production integration. Convertible to
+> another pump type.
 
-Note the deliberate changes from the legacy text: "achieving a lightning quick
-speed of +122 P.P.M" becomes a design target rather than an achieved result,
-"200+ sensors" becomes "several hundred sensors", and no figure is attached to
-a named or shown system.
+The figures are published as machine specifications. They carry no customer
+attribution, appear beside no customer-identifying image, and are not presented
+as an industry ranking — Section 2.3 still governs. Provenance: the legacy
+`/blank` Case Study page, recorded in this document.
+
+The legacy page's framing language is not reused. "Lightning quick speed" and
+"pushing boundaries when it comes to productivity" are dropped; the numbers
+carry themselves.
+
+**Controlled tightening** — the legacy Pivot Terminal Screwing Machine sits on
+the Electronics page, not here. Terminal screwing is an electrical assembly
+process and its photography (`terminal-screwing-machine.jpg`,
+`smartscrewiing.jpg`) is budgeted to Electronics. Consumer Goods keeps the
+generic screw feeding and controlled tightening theme from Section 7.8.
 
 ### EV Solutions — `/industries/ev-solutions`
 
@@ -276,9 +285,28 @@ is kept.
 Address: Plot No. 35, Sector 5, IMT Manesar, Gurugram, Haryana, India — 122050.
 `info@veemap.co.in` · +91 9266374969.
 
-### Medical & Pharmaceutical, Electronics, Company
+### Electronics — `/industries/electronics`
 
-No legacy source exists. Authored in Phases 2, 3 and 4 from
+The legacy site had no Electronics page. Its one inherited item is the Pivot
+Terminal Screwing Machine, described on the Case Study page and approved for
+publication with the other production figures on 2026-08-29:
+
+> **Controlled tightening.** Automatic screw feeding with torque control by
+> servo motor on a precision rotary indexer, for terminal assemblies where
+> joint integrity is the quality characteristic.
+
+The legacy source names the indexer "Smart CKD Precise rotary indexer". Section
+7.5 forbids expanding or inferring abbreviations found in source material, so
+either publish the phrase verbatim or drop it — do not render CKD as anything
+else. Recommendation: drop it. The specification reads cleanly without a
+component brand, and the sentence above already carries the engineering content.
+
+The rest of the page is authored in Phase 3 from `docs/brand-context/`. This is
+the sector with the richest media and the thinnest legacy copy.
+
+### Medical & Pharmaceutical, Company
+
+No legacy source exists. Authored in Phases 2 and 4 from
 `docs/brand-context/` under the Section 4 copy rules.
 
 ---
@@ -288,7 +316,8 @@ No legacy source exists. Authored in Phases 2, 3 and 4 from
 | Legacy pattern | Replacement | Reason |
 | --- | --- | --- |
 | Superlatives — "fastest in the world", "leading manufacturer" | Concrete capability statements | Section 4 bans unsupported claims |
-| Achieved results — "helped them achieve", "+122 P.P.M" | Design intent and architecture | Section 2.3 bans delivered-for-customer framing |
+| Customer-attributed results — "helped them achieve", "our client achieved" | Machine specifications with no attribution | Section 2.3 bans delivered-for-customer framing. The figures themselves are approved and kept; only the attribution goes |
+| Decoration around the numbers — "lightning quick speed", "pushing boundaries" | The figure alone | The numbers are stronger unadorned |
 | Customer logo walls on three sector pages | Sector solution families | Section 19 non-goal |
 | "We offer / we provide / we work" openings | The reader's problem first | Every legacy page opened on the company |
 | Empty Pharmaceutical page | Flagship sector page | Section 2.2 |

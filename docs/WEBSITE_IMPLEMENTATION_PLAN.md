@@ -90,6 +90,7 @@ VEEMAP provides custom automation solutions around the product, process constrai
 - sourced capability descriptions that do not identify a customer
 - Keyence partnership/name/logo, subject to using an approved Keyence logo asset and appropriate usage treatment
 - the sourced controls and automation vendor stack by name — Keyence, Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon, WinCC — as a competence signal only, with no logo other than Keyence's and no implied endorsement or certification
+- the production figures previously published on VEEMAP's own Case Study page, approved 2026-08-29: the cap liner line at above 250 parts per minute over 8 stations on 1 track; the dispensing pump line at 11 parts and above 122 parts per minute over 50 stations on 11 tracks with more than 200 sensors; and the pivot terminal screwing machine's automatic screw feeding, servo torque control and precision rotary indexer. Publish these as machine specifications only — no customer attribution, no customer-identifying image alongside, no ranking claim built on them. Copy in [`LEGACY_SITE_CONTENT.md`](LEGACY_SITE_CONTENT.md).
 
 ### Public proof prohibited or restricted
 
@@ -866,9 +867,10 @@ Outstanding:
 - claim matrix, media confidentiality ledger and HMI data-classification
   worksheet;
 - a visual pass over the 124 unclassified `slide*` media files, which are the
-  cheapest route to closing the EV and Consumer Goods evidence gaps; and
-- the owner decision on the legacy performance figures recorded at the end of
-  `docs/MEDIA_EVIDENCE_BUDGET.md`.
+  cheapest route to closing the EV evidence gap.
+
+The legacy production figures were approved for publication on 2026-08-29; see
+Section 4 and Section 21.
 
 ### Phase 1 — Content model and route foundation
 
@@ -1102,3 +1104,22 @@ Section 2 decision 4 previously read "Keyence is the only external company name
 or logo permitted". It now bans customer and client identity absolutely while
 permitting the controls and automation vendors the brand-context record already
 supports. Keyence remains the only external logo.
+
+### 2026-08-29 — legacy production figures approved
+
+The figures published on the previous website's Case Study page may be
+republished: the cap liner line above 250 parts per minute over 8 stations on 1
+track; the dispensing pump line at 11 parts and above 122 parts per minute over
+50 stations on 11 tracks with more than 200 sensors; and the pivot terminal
+screwing machine's automatic screw feeding, servo torque control and precision
+rotary indexer. Added to the Section 4 allowed list.
+
+They publish as machine specifications. Section 2.3 continues to apply without
+exception — no customer attribution, no customer-identifying image beside them,
+and no ranking or superiority claim built on top of them. The legacy framing
+language around the numbers is not reused.
+
+Marked "for now" by the owner. If the figures are later withdrawn, Consumer
+Goods loses its strongest evidence and falls back to the capability framing
+described in `docs/MEDIA_EVIDENCE_BUDGET.md`; nothing else on the site depends
+on them.

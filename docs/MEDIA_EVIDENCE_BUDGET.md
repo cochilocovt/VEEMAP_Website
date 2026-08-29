@@ -183,21 +183,25 @@ filename itself:
    visual pass over them is the cheapest way to close the EV and Consumer Goods
    gaps before commissioning authored artwork.
 
-## Open owner question
+## Production figures — approved 2026-08-29
 
-The legacy public website published these figures on its own Case Study page:
-above 250 parts per minute for a cap liner line; and above 122 parts per
-minute, 11 parts, 50 stations, 11 tracks and more than 200 sensors for a
-dispensing pump line.
+The legacy public website published these on its own Case Study page, and the
+owner approved republishing them:
 
-They were public, and they are the strongest concrete proof available for
-Consumer Goods. Section 4 nonetheless restricts "unapproved exact performance
-figures tied to an identifiable system", and a pump line described at this
-level of detail alongside a pump photograph is identifiable to anyone in that
-industry.
+- cap liner line: two-part assembly, above 250 parts per minute, rotary
+  indexing over 8 stations on 1 track, convertible between cap types;
+- dispensing pump line: 11 parts per pump, above 122 parts per minute, linear
+  link conveyor with 50 stations across 11 tracks, more than 200 sensors,
+  Zenon dashboards, convertible between pump types; and
+- pivot terminal screwing machine: automatic screw feeding, servo torque
+  control, precision rotary indexer.
 
-Three options: republish as previously public; republish as capability framing
-without tying figures to one delivered system, for example "cap liner
-automation designed for outputs above 250 parts per minute"; or omit entirely.
-Copy in `docs/LEGACY_SITE_CONTENT.md` is drafted the second way, so the page
-works under any of the three answers.
+They publish as machine specifications, not as delivered-customer results.
+Section 2.3 still applies in full: no customer attribution, no
+customer-identifying image beside them, and no ranking claim built on them.
+Final copy is in `docs/LEGACY_SITE_CONTENT.md`.
+
+This makes Consumer Goods viable despite its thin photography — the page leads
+on architecture and rate rather than on imagery. The pump derivative still
+needs a generic filename; `Rieke_pump.png` carries a customer name and does not
+ship under it.
