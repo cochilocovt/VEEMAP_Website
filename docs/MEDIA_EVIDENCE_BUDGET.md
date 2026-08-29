@@ -47,12 +47,43 @@ Resolution matters because it decides what a page can do with an asset:
 Every machine still except the poster frame sits at card scale or below. The
 page cannot be built as a photographic showcase.
 
-It can be built as intended anyway, because the ET assembly footage is the
-strongest media VEEMAP has and Section 6 already allocates it here. Budget: one
-video feature, one dashboard-motion feature, and a product-solution navigator
-whose modules use card-scale stills, with authored diagrams for the four
-product families that have no imagery at all — insulin pen, 3-way and 2-way
-valve, pilot check valve, SWDT.
+### Content review, 2026-08-29 — every Medical asset is on hold
+
+The table above bands assets by resolution. A Section 9 content review of the
+actual images was carried out before Phase 2 and **overturns it for this
+sector**. Resolution was never the binding constraint; content is. Corrected
+verdicts:
+
+| Asset | What it actually shows | Verdict |
+| --- | --- | --- |
+| `et-tube-machine.jpg` | CAD render, not a photograph. Complete enclosed machine: guarding, internal mechanism through transparent panels, HMI position, control cabinet | **Hold** — complete machine architecture (2.5) |
+| `iv-drip-machine.jpg` | CAD render. Full cell layout: rotary machine with six bowl feeders on their own tables, positions and count legible | **Hold** — the most revealing asset in the set |
+| `spine-needle-machine.jpg` | CAD render. Complete machine, three feeders, internal rotary mechanism | **Hold** — complete machine architecture |
+| `et-tube-product.png` | Product photograph on white. Printed on the tube: `I.D. 3.0`, `O.D 4.0`, `ORAL/NASAL SINGLE USE`, depth graduations | **Hold** — reads as third-party stock, no provenance; also carries printed dimensions |
+| `spine-needle-product.jpg` | Product photograph on white, catalogue styling | **Hold** — reads as third-party stock, no provenance confirmed |
+| `motion-et-assembly.png` | Genuine production-floor frame. **A person is visible** behind the guarding; also the rotary table with lane tooling, gripper arrays, actuator layout, a sensor amplifier with a readable set-point, facility background | **Hold as a full frame** — see below |
+
+Only the last asset has the resolution to survive a crop. One was produced and
+reviewed: a window above the sensor readout and left of the rotary table,
+excluding the person and the facility, showing the infeed chute and part-detection
+beam. It cleared confidentiality but was visually weak — flat stainless and a
+faint beam — so it was **withdrawn rather than shipped**. Clearing a
+confidentiality gate is not the same as earning a place on the page.
+
+`ET_assembly.MOV` is also on hold. The frame reviewed above is drawn from that
+footage and contains a person and the full mechanism, so the video needs a
+frame-level review before any of it can be used.
+
+**Consequence: the Medical & Pharmaceutical page ships with no photography.** It
+is carried by the authored production dashboard and by its structure. This is
+not a workaround — Section 7.4.7 asks for evidence that is "tightly framed or
+abstracted", and nothing in the current set meets that at a scale worth showing.
+
+**To unblock, one of:** owner approval to publish the CAD renders at reduced
+detail (heavily cropped or re-rendered without internals); a frame-level review
+of `ET_assembly.MOV` selecting shots with no person and no mechanism overview;
+new photography shot to a public brief; or confirmed provenance and usage
+rights for the two product photographs.
 
 ### Electronics — strongest stills
 
@@ -182,6 +213,13 @@ filename itself:
 4. **The 124 unclassified `slide*` files are the largest untapped reserve.** A
    visual pass over them is the cheapest way to close the EV and Consumer Goods
    gaps before commissioning authored artwork.
+5. **Band by content, not by pixels.** The Medical content review overturned
+   every resolution-based verdict in this document for that sector. The other
+   four sectors' tables have **not** yet had the same review, so treat their
+   bands as availability only — an asset listed as feature-band there may still
+   fail Section 9 once looked at. Automotive and Electronics carry the same
+   risk profile as Medical: their largest assets are machine photographs and
+   CAD, exactly the classes that turned out to be unusable here.
 
 ## Production figures — approved 2026-08-29
 

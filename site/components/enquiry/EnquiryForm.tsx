@@ -13,7 +13,15 @@ const sectorOptions = sectorRecords.map((sector) => sector.name);
  * Client-side mailto handoff. Plan section 2.10: no backend, no CRM, no upload,
  * no third-party submission service.
  */
-export default function EnquiryForm() {
+export default function EnquiryForm({
+  defaultSector = '',
+  context,
+}: {
+  /** Preselects the sector when the form is reached from a sector page. */
+  defaultSector?: string;
+  /** Tailors the prepared email's opening line to the route it was sent from. */
+  context?: string;
+} = {}) {
   const [enquiryPrepared, setEnquiryPrepared] = useState(false);
 
   const prepareEnquiry = (event: FormEvent<HTMLFormElement>) => {
@@ -21,6 +29,7 @@ export default function EnquiryForm() {
     const data = new FormData(event.currentTarget);
     const name = String(data.get('name') || 'Prospective client');
     const lines = [
+      ...(context ? [['Enquiry about', context]] : []),
       ['Name', data.get('name')],
       ['Company', data.get('company')],
       ['Email', data.get('email')],
@@ -44,7 +53,7 @@ export default function EnquiryForm() {
       <label><span>Company</span><input name="company" autoComplete="organization" required /></label>
       <label><span>Work email</span><input name="email" type="email" autoComplete="email" required /></label>
       <label><span>Phone <i>optional</i></span><input name="phone" type="tel" autoComplete="tel" /></label>
-      <label><span>Sector</span><span className="select-wrap"><select name="sector" defaultValue="" required><option value="" disabled>Select a sector</option>{sectorOptions.map((sector) => <option key={sector}>{sector}</option>)}<option>Other</option></select><ChevronDown aria-hidden="true" /></span></label>
+      <label><span>Sector</span><span className="select-wrap"><select name="sector" defaultValue={defaultSector} required><option value="" disabled>Select a sector</option>{sectorOptions.map((sector) => <option key={sector}>{sector}</option>)}<option>Other</option></select><ChevronDown aria-hidden="true" /></span></label>
       <label><span>Project stage</span><span className="select-wrap"><select name="stage" defaultValue="" required><option value="" disabled>Select a stage</option><option>Early feasibility</option><option>Defined requirement / RFQ</option><option>Existing process improvement</option><option>Plant-scale planning</option></select><ChevronDown aria-hidden="true" /></span></label>
       <label className="form-wide"><span>Process or product</span><textarea name="process" rows={3} placeholder="What is being assembled, inspected, tested or moved?" required /></label>
       <label className="form-wide"><span>Current challenge</span><textarea name="challenge" rows={3} placeholder="Where are speed, quality, safety, labour or traceability constrained?" required /></label>

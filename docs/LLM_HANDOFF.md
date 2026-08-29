@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `4e19928ee1946c6fc1c1368d298df04ca9f972d6` — feat: add sector content model and all first-release routes (2026-08-29 19:42:50 +0530)
-- Generated: 2026-08-29T16:18:49.771Z
+- Base commit when generated: `5781385e7b70a42e2ddca0044da33abb31ce40aa` — chore: ignore .claude/ so agent worktrees are not indexed (2026-08-29 21:48:49 +0530)
+- Generated: 2026-08-29T17:32:26.919Z
 
 ### Uncommitted work (preserve)
 
@@ -34,11 +34,11 @@
 
 ### Recent commits
 
+- `5781385 chore: ignore .claude/ so agent worktrees are not indexed`
 - `4e19928 feat: add sector content model and all first-release routes`
 - `ca2eb7e refactor: extract shared site shell from the homepage`
 - `ce23eb3 docs: approve legacy production figures for publication`
 - `3bf58c8 docs: add media evidence budget and legacy site content recovery`
-- `3b7750b chore: settle deployment lane, logo master and plan amendments`
 
 ## Architecture map
 

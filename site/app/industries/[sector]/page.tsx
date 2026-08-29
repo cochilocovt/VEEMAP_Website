@@ -4,8 +4,13 @@ import { notFound } from 'next/navigation';
 import RouteShell from '@/components/site-shell/RouteShell';
 import styles from '@/components/site-shell/route.module.css';
 import { getSector, sectorLinks, sectors } from '@/content/sectors';
+import ProductionDashboard from '@/components/medical/ProductionDashboard';
+import EnquiryForm from '@/components/enquiry/EnquiryForm';
 
 export const dynamicParams = false;
+
+const slugify = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 export function generateStaticParams() {
   return sectors.map((sector) => ({ sector: sector.slug }));
@@ -60,9 +65,16 @@ export default async function SectorPage({
 
         <section className={styles.section}>
           <h2 className={styles.sectionHead}>Solution families</h2>
+          <ul className={styles.sectorNav}>
+            {sector.solutionFamilies.map((family) => (
+              <li key={family.name}>
+                <a href={`#${slugify(family.name)}`}>{family.name}</a>
+              </li>
+            ))}
+          </ul>
           <div className={styles.grid}>
             {sector.solutionFamilies.map((family) => (
-              <article key={family.name} className={styles.card}>
+              <article key={family.name} id={slugify(family.name)} className={styles.card}>
                 <h3 className={styles.cardTitle}>{family.name}</h3>
                 <p className={styles.cardBody}>{family.detail}</p>
               </article>
@@ -84,12 +96,39 @@ export default async function SectorPage({
           </ul>
         </section>
 
+        {sector.flexibleProduction && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionHead}>Flexible production</h2>
+            <ul className={styles.list}>
+              {sector.flexibleProduction.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {sector.showDashboard && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionHead}>What the line reports</h2>
+            <div className={styles.prose}>
+              <p>
+                A machine that assembles a quality-critical device should be able to say what it
+                is doing. Production state, counts, inspection results and station health are
+                collected at the machine and presented in a VEEMAP-built dashboard rather than
+                left on a controller screen.
+              </p>
+            </div>
+            <ProductionDashboard />
+          </section>
+        )}
+
         <section className={styles.section}>
           <h2 className={styles.sectionHead}>Start a project</h2>
           <div className={styles.prose}>
             <p>{sector.enquiryPrompt}</p>
-            <p><Link href="/contact">Prepare an enquiry</Link></p>
+            {!sector.enquiryInline && <p><Link href="/contact">Prepare an enquiry</Link></p>}
           </div>
+          {sector.enquiryInline && (
+            <EnquiryForm defaultSector={sector.name} context={`${sector.name} automation`} />
+          )}
         </section>
 
         <section className={styles.section}>

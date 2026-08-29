@@ -29,6 +29,14 @@ export type Sector = {
   enquiryPrompt: string;
   seo: { title: string; description: string };
   sourceNotes: string[];
+  /**
+   * Flagship-only sections. Medical & Pharmaceutical is the reference
+   * implementation (plan 2.2), so it carries the fuller section 7.4 structure;
+   * the other four render the shared set until their own phase.
+   */
+  flexibleProduction?: string[];
+  showDashboard?: boolean;
+  enquiryInline?: boolean;
 };
 
 export const sectors: Sector[] = [
@@ -65,6 +73,14 @@ export const sectors: Sector[] = [
       'Controlled reject handling with a recorded reason',
       'Traceability tied to the part rather than to the batch',
     ],
+    flexibleProduction: [
+      'Variant handling designed in from the start, so a second product size is a changeover rather than a rebuild',
+      'Controlled changeover with tooling that locates positively instead of being set by eye',
+      'Modular stations, so a process step can be added or replaced without redesigning the machine',
+      'Recipe-driven parameters held in the controller rather than written on the machine',
+    ],
+    showDashboard: true,
+    enquiryInline: true,
     enquiryPrompt:
       'Tell us the device, the assembly steps, what has to be verified before a part moves on, how many variants you run, and where you are in the project.',
     seo: {

@@ -953,6 +953,40 @@ field set.
 
 The page clearly presents solution capability without client attribution, certification claims or proprietary detail, and works on desktop/mobile/reduced-motion paths.
 
+#### Status — 2026-08-29: met, with one deliverable blocked
+
+Delivered:
+
+- the flagship page carries the Section 7.4 structure — sector thesis,
+  product-solution navigator with anchored modules, process orchestration,
+  quality layer, flexible production, production dashboard and enquiry close;
+- the production dashboard is a VEEMAP-native CSS and SVG panel, built from
+  first principles rather than tracing any HMI layout, with every value
+  classified **illustrative** under Section 10 and labelled as such on the page;
+- the enquiry close is inline and tailored: the sector is preselected and the
+  prepared email names the sector; and
+- no certification claim, no client attribution, no spine-needle dimension.
+
+Blocked, and not by implementation effort:
+
+- **Approved machine-media treatment.** A Section 9 content review of all six
+  Medical assets put every one of them on hold. The three machine images are
+  CAD renders showing complete machine architecture; the two product shots read
+  as third-party stock with no confirmed provenance; the one genuine production
+  frame contains a person, the rotary table and lane tooling, and a readable
+  sensor set-point. A compliant crop was produced from the last of these,
+  reviewed, and withdrawn for being visually weak. `ET_assembly.MOV` needs a
+  frame-level review before any of it can be used. Details and the four routes
+  to unblocking are in `docs/MEDIA_EVIDENCE_BUDGET.md`.
+
+The page therefore ships with no photography. Section 7.4.7's machinery-evidence
+section is omitted rather than filled with a placeholder.
+
+Verified: `npm run lint` and `npm run build` pass; the route renders 4,157
+characters of text with scripts stripped, including the dashboard's values and
+its illustrative-data caption; all motion is CSS-only and every animated element
+holds its final state under `prefers-reduced-motion`.
+
 ### Phase 3 — Remaining four sector pages
 
 #### Deliverables
