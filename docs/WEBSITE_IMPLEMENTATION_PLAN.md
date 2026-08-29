@@ -1095,6 +1095,47 @@ is displayed.
 
 The Hero remains intact, all primary routes are reachable, and the homepage does not duplicate inner-page content.
 
+#### Status — 2026-08-29: content integration done, reconciliation deferred
+
+The Section 15 checkpoint has six steps. Four are done; two are deliberately
+held, because the Hero lane is mid-flight. `docs/VEEMAP_FLOW_ASSEMBLY_V2.md` is
+an active brief regenerating the commissioning sequence from a new nine-frame
+keyframe set, so the Hero's visual structure has not stabilised and the
+checkpoint's own precondition is unmet.
+
+| Step | State |
+| --- | --- |
+| 1. Agree shared navigation behaviour | Done — the approved route map, Medical first in every sector list |
+| 2. Confirm the shell composes with the settled Hero | **Held** — cannot confirm against a Hero being re-authored |
+| 3. Switch homepage anchor navigation to the route map | Done |
+| 4. Insert the homepage non-Hero sequence | Done |
+| 5. Reconcile shared tokens and breakpoints, once | **Held** — premature while the sequence is changing |
+| 6. Full-site navigation and visual-regression pass | Navigation done; visual regression **held** |
+
+Delivered:
+
+- the homepage header now carries the route map, and the homepage-only anchor
+  navigation has been removed from `nav.ts` as that checkpoint intended;
+- three sections were added below the Hero — the Medical & Pharmaceutical lead
+  feature, the five-sector index with Medical in the lead position, and the
+  engineering delivery sequence; and
+- all nine primary routes are reachable from the homepage, verified against the
+  prerendered HTML.
+
+Hero markup, Hero CSS, `CommissioningVideoSequence` and `SpinningBrandMark` are
+untouched. The new sections are separate components with their own CSS Module,
+which keeps the diff to `site/app/page.tsx` down to an import, the header call
+and three lines — deliberately small while the Hero lane has work in flight.
+
+Duplication check: the only text the homepage shares with an inner page in runs
+above 140 characters is the shared shell — header, enquiry form, footer. No
+inner-page prose is repeated. The sector cards use each sector's audience
+problem, while the Industries hub uses its thesis, so the two indexes read
+differently.
+
+**Steps 2, 5 and 6 stay open until the Hero lane reports its sequence final.**
+They are the last thing before Phase 6.
+
 ### Phase 6 — Hardening and release
 
 #### Deliverables

@@ -18,8 +18,8 @@ import { useGSAP } from '@gsap/react';
 import CommissioningVideoSequence from './CommissioningVideoSequence';
 import SiteHeader from '@/components/site-shell/SiteHeader';
 import SiteFooter from '@/components/site-shell/SiteFooter';
-import { homepageCta, homepageMobileCta, homepageNav } from '@/components/site-shell/nav';
 import EnquiryForm from '@/components/enquiry/EnquiryForm';
+import { DeliverySequence, MedicalLeadFeature, SectorIndex } from '@/components/home/HomeSections';
 
 // Medical leads every sector list (plan 2.2). Short labels: the tape is a
 // typographic rail, not a navigation list.
@@ -134,12 +134,7 @@ export default function Home() {
 
   return (
     <main ref={root} className="site-shell">
-      <SiteHeader
-        brandHref="#top"
-        links={homepageNav}
-        cta={homepageCta}
-        mobileCta={homepageMobileCta}
-      />
+      <SiteHeader />
 
       <section id="top" className="hero" onPointerMove={moveFocus}>
         <div className="hero-copy">
@@ -171,6 +166,8 @@ export default function Home() {
         </div>
       </section>
 
+      <MedicalLeadFeature />
+
       <section className="range-section">
         <div className="range-sticky">
           <h2>Scale the system.<br />Not just the machine.</h2>
@@ -186,6 +183,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <SectorIndex />
 
       <section id="engineering" className="engineering-section depth-reveal">
         <div className="engineering-copy">
@@ -214,6 +213,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <DeliverySequence />
 
       <section id="careers" className="careers-section">
         <div className="careers-photo"><Image src="/images/facility.jpg" alt="VEEMAP Technologies facility in IMT Manesar" fill sizes="(max-width: 900px) 100vw, 54vw" /></div>

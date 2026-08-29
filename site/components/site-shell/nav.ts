@@ -18,22 +18,3 @@ export const primaryMobileCta: NavLink = {
   label: 'Tell us about your process',
   href: '/contact',
 };
-
-/**
- * The homepage keeps its anchor navigation until the Hero integration
- * checkpoint (plan section 15). Passing these in rather than branching inside
- * the header keeps one shell for every route; Phase 5 deletes the props.
- */
-export const homepageNav: NavLink[] = [
-  { label: 'Capabilities', href: '#commissioning' },
-  { label: 'Machines', href: '#proof' },
-  { label: 'Engineering', href: '#engineering' },
-  { label: 'Careers', href: '#careers' },
-];
-
-export const homepageCta: NavLink = { label: 'Start a project', href: '#enquiry' };
-
-export const homepageMobileCta: NavLink = {
-  label: 'Tell us about your process',
-  href: '#enquiry',
-};
