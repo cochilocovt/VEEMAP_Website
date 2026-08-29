@@ -125,6 +125,13 @@ export const sectors: Sector[] = [
       'Part marking and identification',
       'Traceability across the assembly sequence',
     ],
+    flexibleProduction: [
+      'Fixture families that accept a part range rather than a single part number',
+      'Inspection recipes selected by the part presented, not by an operator setting',
+      'Reference masters and repeatable calibration, so a result means the same thing across shifts',
+      'Result logging that stays attached to the part through the rest of the sequence',
+    ],
+    enquiryInline: true,
     enquiryPrompt:
       'Tell us the component, the characteristic that has to be verified, your current inspection method and the rate the line has to hold.',
     seo: {
@@ -136,7 +143,7 @@ export const sectors: Sector[] = [
       'Nine machines recovered from the legacy Automobile page; see LEGACY_SITE_CONTENT.md.',
       'Six of the nine are inspection systems, which is why this page leads on verification.',
       'Do not expand or infer abbreviations found in source material (plan 7.5).',
-      'Three feature-band photographs available; this sector is not media-constrained.',
+      'Media on hold: the machine images are CAD renders of complete cells, and inspection-scan.png is a measurement screen with legible dimensions (MEDIA_EVIDENCE_BUDGET.md).',
     ],
   },
   {
@@ -169,6 +176,13 @@ export const sectors: Sector[] = [
       'In-process verification between stages',
       'Traceability carried across multiple production stages',
     ],
+    flexibleProduction: [
+      'Stations built as modules, so a stage can be added as volume grows',
+      'A part record that survives every handoff between stages',
+      'Test limits held and versioned in the controller rather than kept on a whiteboard',
+      'Manual and automatic stages designed to coexist while a line is scaled up',
+    ],
+    enquiryInline: true,
     enquiryPrompt:
       'Tell us which stages you are automating, what has to be tested at end of line, and whether the stages need to share one part record.',
     seo: {
@@ -178,7 +192,7 @@ export const sectors: Sector[] = [
     },
     sourceNotes: [
       'The legacy EV page was three sentences with no machine list.',
-      'Only sector whose existing media cannot carry the page; needs an authored plant-flow feature (MEDIA_EVIDENCE_BUDGET.md).',
+      'Media on hold: hub-motor-line.jpg is a complete plant layout with operator positions, which 7.6 prohibits (MEDIA_EVIDENCE_BUDGET.md).',
       'Do not present a client installation or a detailed plant layout (plan 7.6).',
     ],
   },
@@ -213,6 +227,13 @@ export const sectors: Sector[] = [
       'Torque-controlled joining with a recorded result',
       'Marking, identification and reject handling',
     ],
+    flexibleProduction: [
+      'Tooling that changes between switch or breaker variants without a rebuild',
+      'Torque and soldering parameters held as recipes against the product, not set by hand',
+      'Test sequences versioned with the product revision',
+      'Reject routes designed in, so a failed unit leaves the line at the station that found it',
+    ],
+    enquiryInline: true,
     enquiryPrompt:
       'Tell us the assembly, the joining process, what has to be electrically verified, and the rate and variant mix the line has to hold.',
     seo: {
@@ -223,7 +244,7 @@ export const sectors: Sector[] = [
     sourceNotes: [
       'The legacy site had no Electronics page; only the pivot terminal screwing machine is inherited, from the Case Study page.',
       'The legacy source names a "Smart CKD Precise rotary indexer". Plan 7.5 forbids expanding abbreviations, so the component brand is dropped rather than rendered.',
-      'Richest media of any sector: three feature-band assets (MEDIA_EVIDENCE_BUDGET.md).',
+      'Media on hold: smartscrewiing.jpg carries a customer logo, robotic-soldering.jpg carries a vendor watermark and reads as that vendor’s own material (MEDIA_EVIDENCE_BUDGET.md).',
       'Remove or replace imagery carrying unapproved third-party marks (plan 7.7).',
     ],
   },
@@ -258,6 +279,13 @@ export const sectors: Sector[] = [
       'Production data and dashboards built to the use case',
       'Variant changeover without a machine rebuild',
     ],
+    flexibleProduction: [
+      'Convertible between product types — both the cap and the pump architectures are designed for it',
+      'Feeder tooling changed as a set rather than adjusted piece by piece',
+      'Rate held through a changeover rather than recovered after one',
+      'Sensor coverage across every station, so a fault is located rather than hunted',
+    ],
+    enquiryInline: true,
     enquiryPrompt:
       'Tell us the product, the part count, the rate you need, how many variants the line has to run and how quickly it has to change over.',
     seo: {
@@ -268,7 +296,7 @@ export const sectors: Sector[] = [
     sourceNotes: [
       'Production figures recovered from the legacy Case Study page and approved for publication 2026-08-29 (plan section 4 and section 21).',
       'Figures publish as machine specifications only: no customer attribution, no customer-identifying image alongside, no ranking claim.',
-      'Thin photography; the page leads on architecture and rate (MEDIA_EVIDENCE_BUDGET.md).',
+      'Media on hold: dispensing-pump-line.jpg is a complete line render with station counts and component names. The page leads on architecture and rate instead (MEDIA_EVIDENCE_BUDGET.md).',
       'The pump derivative needs a generic public filename; the source file carries a customer name.',
     ],
   },

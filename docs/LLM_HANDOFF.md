@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `5781385e7b70a42e2ddca0044da33abb31ce40aa` — chore: ignore .claude/ so agent worktrees are not indexed (2026-08-29 21:48:49 +0530)
-- Generated: 2026-08-29T17:32:26.919Z
+- Base commit when generated: `2a1853a72177257cda1cbd09e2ea672dd65c57fb` — feat: build the Medical & Pharmaceutical flagship page (2026-08-29 23:02:26 +0530)
+- Generated: 2026-08-29T17:36:59.527Z
 
 ### Uncommitted work (preserve)
 
@@ -34,11 +34,11 @@
 
 ### Recent commits
 
+- `2a1853a feat: build the Medical & Pharmaceutical flagship page`
 - `5781385 chore: ignore .claude/ so agent worktrees are not indexed`
 - `4e19928 feat: add sector content model and all first-release routes`
 - `ca2eb7e refactor: extract shared site shell from the homepage`
 - `ce23eb3 docs: approve legacy production figures for publication`
-- `3bf58c8 docs: add media evidence budget and legacy site content recovery`
 
 ## Architecture map
 

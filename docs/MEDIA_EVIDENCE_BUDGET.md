@@ -201,6 +201,50 @@ filename itself:
 - `zenon console.svg`, `zenon dsah.svg` — vendor product name; the vendor may
   now be named in copy, but the public filename still goes generic
 
+## Cross-sector content review, 2026-08-29
+
+Carried out before Phase 3, after the Medical review showed that resolution
+bands predict nothing. The finding is the same in every sector, and stronger.
+
+| Asset | Sector | What it actually is | Verdict |
+| --- | --- | --- | --- |
+| `smartscrewiing.jpg` | Electronics | CAD render carrying the **Legrand logo and wordmark** on the machine banner, beside "PIVOT TERMINAL SCREWING" | **Hold** — customer identity baked into the image (2.4) |
+| `robotic-soldering.jpg` | Electronics | Photograph with a **DOBOT watermark**, a person's hand in frame; reads as the robot vendor's own marketing material | **Hold** — vendor logo, unconfirmed usage rights, person in shot |
+| `hub-motor-line.jpg` | EV | CAD render of a **complete production line**: every station, conveyor runs, flow arrows and roughly fifteen operator positions | **Hold** — detailed plant layout (7.6) |
+| `dispensing-pump-line.jpg` | Consumer Goods | CAD render of the **complete line**: two multi-station machines, around ten bowl feeders with elevators, HMI kiosk, and component names on the feeder hoppers | **Hold** — complete architecture, station counts, part identifiers |
+| `inspection-machine-a.jpg` | Automotive | CAD render, complete robot cell: enclosure, six-axis robot, conveyor, fixture plate, cabinet | **Hold** — complete machine architecture |
+| `pipe-assembly-machine.jpg` | Automotive | CAD render, complete machine: HMI position, rotary table with tooling, feeder, cabinet | **Hold** — complete machine architecture |
+| `inspection-scan.png` | Automotive | Photograph of a **measurement-software screen**: scanned part geometry with legible values `-20.000mm`, `0.000`, `0.860mm`, axis counts, mouse cursor | **Hold** — measurement screen and part geometry (see below) |
+| `pump assembly machine.svg` | Consumer Goods | Vector, no embedded text or names — but not yet rendered and reviewed | **Unreviewed** |
+| `switch-product.png`, `breaker-product.jpg`, remaining small assets | Electronics | Not reviewed | **Unreviewed** |
+
+### The pattern
+
+Almost every "machine" asset in this library is a **CAD render of a complete
+machine or a complete line**, produced for sales presentations, where showing
+everything was the point. That is precisely what Section 2.5 and Section 7.6
+prohibit publishing. Two also carry identity that no crop can remove without
+destroying the image: a customer logo in one, a robot vendor's watermark and
+probable copyright in another.
+
+**No sector has publishable machinery evidence in the current library.** Not
+Medical, and not the four reviewed here. Automotive and Electronics, which this
+document earlier called media-rich, are in the same position as EV.
+
+### Live asset requiring a decision
+
+`site/public/images/inspection-scan.png` is **byte-identical** to the reviewed
+`media/PPt_Data/assets/inspection-scan.png`, and it is already published on the
+homepage in the digital-layer section. It shows a measurement-software screen
+with legible measured dimensions and a scanned part profile.
+
+Section 4 prohibits "detailed machine layouts, proprietary geometry ... part
+drawings", and Section 17 requires that no public asset reveal excessive
+proprietary detail. On the reading applied to every other asset here, this one
+does not pass. It is Hero-workstream content that is already live, so it has not
+been changed unilaterally — but it is a Section 17 release blocker until the
+owner either approves it explicitly or replaces it.
+
 ## Effect on the plan
 
 1. **Automotive moves from assembly-led to inspection-led.** Section 7.5 should

@@ -1001,6 +1001,45 @@ holds its final state under `prefers-reduced-motion`.
 
 Every sector has distinct product/process evidence, no thin placeholder sections, and no prohibited identity in copy or media.
 
+#### Status — 2026-08-29: met on copy, blocked on media
+
+All four sectors now carry sector thesis, solution families with distinct
+product and process detail, process orchestration, quality capabilities,
+flexible production and an inline enquiry close that preselects the sector.
+Between 2,785 and 3,303 characters of text render per route with scripts
+stripped. The Industries hub leads on Medical & Pharmaceutical.
+
+A content review of the media was run **before** writing, on the lesson from
+Phase 2. It found that no sector has publishable machinery evidence:
+
+- `smartscrewiing.jpg` carries the **Legrand logo and wordmark** on the machine
+  banner — customer identity baked into the pixels, which no crop removes;
+- `robotic-soldering.jpg` carries a **DOBOT watermark** and a person's hand, and
+  reads as the robot vendor's own marketing material, so usage rights are
+  unconfirmed as well as the logo being prohibited;
+- `hub-motor-line.jpg` is a CAD render of a **complete production line** with
+  every station, the conveyor runs and roughly fifteen operator positions —
+  exactly the plant layout Section 7.6 prohibits;
+- `dispensing-pump-line.jpg` is a complete line render with station counts and
+  component names on the feeder hoppers; and
+- `inspection-machine-a.jpg` and `pipe-assembly-machine.jpg` are CAD renders of
+  complete machines.
+
+The library is largely CAD produced for sales presentations, where showing
+everything was the point. That is what Sections 2.5 and 7.6 prohibit
+publishing. This document's earlier claim that Automotive and Electronics were
+media-rich is withdrawn; they are in the same position as EV.
+
+All four pages therefore ship without photography, as Medical does. No
+placeholder or holding image is used.
+
+**Release blocker, carried forward:** `site/public/images/inspection-scan.png`
+is already published on the homepage and is byte-identical to a reviewed asset
+that shows a measurement screen with legible dimensions and a scanned part
+profile. It is Hero-workstream content, so it has not been changed
+unilaterally, but Section 17 cannot pass while it is live unless the owner
+approves it explicitly. See `docs/MEDIA_EVIDENCE_BUDGET.md`.
+
 ### Phase 4 — Capabilities, Company, Careers and Contact
 
 #### Deliverables
