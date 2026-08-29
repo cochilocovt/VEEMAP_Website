@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `ca2eb7ebda230e7992377e33503e0476040e968a` — refactor: extract shared site shell from the homepage (2026-08-29 19:37:06 +0530)
-- Generated: 2026-08-29T14:12:51.173Z
+- Base commit when generated: `4e19928ee1946c6fc1c1368d298df04ca9f972d6` — feat: add sector content model and all first-release routes (2026-08-29 19:42:50 +0530)
+- Generated: 2026-08-29T16:18:49.771Z
 
 ### Uncommitted work (preserve)
 
@@ -34,11 +34,11 @@
 
 ### Recent commits
 
+- `4e19928 feat: add sector content model and all first-release routes`
 - `ca2eb7e refactor: extract shared site shell from the homepage`
 - `ce23eb3 docs: approve legacy production figures for publication`
 - `3bf58c8 docs: add media evidence budget and legacy site content recovery`
 - `3b7750b chore: settle deployment lane, logo master and plan amendments`
-- `74ae050 chore: add portable agent handoff guidance`
 
 ## Architecture map
 
