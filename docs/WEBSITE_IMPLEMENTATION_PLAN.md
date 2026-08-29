@@ -787,16 +787,44 @@ One scoped diff is therefore approved ahead of the rest of Workstream B:
 - move header, navigation, footer and the enquiry form out of
   `site/app/page.tsx` into `site/components/site-shell/` and
   `site/components/enquiry/`;
-- move their rules out of `site/app/globals.css` into the matching CSS Modules,
-  leaving tokens and element defaults behind;
-- render the shell as server components with focused client islands for menu
-  state, theme control and enquiry preparation, correcting the existing
-  whole-page `'use client'`; and
+- keep their CSS in `site/app/globals.css` under the existing global class
+  names; and
 - change no Hero markup, no Hero CSS, and neither Hero component.
 
 The homepage must render identically before and after. `site/app/layout.tsx` is
 shared infrastructure — fonts, metadata base and the theme script — and is owned
 jointly; changes to it need both lanes to agree.
+
+##### Why the shell CSS stays global
+
+An earlier draft of this exception also moved the shell rules into CSS Modules.
+That contradicted Section 12, which gives `globals.css` ownership of tokens,
+element defaults and the shared site shell — the shell is global chrome on
+every route, so global is where its rules belong. Route-scoped CSS Modules are
+for new page composition.
+
+The rules are also entangled with Hero-owned selectors, so splitting them would
+mean editing Hero CSS, which this exception forbids:
+
+- `.header-cta, .primary-action` share one declaration block, and
+  `.primary-action` is used by the Hero and the careers section;
+- `.theme-toggle svg, .menu-toggle svg, .header-cta svg, .primary-action svg,
+  .hero-scroll svg, .mobile-nav svg` spans shell and Hero in one selector;
+- `.enquiry-intro h2` sits in a shared heading rule with five Hero-lane
+  sections, and `.enquiry-section` in a shared section-padding rule; and
+- shell rules recur across several media-query blocks, so a partial move risks
+  leaving a responsive override behind.
+
+##### Why the header is a client component
+
+`SiteHeader` carries `'use client'` rather than being a server component with
+client islands. The menu button sits inside `<header>` while the mobile panel
+is a sibling of it, and the two share open state. The panel cannot move inside
+`<header>` because the header carries a `backdrop-filter`, which would make it
+the containing block for its fixed-position descendants and break the panel.
+Next still server-renders the header to HTML, so navigation is present without
+JavaScript. Section 12's rule stands for page content: routes are server
+components, and only this chrome plus the enquiry form hydrate.
 
 ### Workstream B — Content and new routes
 

@@ -1,30 +1,25 @@
 'use client';
 
 import Image from 'next/image';
-import { FormEvent, useRef, useState } from 'react';
+import { useRef } from 'react';
 import {
-  ArrowDown,
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
   Bot,
   Camera,
-  Check,
-  ChevronDown,
   CircleGauge,
-  Factory,
   HeartPulse,
-  Menu,
   MonitorUp,
-  Moon,
-  Sun,
-  X,
 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import CommissioningVideoSequence from './CommissioningVideoSequence';
-import SpinningBrandMark from './SpinningBrandMark';
+import SiteHeader from '@/components/site-shell/SiteHeader';
+import SiteFooter from '@/components/site-shell/SiteFooter';
+import { homepageCta, homepageMobileCta, homepageNav } from '@/components/site-shell/nav';
+import EnquiryForm, { sectors } from '@/components/enquiry/EnquiryForm';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -48,46 +43,13 @@ const systemRange = [
   },
 ];
 
-const sectors = ['Automotive', 'EV solutions', 'Electronics', 'Consumer goods', 'Medical'];
-
 export default function Home() {
   const root = useRef<HTMLElement>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [enquiryPrepared, setEnquiryPrepared] = useState(false);
-
-  const toggleTheme = () => {
-    const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-    document.documentElement.dataset.theme = next;
-    document.documentElement.style.colorScheme = next;
-    localStorage.setItem('veemap-theme', next);
-  };
 
   const moveFocus = (event: React.PointerEvent<HTMLElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
     event.currentTarget.style.setProperty('--focus-x', `${event.clientX - rect.left}px`);
     event.currentTarget.style.setProperty('--focus-y', `${event.clientY - rect.top}px`);
-  };
-
-  const prepareEnquiry = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get('name') || 'Prospective client');
-    const lines = [
-      ['Name', data.get('name')],
-      ['Company', data.get('company')],
-      ['Email', data.get('email')],
-      ['Phone', data.get('phone')],
-      ['Sector', data.get('sector')],
-      ['Project stage', data.get('stage')],
-      ['Process / product', data.get('process')],
-      ['Current challenge', data.get('challenge')],
-      ['Target output', data.get('output')],
-    ].filter(([, value]) => value);
-
-    const subject = encodeURIComponent(`Manufacturing requirement — ${data.get('company') || name}`);
-    const body = encodeURIComponent(lines.map(([label, value]) => `${label}: ${value}`).join('\n\n'));
-    setEnquiryPrepared(true);
-    window.location.href = `mailto:info@veemap.co.in?subject=${subject}&body=${body}`;
   };
 
   useGSAP(
@@ -168,44 +130,12 @@ export default function Home() {
 
   return (
     <main ref={root} className="site-shell">
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="VEEMAP Technologies home">
-          <SpinningBrandMark className="brand-mark" />
-          <span className="brand-type"><strong>VEEMAP</strong><small>TECHNOLOGIES</small></span>
-        </a>
-
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#commissioning">Capabilities</a>
-          <a href="#proof">Machines</a>
-          <a href="#engineering">Engineering</a>
-          <a href="#careers">Careers</a>
-        </nav>
-
-        <div className="header-actions">
-          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle light and dark mode" title="Toggle light and dark mode">
-            <Sun className="theme-icon-light" aria-hidden="true" />
-            <Moon className="theme-icon-dark" aria-hidden="true" />
-            <span className="theme-label-light">Light</span>
-            <span className="theme-label-dark">Dark</span>
-          </button>
-          <a className="header-cta" href="#enquiry">Start a project <ArrowUpRight aria-hidden="true" /></a>
-          <button className="menu-toggle" type="button" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}>
-            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          </button>
-        </div>
-      </header>
-
-      <nav id="mobile-navigation" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Mobile navigation">
-        {[
-          ['Capabilities', 'commissioning'],
-          ['Machines', 'proof'],
-          ['Engineering', 'engineering'],
-          ['Careers', 'careers'],
-        ].map(([item, target]) => (
-          <a key={item} href={`#${target}`} onClick={() => setMenuOpen(false)}>{item}<ArrowDownRight aria-hidden="true" /></a>
-        ))}
-        <a className="mobile-project-link" href="#enquiry" onClick={() => setMenuOpen(false)}>Tell us about your process <ArrowUpRight aria-hidden="true" /></a>
-      </nav>
+      <SiteHeader
+        brandHref="#top"
+        links={homepageNav}
+        cta={homepageCta}
+        mobileCta={homepageMobileCta}
+      />
 
       <section id="top" className="hero" onPointerMove={moveFocus}>
         <div className="hero-copy">
@@ -296,31 +226,10 @@ export default function Home() {
           <p>Share enough context for our engineering team to understand the process before we get back to you. Please do not include confidential drawings or sensitive files at this stage.</p>
           <div className="contact-strip"><a href="mailto:info@veemap.co.in">info@veemap.co.in</a><a href="tel:+919266374969">+91 9266374969</a></div>
         </div>
-        <form className="enquiry-form" onSubmit={prepareEnquiry}>
-          <label><span>Your name</span><input name="name" autoComplete="name" required /></label>
-          <label><span>Company</span><input name="company" autoComplete="organization" required /></label>
-          <label><span>Work email</span><input name="email" type="email" autoComplete="email" required /></label>
-          <label><span>Phone <i>optional</i></span><input name="phone" type="tel" autoComplete="tel" /></label>
-          <label><span>Sector</span><span className="select-wrap"><select name="sector" defaultValue="" required><option value="" disabled>Select a sector</option>{sectors.map((sector) => <option key={sector}>{sector}</option>)}<option>Other</option></select><ChevronDown aria-hidden="true" /></span></label>
-          <label><span>Project stage</span><span className="select-wrap"><select name="stage" defaultValue="" required><option value="" disabled>Select a stage</option><option>Early feasibility</option><option>Defined requirement / RFQ</option><option>Existing process improvement</option><option>Plant-scale planning</option></select><ChevronDown aria-hidden="true" /></span></label>
-          <label className="form-wide"><span>Process or product</span><textarea name="process" rows={3} placeholder="What is being assembled, inspected, tested or moved?" required /></label>
-          <label className="form-wide"><span>Current challenge</span><textarea name="challenge" rows={3} placeholder="Where are speed, quality, safety, labour or traceability constrained?" required /></label>
-          <label className="form-wide"><span>Target output <i>optional</i></span><input name="output" placeholder="For example: required cycle time, parts/minute or shift volume" /></label>
-          <p className="form-note">Submitting prepares an email to VEEMAP in your default mail application. No files are collected.</p>
-          <button className="submit-action" type="submit">Prepare enquiry <ArrowUpRight aria-hidden="true" /></button>
-          {enquiryPrepared && <p className="form-success" role="status"><Check aria-hidden="true" /> Your requirement summary is ready in your email application.</p>}
-        </form>
+        <EnquiryForm />
       </section>
 
-      <footer className="site-footer">
-        <div className="footer-brand"><Factory aria-hidden="true" /><span><strong>VEEMAP Technologies Pvt Ltd</strong><small>An engineering solution company</small></span></div>
-        <address>Plot No. 35, Sector 5, IMT Manesar<br />Gurugram, Haryana, India — 122050</address>
-        <div className="footer-links"><a href="#top">Back to top <ArrowUp aria-hidden="true" /></a><span>© {new Date().getFullYear()} VEEMAP Technologies</span></div>
-      </footer>
+      <SiteFooter topHref="#top" />
     </main>
   );
-}
-
-function ArrowUp({ className }: { className?: string }) {
-  return <ArrowDown className={className} style={{ transform: 'rotate(180deg)' }} />;
 }
