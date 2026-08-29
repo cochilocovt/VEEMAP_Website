@@ -108,13 +108,19 @@ VEEMAP provides custom automation solutions around the product, process constrai
 
 ### Primary navigation
 
-1. **Solutions** → `/capabilities`
+1. **Capabilities** → `/capabilities`
 2. **Industries** → `/industries`
 3. **Company** → `/company`
 4. **Careers** → `/careers`
 5. **Start a project** → `/contact`
 
 The VEEMAP logo links to `/`. Medical & Pharmaceutical is the first item anywhere sector links are listed.
+
+*Resolved 2026-08-29:* the nav label is **Capabilities**, matching its route and
+the existing homepage nav. The earlier label "Solutions" collided with this
+plan's own use of "solution" for sector product families. "Solution" stays a
+copy word for what VEEMAP builds for a product or process; it is not a nav
+label or a route.
 
 ### Route map
 
@@ -291,16 +297,26 @@ These appear as solution modules or anchored sections on one flagship page in th
 
 #### Solution themes
 
-- radiator and pipe assembly;
-- fuel-system and injector assembly;
-- clutch and brake-related assembly;
-- component handling and joining;
-- dimensional and vision inspection;
-- identification, marking and traceability.
+Recovered from the legacy Automobile page on 2026-08-29, which listed nine
+machines by name — six of them inspection systems:
+
+- **verification and inspection:** piston vision inspection, engine number
+  inspection, brake shoe inspection, piston liner inspection, brake disc vision
+  inspection;
+- **assembly and joining:** radiator assembly, fuel rail assembly, complete
+  clutch assembly, pipe and component handling;
+- **surface and finishing:** robotic hood polishing; and
+- **traceability:** identification, marking and result logging.
 
 #### Page emphasis
 
-Show the relationship between flexible product handling, inspection and traceability. Use abstracted machinery/CAD crops and inspection visuals. Do not expand or infer abbreviations found in source material, and do not display customer marks.
+**Lead on verification, not assembly.** Two thirds of the recovered machine
+list and all three feature-band photographs available to this sector are
+inspection systems. Present dimensional checking, vision inspection, functional
+test and part identification as designed into the line rather than added at the
+end of it, then show assembly and handling as the second theme.
+
+Use abstracted machinery/CAD crops and inspection visuals. Do not expand or infer abbreviations found in source material, and do not display customer marks.
 
 ### 7.6 EV Solutions — `/industries/ev-solutions`
 
@@ -611,6 +627,23 @@ site/
 
 This is a target organization, not permission to create abstractions before reuse is demonstrated. Extract a shared component when a second real route needs it.
 
+### Sector route shape
+
+Resolved 2026-08-29: the five sector pages are served by the dynamic segment
+`app/industries/[sector]/page.tsx`, not by five hand-written route folders.
+
+- `generateStaticParams` derives the five slugs from `content/sectors.ts`, so
+  the content model is the single source of route truth.
+- `export const dynamicParams = false` makes any other slug a 404 rather than a
+  runtime render.
+- `generateMetadata` reads the same record, which keeps titles, descriptions and
+  canonicals in step with the content automatically.
+
+Every sector still renders substantive, individually authored content. A shared
+route file is a rendering decision, not permission to generate five variations
+of one template — Section 17 still requires distinct product and process
+evidence per sector.
+
 ### Sector content fields
 
 Each sector record should contain:
@@ -822,14 +855,20 @@ Done:
   a provenance sidecar; and
 - the four decisions in Section 21 recorded across Sections 2, 8, 12 and 15.
 
+- the per-sector evidence budget, in `docs/MEDIA_EVIDENCE_BUDGET.md`;
+- the legacy-site content recovery and rewritten draft copy, in
+  `docs/LEGACY_SITE_CONTENT.md`; and
+- the route/content inventory: nav label resolved to Capabilities (Section 5),
+  sector routes resolved to one dynamic segment (Section 11).
+
 Outstanding:
 
 - claim matrix, media confidentiality ledger and HMI data-classification
   worksheet;
-- per-sector evidence budget, with an authored-diagram fallback for any sector
-  whose approved media cannot carry the page; and
-- route/content inventory, including the nav vocabulary and the sector route
-  shape.
+- a visual pass over the 124 unclassified `slide*` media files, which are the
+  cheapest route to closing the EV and Consumer Goods evidence gaps; and
+- the owner decision on the legacy performance figures recorded at the end of
+  `docs/MEDIA_EVIDENCE_BUDGET.md`.
 
 ### Phase 1 — Content model and route foundation
 
@@ -1004,6 +1043,13 @@ Implementation must reconcile copy and assets against:
 - [`brand-context/contacts-and-credentials.md`](brand-context/contacts-and-credentials.md)
 - [`brand-context/brand-voice-and-messaging.md`](brand-context/brand-voice-and-messaging.md)
 - [`brand-context/visual-identity.md`](brand-context/visual-identity.md)
+- [`MEDIA_EVIDENCE_BUDGET.md`](MEDIA_EVIDENCE_BUDGET.md) — which media can carry which page
+- [`LEGACY_SITE_CONTENT.md`](LEGACY_SITE_CONTENT.md) — recovered legacy copy and its rewrite
+
+The legacy public website is no longer hosted. A static capture is held at
+`V:\VEEMAP\Website\Scraped_Old_Website\veemap_site` and was read on 2026-08-29;
+`LEGACY_SITE_CONTENT.md` is the durable record of what it contained, since the
+capture sits outside this repository.
 
 Where this implementation plan narrows publication beyond those source documents, this plan controls the public website. In particular, the anonymization, Medical & Pharmaceutical priority, raw-HMI prohibition, proprietary-detail restriction, official-logo authority and team-photo exclusion are direct owner decisions recorded on 2026-08-27.
 
