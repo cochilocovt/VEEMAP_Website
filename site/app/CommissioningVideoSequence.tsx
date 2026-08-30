@@ -410,9 +410,9 @@ export default function CommissioningVideoSequence() {
         trigger.scroll(destination);
       };
 
-      const requestTransition = (direction: Exclude<SequenceDirection, 0>) => {
+      const requestTransition = (direction: Exclude<SequenceDirection, 0>, gestureInput = true) => {
         if (!pinActive || transitionActive || !gestureArmed) return;
-        inputActive = true;
+        inputActive = gestureInput;
         gestureArmed = false;
 
         const boundary = boundaryIndexRef.current;
@@ -433,13 +433,14 @@ export default function CommissioningVideoSequence() {
         playSegment(direction);
       };
 
-      const activatePin = (fromBelow: boolean) => {
+      const activatePin = (fromBelow: boolean, playOnEntry = false) => {
         pinActive = true;
         gestureArmed = true;
         inputActive = false;
         setLoadMedia(true);
         observer.enable();
         if (trigger) trigger.scroll(fromBelow ? trigger.end - 1 : trigger.start + 1);
+        if (playOnEntry) requestTransition(fromBelow ? -1 : 1, false);
       };
 
       trigger = ScrollTrigger.create({
@@ -450,8 +451,8 @@ export default function CommissioningVideoSequence() {
         pin,
         pinSpacing: true,
         invalidateOnRefresh: true,
-        onEnter: () => activatePin(false),
-        onEnterBack: () => activatePin(true),
+        onEnter: () => activatePin(false, true),
+        onEnterBack: () => activatePin(true, true),
         onLeave: () => {
           pinActive = false;
           observer.disable();
@@ -474,7 +475,7 @@ export default function CommissioningVideoSequence() {
         if (!direction) return;
 
         event.preventDefault();
-        requestTransition(direction);
+        requestTransition(direction, false);
       };
 
       const onVisibilityChange = () => {

@@ -24,21 +24,48 @@
 
 ## Current repository state
 
-- Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `91c92a370d5d3338981ebf574bddff967b005788` — Merge remote-tracking branch 'origin/main' into claude/website-implementation-review-2f2c6d (2026-08-30 18:22:21 +0530)
-- Generated: 2026-08-30T12:53:55.820Z
+- Branch: `main`
+- Base commit when generated: `f040ced36d4cc0943df495ff2dac0cb746350ae4` — fix: play assembly on entry scroll (2026-08-30 18:32:03 +0530)
+- Generated: 2026-08-30T13:03:59.150Z
 
 ### Uncommitted work (preserve)
 
-- _None_
+- `?? site/public/images/flow-assembly-keyframes-v2/00-exploded-master.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/01-foundation-only.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/02-frame-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/03-tooling-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/04-vision-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/05-motion-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/06-hmi-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/07-monitoring-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/08-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/00-exploded-master.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/01-foundation-only.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/02-frame-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/03-tooling-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/04-vision-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/05-motion-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/06-hmi-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/07-monitoring-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/08-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-exploded.png`
+- `?? site/video/VEO3.1/1.mp4`
+- `?? site/video/VEO3.1/2.mp4`
+- `?? site/video/VEO3.1/3.mp4`
+- `?? site/video/VEO3.1/4.mp4`
+- `?? site/video/VEO3.1/5.mp4`
+- `?? site/video/VEO3.1/6.mp4`
+- `?? site/video/VEO3.1/7.mp4`
+- `?? site/video/VEO3.1/8.mp4`
 
 ### Recent commits
 
+- `f040ced fix: play assembly on entry scroll`
+- `557c6b3 Merge pull request #1 from cochilocovt/claude/website-implementation-review-2f2c6d`
+- `096b29f chore: regenerate handoff after merging origin/main`
 - `91c92a3 Merge remote-tracking branch 'origin/main' into claude/website-implementation-review-2f2c6d`
 - `c3e3bda feat: make assembly sequence discrete`
-- `d5c5920 fix: ship public assembly media to vercel`
-- `8a2c52d fix: allow isolated vercel installs`
-- `634eee4 chore: exclude source media from vercel uploads`
 
 ## Architecture map
 
