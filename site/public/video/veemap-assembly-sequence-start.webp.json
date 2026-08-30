@@ -1,0 +1,7 @@
+{
+  "description": "First-frame poster extracted without generative modification from the approved assembly video master.",
+  "createdAt": "2026-08-30T15:19:41.3495609+05:30",
+  "approved": true,
+  "useCase": "commissioning sequence loading poster",
+  "origin": "site/public/video/veemap-assembly-sequence.mp4"
+}

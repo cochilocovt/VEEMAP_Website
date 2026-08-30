@@ -25,14 +25,11 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `74ae050fb600e73b0cc9a5d168e37d30e8313f75` — chore: add portable agent handoff guidance (2026-08-28 07:05:04 +0530)
-- Generated: 2026-08-30T06:33:51.387Z
+- Base commit when generated: `a3adddfe1dab2e672a8e1d4cc039a9e8ec6effc8` — Prevent agent scans from processing local media (2026-08-30 12:08:54 +0530)
+- Generated: 2026-08-30T09:51:04.359Z
 
 ### Uncommitted work (preserve)
 
-- `M	.gitignore`
-- `?? docs/VEEMAP_FLOW_AGENT_INSTRUCTIONS_V2.md`
-- `?? docs/VEEMAP_FLOW_ASSEMBLY_V2.md`
 - `?? site/public/images/flow-assembly-keyframes-v2/00-exploded-master.png`
 - `?? site/public/images/flow-assembly-keyframes-v2/01-foundation-only.png`
 - `?? site/public/images/flow-assembly-keyframes-v2/02-frame-detached.png`
@@ -53,14 +50,22 @@
 - `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/08-assembled.png`
 - `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-assembled.png`
 - `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-exploded.png`
+- `?? site/video/VEO3.1/1.mp4`
+- `?? site/video/VEO3.1/2.mp4`
+- `?? site/video/VEO3.1/3.mp4`
+- `?? site/video/VEO3.1/4.mp4`
+- `?? site/video/VEO3.1/5.mp4`
+- `?? site/video/VEO3.1/6.mp4`
+- `?? site/video/VEO3.1/7.mp4`
+- `?? site/video/VEO3.1/8.mp4`
 
 ### Recent commits
 
+- `a3adddf Prevent agent scans from processing local media`
 - `74ae050 chore: add portable agent handoff guidance`
 - `591a740 docs: add website implementation plan`
 - `fb8c0e5 assets: add exploded machine master`
 - `2ca414e feat: add spinning VEEMAP vector mark`
-- `878cf2c assets: add Flow assembly frame pack`
 
 ## Architecture map
 
