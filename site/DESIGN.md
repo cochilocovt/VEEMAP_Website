@@ -27,14 +27,14 @@ Large headings use tight leading and deliberate line breaks. Supporting copy sta
 ## Layout
 
 - Desktop uses asymmetrical editorial grids, full-bleed machine stages, and sticky or pinned narrative regions.
-- Mobile replaces pinned motion with a clear linear capability sequence and touch-safe controls.
+- Mobile retains the discrete pinned commissioning sequence with touch-safe controls and readable capability copy; reduced-motion and media-failure states use the linear sequence.
 - Section boundaries use hairlines, large shifts in scale, and controlled changes between black, paper, and signal-orange fields.
 - Corners remain square; pill-shaped UI and generic card grids are avoided.
 
 ## Motion
 
-- GSAP ScrollTrigger drives the desktop commissioning sequence.
-- Exploded and assembled images crossfade as technology steps become active.
+- GSAP ScrollTrigger pins the commissioning sequence while its Observer input layer advances or reverses exactly one complete assembly chapter per wheel, swipe, or keyboard action.
+- The assembled video, focus marker, progress line, and HTML capability copy move together at fixed chapter boundaries; extra input is held until the active chapter finishes.
 - Motion favors opacity, transforms, and clipped reveals to protect frame rate.
 - `prefers-reduced-motion` removes the scroll choreography and preserves all content in a readable static state.
 

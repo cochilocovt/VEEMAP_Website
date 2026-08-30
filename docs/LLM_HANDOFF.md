@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `8a2c52d3191937bd6e6b82db8e894fd6de0d4f8d` — fix: allow isolated vercel installs (2026-08-30 15:31:34 +0530)
-- Generated: 2026-08-30T10:05:47.254Z
+- Base commit when generated: `d5c5920ab1f5f9ebded31aec9db939c36d431030` — fix: ship public assembly media to vercel (2026-08-30 15:35:47 +0530)
+- Generated: 2026-08-30T12:46:28.538Z
 
 ### Uncommitted work (preserve)
 
@@ -61,11 +61,11 @@
 
 ### Recent commits
 
+- `d5c5920 fix: ship public assembly media to vercel`
 - `8a2c52d fix: allow isolated vercel installs`
 - `634eee4 chore: exclude source media from vercel uploads`
 - `29e0b29 feat: launch scroll-scrubbed assembly hero`
 - `a3adddf Prevent agent scans from processing local media`
-- `74ae050 chore: add portable agent handoff guidance`
 
 ## Architecture map
 
