@@ -34,6 +34,7 @@ Large headings use tight leading and deliberate line breaks. Supporting copy sta
 ## Motion
 
 - GSAP ScrollTrigger pins the commissioning sequence while its Observer input layer advances or reverses exactly one complete assembly chapter per wheel, swipe, or keyboard action.
+- Each chapter is deliberately compressed to a two-second playback window in both directions, keeping the interaction decisive while preserving the source video's exact frame boundaries.
 - The assembled video, focus marker, progress line, and HTML capability copy move together at fixed chapter boundaries; extra input is held until the active chapter finishes.
 - Motion favors opacity, transforms, and clipped reveals to protect frame rate.
 - `prefers-reduced-motion` removes the scroll choreography and preserves all content in a readable static state.

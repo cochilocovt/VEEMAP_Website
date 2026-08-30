@@ -144,6 +144,7 @@ const icons: Record<StepId, LucideIcon> = {
 const segmentBoundaries = [0, 7.833333, 15.666666, 23.5, 31.333333, 39.166666, 47, 54.833333, 62.833333] as const;
 const finalBoundary = segmentBoundaries[segmentBoundaries.length - 1];
 const frameDuration = 1 / 24;
+const segmentPlaybackDurationSeconds = 2;
 const playbackWatchdogMs = 15_000;
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
@@ -282,6 +283,7 @@ export default function CommissioningVideoSequence() {
         watchdog = 0;
         reverseTween?.kill();
         reverseTween = null;
+        if (videoRef.current) videoRef.current.playbackRate = 1;
       };
 
       const failSequence = () => {
@@ -359,9 +361,10 @@ export default function CommissioningVideoSequence() {
         }
 
         if (direction === -1) {
+          video.playbackRate = 1;
           reverseTween = gsap.to(video, {
             currentTime: start,
-            duration: end - start,
+            duration: segmentPlaybackDurationSeconds,
             ease: 'none',
             overwrite: true,
             onUpdate: () => applyPresentation(video.currentTime, currentSegment),
@@ -370,6 +373,7 @@ export default function CommissioningVideoSequence() {
           return;
         }
 
+        video.playbackRate = (end - start) / segmentPlaybackDurationSeconds;
         void video.play().then(
           () => {
             setSequenceStatus('playing');
