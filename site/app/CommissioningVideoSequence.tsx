@@ -253,6 +253,7 @@ export default function CommissioningVideoSequence() {
       let inputActive = false;
       let gestureArmed = true;
       let pinActive = false;
+      let lastGestureDelta = 0;
 
       const updateActiveIndex = (index: number) => {
         const next = Math.min(steps.length - 1, Math.max(0, index));
@@ -391,8 +392,9 @@ export default function CommissioningVideoSequence() {
         tolerance: 34,
         dragMinimum: 8,
         lockAxis: true,
-        onChangeY: () => {
+        onChangeY: (self) => {
           inputActive = true;
+          lastGestureDelta = Math.abs(self.deltaY || 0);
         },
         onUp: () => requestTransition(1),
         onDown: () => requestTransition(-1),
@@ -410,7 +412,17 @@ export default function CommissioningVideoSequence() {
         pinActive = false;
         gestureArmed = true;
         inputActive = false;
-        const destination = direction === 1 ? trigger.end + 2 : trigger.start - 2;
+        // The current wheel/touch event is prevented by Observer. Carry a
+        // bounded portion of that gesture past the pin boundary so the same
+        // input actually releases the visitor into the adjacent section.
+        const releaseDistance = Math.max(
+          96,
+          Math.min(window.innerHeight * 0.5, lastGestureDelta || 0),
+        );
+        const destination = direction === 1
+          ? trigger.end + releaseDistance
+          : Math.max(0, trigger.start - releaseDistance);
+        lastGestureDelta = 0;
         trigger.scroll(destination);
       };
 

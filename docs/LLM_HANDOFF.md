@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `61667e4e19d707b60553233e145b00cb54fceed7` — fix: play assembly on entry scroll (2026-08-30 18:32:03 +0530)
-- Generated: 2026-08-30T13:31:25.553Z
+- Base commit when generated: `f67a296dd850d2f46eb39cfa88c629558f46e4f8` — feat: compress assembly chapters to two seconds (2026-08-30 19:01:25 +0530)
+- Generated: 2026-08-30T13:52:21.671Z
 
 ### Uncommitted work (preserve)
 
@@ -61,11 +61,11 @@
 
 ### Recent commits
 
+- `f67a296 feat: compress assembly chapters to two seconds`
 - `61667e4 fix: play assembly on entry scroll`
 - `557c6b3 Merge pull request #1 from cochilocovt/claude/website-implementation-review-2f2c6d`
 - `096b29f chore: regenerate handoff after merging origin/main`
 - `91c92a3 Merge remote-tracking branch 'origin/main' into claude/website-implementation-review-2f2c6d`
-- `c3e3bda feat: make assembly sequence discrete`
 
 ## Architecture map
 
