@@ -31,7 +31,7 @@ These decisions are approved and must not be reinterpreted during implementation
    - Consumer Goods
 2. **Medical & Pharmaceutical receives deliberate priority.** It leads sector navigation, receives the greatest content depth, and becomes the first sector page designed and implemented.
 3. **Sector content describes available solutions, not named customer machines.** Copy must say what VEEMAP can design, integrate or support for a product/process. It must not imply that a displayed system was delivered to a named company in that sector.
-4. **Keyence is the only external company name or logo permitted.** No other customer, supplier or partner names/logos may appear in public copy, imagery, captions, alt text, metadata, filenames or structured data.
+4. **No customer or client name or logo may appear anywhere public.** This covers public copy, imagery, captions, alt text, metadata, filenames and structured data. Controls and automation technology vendors may be named where the `docs/brand-context/` record supports it: Keyence, Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon and WinCC. Naming a vendor must not imply endorsement, certification, or that a displayed system was delivered to a named customer. Keyence remains the only external party whose **logo** may be shown, and only with an approved logo asset. *(Amended 2026-08-29; see Section 21.)*
 5. **Machinery may be shown only at a safe level of detail.** Public media must not expose proprietary mechanisms, complete machine architecture, client-specific fixtures, detailed CAD, confidential labels or sensitive process information.
 6. **Raw HMI screenshots do not ship.** Approved, sanitized HMI data will be re-authored as VEEMAP-branded motion-graphics dashboard clips.
 7. **The homepage Hero establishes typography and color.** Navigation composition and the broader motion language will be resolved as the full site develops, but they must remain consistent with the Hero's visual authority.
@@ -87,12 +87,15 @@ VEEMAP provides custom automation solutions around the product, process constrai
 - five manufacturing sectors
 - established in 2017
 - the confirmed public address, phone, email and domain
-- sourced capability descriptions that do not identify a prohibited company
+- sourced capability descriptions that do not identify a customer
 - Keyence partnership/name/logo, subject to using an approved Keyence logo asset and appropriate usage treatment
+- the sourced controls and automation vendor stack by name — Keyence, Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon, WinCC — as a competence signal only, with no logo other than Keyence's and no implied endorsement or certification
+- the production figures previously published on VEEMAP's own Case Study page, approved 2026-08-29: the cap liner line at above 250 parts per minute over 8 stations on 1 track; the dispensing pump line at 11 parts and above 122 parts per minute over 50 stations on 11 tracks with more than 200 sensors; and the pivot terminal screwing machine's automatic screw feeding, servo torque control and precision rotary indexer. Publish these as machine specifications only — no customer attribution, no customer-identifying image alongside, no ranking claim built on them. Copy in [`LEGACY_SITE_CONTENT.md`](LEGACY_SITE_CONTENT.md).
 
 ### Public proof prohibited or restricted
 
-- all company/customer names and logos other than Keyence;
+- all customer and client names and logos, without exception;
+- any external logo other than Keyence's, including the permitted controls vendors';
 - testimonials, awards, certifications and social links not present in the approved source record;
 - internal team-size, sales or revenue figures;
 - the unverified spine-needle machine dimension;
@@ -106,13 +109,19 @@ VEEMAP provides custom automation solutions around the product, process constrai
 
 ### Primary navigation
 
-1. **Solutions** → `/capabilities`
+1. **Capabilities** → `/capabilities`
 2. **Industries** → `/industries`
 3. **Company** → `/company`
 4. **Careers** → `/careers`
 5. **Start a project** → `/contact`
 
 The VEEMAP logo links to `/`. Medical & Pharmaceutical is the first item anywhere sector links are listed.
+
+*Resolved 2026-08-29:* the nav label is **Capabilities**, matching its route and
+the existing homepage nav. The earlier label "Solutions" collided with this
+plan's own use of "solution" for sector product families. "Solution" stays a
+copy word for what VEEMAP builds for a product or process; it is not a nav
+label or a route.
 
 ### Route map
 
@@ -289,16 +298,26 @@ These appear as solution modules or anchored sections on one flagship page in th
 
 #### Solution themes
 
-- radiator and pipe assembly;
-- fuel-system and injector assembly;
-- clutch and brake-related assembly;
-- component handling and joining;
-- dimensional and vision inspection;
-- identification, marking and traceability.
+Recovered from the legacy Automobile page on 2026-08-29, which listed nine
+machines by name — six of them inspection systems:
+
+- **verification and inspection:** piston vision inspection, engine number
+  inspection, brake shoe inspection, piston liner inspection, brake disc vision
+  inspection;
+- **assembly and joining:** radiator assembly, fuel rail assembly, complete
+  clutch assembly, pipe and component handling;
+- **surface and finishing:** robotic hood polishing; and
+- **traceability:** identification, marking and result logging.
 
 #### Page emphasis
 
-Show the relationship between flexible product handling, inspection and traceability. Use abstracted machinery/CAD crops and inspection visuals. Do not expand or infer abbreviations found in source material, and do not display customer marks.
+**Lead on verification, not assembly.** Two thirds of the recovered machine
+list and all three feature-band photographs available to this sector are
+inspection systems. Present dimensional checking, vision inspection, functional
+test and part identification as designed into the line rather than added at the
+end of it, then show assembly and handling as the second theme.
+
+Use abstracted machinery/CAD crops and inspection visuals. Do not expand or infer abbreviations found in source material, and do not display customer marks.
 
 ### 7.6 EV Solutions — `/industries/ev-solutions`
 
@@ -453,6 +472,28 @@ During implementation:
 6. verify legibility at header, footer, favicon and social-preview sizes; and
 7. do not redraw, trace or stylistically reinterpret the mark without approval.
 
+Completed 2026-08-29: the master was verified and copied byte-identically to
+`site/public/brand/veemap-logo.svg` with a provenance sidecar at
+`site/public/brand/veemap-logo.svg.json`. Every claim above was confirmed
+against the file — SHA-256 matches, `viewBox="0 0 52.88 94.6"`, and there is no
+embedded text, script, `foreignObject`, raster image or external reference.
+
+Two findings from that verification change what step 5 can deliver:
+
+- **The mark is not monochrome.** It carries 32 fills at `#000000` plus greens
+  `#1d5b25`, `#21672a`, `#329e41` and oranges `#792d12`, `#7d2f13`, `#833114`,
+  `#d24e1f`. The greens sit outside the `site/DESIGN.md` palette entirely, and
+  the logo orange is close to but not identical with `--signal` `#fa4c14`.
+- **CSS recolouring is not available.** The fills are hard-coded rather than
+  `currentColor`, so on the dark ground (`--ink` `#000`) the black portions of
+  the mark disappear and no CSS or context treatment can recover them. A
+  dark-theme treatment therefore requires a separately approved derivative.
+  This is an open owner input, recorded in Section 18.
+
+The asset is not yet wired into the site; the header currently renders the
+CSS-drawn `SpinningBrandMark` component. If the SVG is ever inlined more than
+once in a document, its five fixed `clipPath` ids must be namespaced.
+
 ### Navigation direction
 
 Navigation remains an implementation design decision, but it must meet these requirements:
@@ -481,7 +522,8 @@ Navigation remains an implementation design decision, but it must meet these req
 | --- | --- |
 | Official VEEMAP logo | Approved; preserve original and add provenance |
 | Keyence name/logo | Permitted, but use only an approved source asset and accurate relationship wording |
-| Other company/customer names/logos | Remove from all public output |
+| Customer/client names and logos | Remove from all public output |
+| Controls vendor names (Siemens, Allen-Bradley, Omron, Mitsubishi, Zenon, WinCC) | Name in copy where sourced; never show their logos |
 | Machinery photographs/video | Use after crop, masking and confidentiality review |
 | CAD/isometric imagery | Use only at a level that cannot expose proprietary mechanisms or client configuration |
 | Raw HMI screens | Internal reference only; never ship |
@@ -586,6 +628,23 @@ site/
 
 This is a target organization, not permission to create abstractions before reuse is demonstrated. Extract a shared component when a second real route needs it.
 
+### Sector route shape
+
+Resolved 2026-08-29: the five sector pages are served by the dynamic segment
+`app/industries/[sector]/page.tsx`, not by five hand-written route folders.
+
+- `generateStaticParams` derives the five slugs from `content/sectors.ts`, so
+  the content model is the single source of route truth.
+- `export const dynamicParams = false` makes any other slug a 404 rather than a
+  runtime render.
+- `generateMetadata` reads the same record, which keeps titles, descriptions and
+  canonicals in step with the content automatically.
+
+Every sector still renders substantive, individually authored content. A shared
+route file is a rendering decision, not permission to generate five variations
+of one template — Section 17 still requires distinct product and process
+evidence per sector.
+
 ### Sector content fields
 
 Each sector record should contain:
@@ -619,9 +678,11 @@ Every factual claim must be traceable to `docs/brand-context/` or a later writte
 ### Styling
 
 - Preserve the Hero-established global tokens.
-- Use route-scoped CSS Modules for new page composition while the Hero workstream is active.
-- Integrate shared shell styles once, after the Hero merge checkpoint.
-- Do not introduce a second styling paradigm or a component-library dependency.
+- `site/app/globals.css` keeps ownership of design tokens, element defaults and the shared site shell.
+- Use route-scoped CSS Modules for new page composition. This is the one sanctioned addition alongside the global stylesheet; it does not license a third approach.
+- Tailwind was installed and wired into PostCSS but never imported by any stylesheet. It was removed on 2026-08-29 so that exactly two mechanisms exist: the global token/shell sheet and route-scoped CSS Modules.
+- Shared shell styles move out of `globals.css` during the Phase 1 shell extraction, not after the Hero merge checkpoint. See Section 15.
+- Do not introduce any further styling paradigm or a component-library dependency.
 
 ### Media delivery
 
@@ -641,10 +702,27 @@ Every factual claim must be traceable to `docs/brand-context/` or a later writte
 - Service/industry structured data without prohibited client names or unsupported claims.
 - Descriptive Open Graph images without customer identity or proprietary geometry.
 
+### Deployment lane
+
+Resolved 2026-08-29: **Vercel with `next build`**, matching `site/vercel.json` and
+`.github/workflows/ci.yml`.
+
+The repository previously carried a second, unused lane — `build:sites` running
+`vinext` against `@cloudflare/vite-plugin`, `wrangler` and
+`@openai/sites-vite-plugin`. It was never referenced by CI or by
+`docs/CI_CD.md`, and it made `next/image` behaviour, `sitemap.ts`, `robots.ts`
+and server-component semantics ambiguous. It was removed on 2026-08-29 together
+with `site/vite.config.ts`, `site/postcss.config.mjs` and
+`site/.openai/hosting.json`.
+
+Do not reintroduce a second build lane. `npm run lint` and `npm run build` are
+the release verification commands.
+
 ### Dependencies
 
 - Reuse Next.js, React, GSAP, Lucide and Remotion already in the repository.
 - Do not add React Three Fiber, Drei, a CMS, carousel library, animation library or form service without a demonstrated need and explicit approval where required.
+- Do not reintroduce Tailwind, Vite, `vinext`, Wrangler, the Cloudflare Vite plugin or the OpenAI Sites plugin.
 
 ## 13. Accessibility and responsive behavior
 
@@ -688,12 +766,65 @@ Owns:
 - Hero media and choreography; and
 - its immediate shared-style dependencies.
 
-Rest-of-site work must not edit these files while the Hero lane is active:
+Rest-of-site work must not edit these while the Hero lane is active:
 
-- `site/app/page.tsx`
-- `site/app/globals.css`
+- the Hero markup inside `site/app/page.tsx`
+- the Hero, commissioning, range and depth-reveal rules inside `site/app/globals.css`
 - `site/app/CommissioningVideoSequence.tsx`
+- `site/app/SpinningBrandMark.tsx`
 - Hero/commissioning media assets
+
+#### Shell extraction exception — approved 2026-08-29
+
+The original boundary above named `site/app/page.tsx` and
+`site/app/globals.css` as wholly off-limits. That was unbuildable: the shared
+header, desktop nav, mobile nav, theme toggle, footer and enquiry form all live
+inside those two files, so no other route could reach a navigable shell without
+duplicating it.
+
+One scoped diff is therefore approved ahead of the rest of Workstream B:
+
+- move header, navigation, footer and the enquiry form out of
+  `site/app/page.tsx` into `site/components/site-shell/` and
+  `site/components/enquiry/`;
+- keep their CSS in `site/app/globals.css` under the existing global class
+  names; and
+- change no Hero markup, no Hero CSS, and neither Hero component.
+
+The homepage must render identically before and after. `site/app/layout.tsx` is
+shared infrastructure — fonts, metadata base and the theme script — and is owned
+jointly; changes to it need both lanes to agree.
+
+##### Why the shell CSS stays global
+
+An earlier draft of this exception also moved the shell rules into CSS Modules.
+That contradicted Section 12, which gives `globals.css` ownership of tokens,
+element defaults and the shared site shell — the shell is global chrome on
+every route, so global is where its rules belong. Route-scoped CSS Modules are
+for new page composition.
+
+The rules are also entangled with Hero-owned selectors, so splitting them would
+mean editing Hero CSS, which this exception forbids:
+
+- `.header-cta, .primary-action` share one declaration block, and
+  `.primary-action` is used by the Hero and the careers section;
+- `.theme-toggle svg, .menu-toggle svg, .header-cta svg, .primary-action svg,
+  .hero-scroll svg, .mobile-nav svg` spans shell and Hero in one selector;
+- `.enquiry-intro h2` sits in a shared heading rule with five Hero-lane
+  sections, and `.enquiry-section` in a shared section-padding rule; and
+- shell rules recur across several media-query blocks, so a partial move risks
+  leaving a responsive override behind.
+
+##### Why the header is a client component
+
+`SiteHeader` carries `'use client'` rather than being a server component with
+client islands. The menu button sits inside `<header>` while the mobile panel
+is a sibling of it, and the two share open state. The panel cannot move inside
+`<header>` because the header carries a `backdrop-filter`, which would make it
+the containing block for its fixed-position descendants and break the panel.
+Next still server-renders the header to HTML, so navigation is present without
+JavaScript. Section 12's rule stands for page content: routes are server
+components, and only this chrome plus the enquiry form hydrate.
 
 ### Workstream B — Content and new routes
 
@@ -720,7 +851,7 @@ Owns:
 After the Hero visual structure stabilizes:
 
 1. agree the shared navigation behavior;
-2. extract or adapt the site header/footer without rewriting the Hero;
+2. confirm the Phase 1 extracted shell still composes with the settled Hero;
 3. switch homepage anchor-only navigation to the approved route map;
 4. insert the homepage non-Hero sequence;
 5. reconcile shared tokens and responsive breakpoints once; and
@@ -733,7 +864,7 @@ After the Hero visual structure stabilizes:
 #### Deliverables
 
 - approved claim matrix;
-- prohibited-name/logo list with Keyence as the only exception;
+- prohibited-name/logo list: all customer identity banned, controls vendors nameable, Keyence the only permitted external logo;
 - media confidentiality ledger;
 - HMI data-classification worksheet;
 - official logo provenance record; and
@@ -742,6 +873,32 @@ After the Hero visual structure stabilizes:
 #### Exit gate
 
 Every first-release page has an approved evidence set, and no asset is scheduled for public use without a confidentiality treatment.
+
+#### Status — 2026-08-29
+
+Done:
+
+- deployment lane resolved and the unused second lane removed; `npm run lint`
+  and `npm run build` verified green on the pruned tree;
+- official logo verified, copied to `site/public/brand/veemap-logo.svg` and given
+  a provenance sidecar; and
+- the four decisions in Section 21 recorded across Sections 2, 8, 12 and 15.
+
+- the per-sector evidence budget, in `docs/MEDIA_EVIDENCE_BUDGET.md`;
+- the legacy-site content recovery and rewritten draft copy, in
+  `docs/LEGACY_SITE_CONTENT.md`; and
+- the route/content inventory: nav label resolved to Capabilities (Section 5),
+  sector routes resolved to one dynamic segment (Section 11).
+
+Outstanding:
+
+- claim matrix, media confidentiality ledger and HMI data-classification
+  worksheet;
+- a visual pass over the 124 unclassified `slide*` media files, which are the
+  cheapest route to closing the EV evidence gap.
+
+The legacy production figures were approved for publication on 2026-08-29; see
+Section 4 and Section 21.
 
 ### Phase 1 — Content model and route foundation
 
@@ -757,6 +914,31 @@ Every first-release page has an approved evidence set, and no asset is scheduled
 
 All routes build and expose meaningful text without relying on animation or unfinished placeholders.
 
+#### Status — 2026-08-29: exit gate met
+
+- shell extracted to `site/components/site-shell/` and
+  `site/components/enquiry/`, verified against a prerendered-HTML diff of the
+  homepage;
+- `site/content/sectors.ts` carries all five sectors with the Section 11 field
+  list, including non-public `sourceNotes`;
+- all nine routes plus `not-found`, `sitemap.ts` and `robots.ts` build as static
+  pages; the five sector routes come from `generateStaticParams` with
+  `dynamicParams = false`;
+- route-scoped composition lives in `route.module.css`, the first CSS Module in
+  the repository;
+- legacy `/blank-*` and `/portfolio` URLs redirect permanently to their nearest
+  replacement, from `next.config.ts`; and
+- Medical & Pharmaceutical now leads the enquiry sector list and the homepage
+  sector tape, which both previously listed it last.
+
+Verified: `npm run lint` and `npm run build` pass; every route's prerendered
+HTML carries its full text with scripts stripped, including the enquiry form's
+labels and controls.
+
+Remaining for later phases, deliberately not built yet: page media, motion, the
+tailored per-sector enquiry variants, and the expanded Section 7.11 contact
+field set.
+
 ### Phase 2 — Medical & Pharmaceutical flagship
 
 #### Deliverables
@@ -770,6 +952,40 @@ All routes build and expose meaningful text without relying on animation or unfi
 #### Exit gate
 
 The page clearly presents solution capability without client attribution, certification claims or proprietary detail, and works on desktop/mobile/reduced-motion paths.
+
+#### Status — 2026-08-29: met, with one deliverable blocked
+
+Delivered:
+
+- the flagship page carries the Section 7.4 structure — sector thesis,
+  product-solution navigator with anchored modules, process orchestration,
+  quality layer, flexible production, production dashboard and enquiry close;
+- the production dashboard is a VEEMAP-native CSS and SVG panel, built from
+  first principles rather than tracing any HMI layout, with every value
+  classified **illustrative** under Section 10 and labelled as such on the page;
+- the enquiry close is inline and tailored: the sector is preselected and the
+  prepared email names the sector; and
+- no certification claim, no client attribution, no spine-needle dimension.
+
+Blocked, and not by implementation effort:
+
+- **Approved machine-media treatment.** A Section 9 content review of all six
+  Medical assets put every one of them on hold. The three machine images are
+  CAD renders showing complete machine architecture; the two product shots read
+  as third-party stock with no confirmed provenance; the one genuine production
+  frame contains a person, the rotary table and lane tooling, and a readable
+  sensor set-point. A compliant crop was produced from the last of these,
+  reviewed, and withdrawn for being visually weak. `ET_assembly.MOV` needs a
+  frame-level review before any of it can be used. Details and the four routes
+  to unblocking are in `docs/MEDIA_EVIDENCE_BUDGET.md`.
+
+The page therefore ships with no photography. Section 7.4.7's machinery-evidence
+section is omitted rather than filled with a placeholder.
+
+Verified: `npm run lint` and `npm run build` pass; the route renders 4,157
+characters of text with scripts stripped, including the dashboard's values and
+its illustrative-data caption; all motion is CSS-only and every animated element
+holds its final state under `prefers-reduced-motion`.
 
 ### Phase 3 — Remaining four sector pages
 
@@ -785,6 +1001,45 @@ The page clearly presents solution capability without client attribution, certif
 
 Every sector has distinct product/process evidence, no thin placeholder sections, and no prohibited identity in copy or media.
 
+#### Status — 2026-08-29: met on copy, blocked on media
+
+All four sectors now carry sector thesis, solution families with distinct
+product and process detail, process orchestration, quality capabilities,
+flexible production and an inline enquiry close that preselects the sector.
+Between 2,785 and 3,303 characters of text render per route with scripts
+stripped. The Industries hub leads on Medical & Pharmaceutical.
+
+A content review of the media was run **before** writing, on the lesson from
+Phase 2. It found that no sector has publishable machinery evidence:
+
+- `smartscrewiing.jpg` carries the **Legrand logo and wordmark** on the machine
+  banner — customer identity baked into the pixels, which no crop removes;
+- `robotic-soldering.jpg` carries a **DOBOT watermark** and a person's hand, and
+  reads as the robot vendor's own marketing material, so usage rights are
+  unconfirmed as well as the logo being prohibited;
+- `hub-motor-line.jpg` is a CAD render of a **complete production line** with
+  every station, the conveyor runs and roughly fifteen operator positions —
+  exactly the plant layout Section 7.6 prohibits;
+- `dispensing-pump-line.jpg` is a complete line render with station counts and
+  component names on the feeder hoppers; and
+- `inspection-machine-a.jpg` and `pipe-assembly-machine.jpg` are CAD renders of
+  complete machines.
+
+The library is largely CAD produced for sales presentations, where showing
+everything was the point. That is what Sections 2.5 and 7.6 prohibit
+publishing. This document's earlier claim that Automotive and Electronics were
+media-rich is withdrawn; they are in the same position as EV.
+
+All four pages therefore ship without photography, as Medical does. No
+placeholder or holding image is used.
+
+**Release blocker, carried forward:** `site/public/images/inspection-scan.png`
+is already published on the homepage and is byte-identical to a reviewed asset
+that shows a measurement screen with legible dimensions and a scanned part
+profile. It is Hero-workstream content, so it has not been changed
+unilaterally, but Section 17 cannot pass while it is live unless the owner
+approves it explicitly. See `docs/MEDIA_EVIDENCE_BUDGET.md`.
+
 ### Phase 4 — Capabilities, Company, Careers and Contact
 
 #### Deliverables
@@ -799,6 +1054,33 @@ Every sector has distinct product/process evidence, no thin placeholder sections
 
 All pages have complete responsive content, accurate metadata and a working no-backend enquiry path.
 
+#### Status — 2026-08-29: met, except the Keyence asset
+
+- **Capabilities** carries the capability thesis, the station-to-line-to-plant
+  continuum, engineering disciplines, the delivery lifecycle, high-speed and
+  flexible automation, quality and inspection, connected production naming the
+  sourced SCADA platforms, sector links and an enquiry close.
+- **Company** carries the Manesar identity, indigenous engineering, the "we
+  believe YES and NO equally" philosophy explained rather than quoted, a
+  capability-only milestone sequence naming no customer and no project, scope of
+  work, the approved proof figures and a contact bridge.
+- **Careers** leads on the production problems rather than job titles, covers the
+  disciplines and the training relationships, and routes applications through
+  `mailto:` with no CV upload. No team photography anywhere.
+- **Contact** carries the confirmed address, phone and email, an explicit
+  explanation that submitting opens the visitor's own mail application, and the
+  warning against sending confidential files.
+
+The enquiry form now collects the **complete Section 7.11 recommended field
+set** — name, company, work email, phone, sector, project stage, product or
+process, current constraint, target production context, required tests or
+inspection, and variants and changeover. No response time is promised.
+
+Outstanding: the Keyence treatment. The relationship is described in words on
+Company, which Section 4 permits, and a visible note records that final
+partnership wording and an approved logo asset are owner inputs. No partner logo
+is displayed.
+
 ### Phase 5 — Homepage integration
 
 #### Deliverables
@@ -812,6 +1094,47 @@ All pages have complete responsive content, accurate metadata and a working no-b
 #### Exit gate
 
 The Hero remains intact, all primary routes are reachable, and the homepage does not duplicate inner-page content.
+
+#### Status — 2026-08-29: content integration done, reconciliation deferred
+
+The Section 15 checkpoint has six steps. Four are done; two are deliberately
+held, because the Hero lane is mid-flight. `docs/VEEMAP_FLOW_ASSEMBLY_V2.md` is
+an active brief regenerating the commissioning sequence from a new nine-frame
+keyframe set, so the Hero's visual structure has not stabilised and the
+checkpoint's own precondition is unmet.
+
+| Step | State |
+| --- | --- |
+| 1. Agree shared navigation behaviour | Done — the approved route map, Medical first in every sector list |
+| 2. Confirm the shell composes with the settled Hero | **Held** — cannot confirm against a Hero being re-authored |
+| 3. Switch homepage anchor navigation to the route map | Done |
+| 4. Insert the homepage non-Hero sequence | Done |
+| 5. Reconcile shared tokens and breakpoints, once | **Held** — premature while the sequence is changing |
+| 6. Full-site navigation and visual-regression pass | Navigation done; visual regression **held** |
+
+Delivered:
+
+- the homepage header now carries the route map, and the homepage-only anchor
+  navigation has been removed from `nav.ts` as that checkpoint intended;
+- three sections were added below the Hero — the Medical & Pharmaceutical lead
+  feature, the five-sector index with Medical in the lead position, and the
+  engineering delivery sequence; and
+- all nine primary routes are reachable from the homepage, verified against the
+  prerendered HTML.
+
+Hero markup, Hero CSS, `CommissioningVideoSequence` and `SpinningBrandMark` are
+untouched. The new sections are separate components with their own CSS Module,
+which keeps the diff to `site/app/page.tsx` down to an import, the header call
+and three lines — deliberately small while the Hero lane has work in flight.
+
+Duplication check: the only text the homepage shares with an inner page in runs
+above 140 characters is the shared shell — header, enquiry form, footer. No
+inner-page prose is repeated. The sector cards use each sector's audience
+problem, while the Industries hub uses its thesis, so the two indexes read
+differently.
+
+**Steps 2, 5 and 6 stay open until the Hero lane reports its sequence final.**
+They are the last thing before Phase 6.
 
 ### Phase 6 — Hardening and release
 
@@ -841,7 +1164,8 @@ All acceptance criteria in Section 17 pass, or unresolved findings are explicitl
 - Medical & Pharmaceutical is visibly prioritized.
 - Sector pages describe solutions, not named customer projects.
 - No prohibited customer/company name or logo appears anywhere public.
-- Keyence is the only permitted external name/logo.
+- Keyence is the only permitted external logo; no customer or client identity appears anywhere.
+- Any named controls vendor is presented as a competence signal only, with no logo and no implied endorsement.
 - No certification, testimonial, internal revenue/team figure or unsupported performance claim is present.
 
 ### Confidentiality
@@ -885,8 +1209,9 @@ These do not block writing the page structure, but they gate specific launch con
 2. Approved Keyence logo master and final partnership wording.
 3. Current vacancies and the careers email/application destination.
 4. Whether the enquiry may promise a response time.
-5. Final deployment target and release verification lane.
+5. ~~Final deployment target and release verification lane.~~ **Resolved 2026-08-29:** Vercel with `next build`; `npm run lint` and `npm run build` are the verification commands. See Section 12.
 6. Any medical/pharmaceutical regulatory terminology the company is contractually permitted to use; until supplied, the site uses quality-critical engineering language without compliance claims.
+7. A dark-theme treatment for the official logo. The supplied master hard-codes its fills, so its black portions are invisible on the dark ground and CSS cannot correct this. Either an approved derivative or approval to place the mark on a paper-coloured field is required before the logo can appear in the header. See Section 8.
 
 ## 19. Explicit non-goals
 
@@ -914,5 +1239,82 @@ Implementation must reconcile copy and assets against:
 - [`brand-context/contacts-and-credentials.md`](brand-context/contacts-and-credentials.md)
 - [`brand-context/brand-voice-and-messaging.md`](brand-context/brand-voice-and-messaging.md)
 - [`brand-context/visual-identity.md`](brand-context/visual-identity.md)
+- [`MEDIA_EVIDENCE_BUDGET.md`](MEDIA_EVIDENCE_BUDGET.md) — which media can carry which page
+- [`LEGACY_SITE_CONTENT.md`](LEGACY_SITE_CONTENT.md) — recovered legacy copy and its rewrite
+- [`CONFIDENTIALITY_DECISIONS.md`](CONFIDENTIALITY_DECISIONS.md) — every open media and confidentiality decision, consolidated
+
+The legacy public website is no longer hosted. A static capture is held at
+`V:\VEEMAP\Website\Scraped_Old_Website\veemap_site` and was read on 2026-08-29;
+`LEGACY_SITE_CONTENT.md` is the durable record of what it contained, since the
+capture sits outside this repository.
 
 Where this implementation plan narrows publication beyond those source documents, this plan controls the public website. In particular, the anonymization, Medical & Pharmaceutical priority, raw-HMI prohibition, proprietary-detail restriction, official-logo authority and team-photo exclusion are direct owner decisions recorded on 2026-08-27.
+
+## 21. Amendment record
+
+### 2026-08-29 — four owner decisions
+
+Taken during the first implementation review of this plan against the actual
+repository. Sections 2, 8, 12, 15, 16 and 18 were updated to match. Where this
+section and an earlier section disagree, this section is later and controls.
+
+#### 1. Repository exposure — accepted as-is
+
+`github.com/cochilocovt/VEEMAP_Website` is public and stays public. The owner
+was shown the following and accepted it:
+
+- `media/` is tracked (159 files, roughly 940 MB, video through Git LFS) and
+  includes `media/Rieke_pump.png`, `media/zenon console.svg`,
+  `media/zenon dsah.svg`, `media/2CC SECOND LINE.mov`,
+  `media/Data_analutics_HMI.mp4` and
+  `media/PPt_Data/assets/client-portfolio.jpg`;
+- `docs/brand-context/` names DENSO, RIEKE, STERIMED, APTAR, STRYKER, MARELLI,
+  BELRISE, Legrand, DNKI, HONDA, Hollister and FCC.
+
+This changes nothing about the public website. Sections 9, 10 and 17 continue to
+govern `site/public/` and the production bundle in full: no customer identity in
+shipped pixels, text, alt text, metadata, filenames or structured data, no raw
+HMI screen, and the raw media library is never shipped.
+
+Note for any later cleanup: because the material is already in Git history and
+in LFS, deleting the files in a new commit would not remove them. Only making
+the repository private, or a history rewrite with an LFS purge and a force push,
+would.
+
+#### 2. Shell extraction moved ahead of route work
+
+The shared shell is extracted from `site/app/page.tsx` and
+`site/app/globals.css` in Phase 1, as one scoped diff, instead of being
+duplicated and reconciled at Phase 5. Full terms in Section 15. Hero markup,
+Hero CSS and both Hero components stay untouched.
+
+#### 3. Deployment lane fixed to Vercel
+
+Vercel with `next build`. The unused `vinext`/Cloudflare Workers lane was
+removed. Details and the removed files are listed in Section 12.
+
+#### 4. Controls vendors may be named; customers may not
+
+Section 2 decision 4 previously read "Keyence is the only external company name
+or logo permitted". It now bans customer and client identity absolutely while
+permitting the controls and automation vendors the brand-context record already
+supports. Keyence remains the only external logo.
+
+### 2026-08-29 — legacy production figures approved
+
+The figures published on the previous website's Case Study page may be
+republished: the cap liner line above 250 parts per minute over 8 stations on 1
+track; the dispensing pump line at 11 parts and above 122 parts per minute over
+50 stations on 11 tracks with more than 200 sensors; and the pivot terminal
+screwing machine's automatic screw feeding, servo torque control and precision
+rotary indexer. Added to the Section 4 allowed list.
+
+They publish as machine specifications. Section 2.3 continues to apply without
+exception — no customer attribution, no customer-identifying image beside them,
+and no ranking or superiority claim built on top of them. The legacy framing
+language around the numbers is not reused.
+
+Marked "for now" by the owner. If the figures are later withdrawn, Consumer
+Goods loses its strongest evidence and falls back to the capability framing
+described in `docs/MEDIA_EVIDENCE_BUDGET.md`; nothing else on the site depends
+on them.
