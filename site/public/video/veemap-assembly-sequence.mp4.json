@@ -1,0 +1,7 @@
+{
+  "description": "Silent scroll-scrub master assembled locally from the eight user-approved Google Veo 3.1 sequence clips. Source audio was removed, adjacent clips use a four-frame dissolve, and the H.264 output uses frequent keyframes plus fast-start metadata for browser seeking.",
+  "createdAt": "2026-08-30T15:19:41.3495609+05:30",
+  "approved": true,
+  "useCase": "homepage element-by-element machine assembly sequence",
+  "origin": "site/video/VEO3.1/1.mp4 through site/video/VEO3.1/8.mp4"
+}

@@ -24,21 +24,48 @@
 
 ## Current repository state
 
-- Branch: `claude/website-implementation-review-2f2c6d`
-- Base commit when generated: `9f3f67a8bce917527e7f0f635f80a907f5a95e4e` — docs: consolidate the open media and confidentiality decisions (2026-08-29 23:17:06 +0530)
-- Generated: 2026-08-29T17:55:25.634Z
+- Branch: `main`
+- Base commit when generated: `d5c5920ab1f5f9ebded31aec9db939c36d431030` — fix: ship public assembly media to vercel (2026-08-30 15:35:47 +0530)
+- Generated: 2026-08-30T12:46:28.538Z
 
 ### Uncommitted work (preserve)
 
-- _None_
+- `?? site/public/images/flow-assembly-keyframes-v2/00-exploded-master.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/01-foundation-only.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/02-frame-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/03-tooling-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/04-vision-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/05-motion-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/06-hmi-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/07-monitoring-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/08-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/00-exploded-master.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/01-foundation-only.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/02-frame-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/03-tooling-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/04-vision-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/05-motion-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/06-hmi-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/07-monitoring-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/08-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-exploded.png`
+- `?? site/video/VEO3.1/1.mp4`
+- `?? site/video/VEO3.1/2.mp4`
+- `?? site/video/VEO3.1/3.mp4`
+- `?? site/video/VEO3.1/4.mp4`
+- `?? site/video/VEO3.1/5.mp4`
+- `?? site/video/VEO3.1/6.mp4`
+- `?? site/video/VEO3.1/7.mp4`
+- `?? site/video/VEO3.1/8.mp4`
 
 ### Recent commits
 
-- `9f3f67a docs: consolidate the open media and confidentiality decisions`
-- `9c0bdcf feat: complete Capabilities, Company, Careers and Contact`
-- `54676de feat: complete the four remaining sector pages`
-- `2a1853a feat: build the Medical & Pharmaceutical flagship page`
-- `5781385 chore: ignore .claude/ so agent worktrees are not indexed`
+- `d5c5920 fix: ship public assembly media to vercel`
+- `8a2c52d fix: allow isolated vercel installs`
+- `634eee4 chore: exclude source media from vercel uploads`
+- `29e0b29 feat: launch scroll-scrubbed assembly hero`
+- `a3adddf Prevent agent scans from processing local media`
 
 ## Architecture map
 

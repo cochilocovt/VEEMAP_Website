@@ -146,7 +146,7 @@ export default function Home() {
           <a className="primary-action hero-intro" href="#enquiry">Tell us about your process <ArrowUpRight aria-hidden="true" /></a>
         </div>
 
-        <a className="hero-scroll" href="#commissioning">Explore the commissioning sequence <ArrowDownRight aria-hidden="true" /></a>
+        <a className="hero-scroll" href="#commissioning">Scroll to assemble the machine <ArrowDownRight aria-hidden="true" /></a>
       </section>
 
       <CommissioningVideoSequence />
