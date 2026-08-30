@@ -1,4 +1,7 @@
-.next/
-node_modules/
-video/
-public/images/flow-assembly-keyframes-v2/
+/.next/
+/dist/
+/.vinext/
+/.wrangler/
+/node_modules/
+/video/
+/public/images/flow-assembly-keyframes-v2/

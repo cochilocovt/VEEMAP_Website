@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `634eee4f2d7acf42778859c9a0072db41b6a0cee` — chore: exclude source media from vercel uploads (2026-08-30 15:26:42 +0530)
-- Generated: 2026-08-30T10:01:34.793Z
+- Base commit when generated: `8a2c52d3191937bd6e6b82db8e894fd6de0d4f8d` — fix: allow isolated vercel installs (2026-08-30 15:31:34 +0530)
+- Generated: 2026-08-30T10:05:47.254Z
 
 ### Uncommitted work (preserve)
 
@@ -61,11 +61,11 @@
 
 ### Recent commits
 
+- `8a2c52d fix: allow isolated vercel installs`
 - `634eee4 chore: exclude source media from vercel uploads`
 - `29e0b29 feat: launch scroll-scrubbed assembly hero`
 - `a3adddf Prevent agent scans from processing local media`
 - `74ae050 chore: add portable agent handoff guidance`
-- `591a740 docs: add website implementation plan`
 
 ## Architecture map
 
