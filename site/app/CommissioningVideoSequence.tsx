@@ -400,7 +400,10 @@ export default function CommissioningVideoSequence() {
         onDown: () => requestTransition(-1),
         onStop: () => {
           inputActive = false;
-          if (!transitionActive && pendingDirection === 0) gestureArmed = true;
+          if (!transitionActive && pendingDirection === 0) {
+            gestureArmed = true;
+            lastGestureDelta = 0;
+          }
         },
         onStopDelay: 0.25,
       });
@@ -417,7 +420,7 @@ export default function CommissioningVideoSequence() {
         // input actually releases the visitor into the adjacent section.
         const releaseDistance = Math.max(
           96,
-          Math.min(window.innerHeight * 0.5, lastGestureDelta || 0),
+          Math.min(window.innerHeight * 0.5, lastGestureDelta || window.innerHeight * 0.35),
         );
         const destination = direction === 1
           ? trigger.end + releaseDistance

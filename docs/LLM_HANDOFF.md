@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `f67a296dd850d2f46eb39cfa88c629558f46e4f8` — feat: compress assembly chapters to two seconds (2026-08-30 19:01:25 +0530)
-- Generated: 2026-08-30T13:52:21.671Z
+- Base commit when generated: `58db17bfd86d74364d517300ae55656e815519ed` — fix: carry boundary gesture beyond assembly pin (2026-08-30 19:22:21 +0530)
+- Generated: 2026-08-30T13:55:06.893Z
 
 ### Uncommitted work (preserve)
 
@@ -61,11 +61,11 @@
 
 ### Recent commits
 
+- `58db17b fix: carry boundary gesture beyond assembly pin`
 - `f67a296 feat: compress assembly chapters to two seconds`
 - `61667e4 fix: play assembly on entry scroll`
 - `557c6b3 Merge pull request #1 from cochilocovt/claude/website-implementation-review-2f2c6d`
 - `096b29f chore: regenerate handoff after merging origin/main`
-- `91c92a3 Merge remote-tracking branch 'origin/main' into claude/website-implementation-review-2f2c6d`
 
 ## Architecture map
 
