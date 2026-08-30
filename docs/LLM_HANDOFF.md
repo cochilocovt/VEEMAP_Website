@@ -25,20 +25,42 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `591a7407d7c26431b95ac11156f4e3497bfde1dd` — docs: add website implementation plan (2026-08-27 00:06:26 +0530)
-- Generated: 2026-08-28T01:35:04.768Z
+- Base commit when generated: `74ae050fb600e73b0cc9a5d168e37d30e8313f75` — chore: add portable agent handoff guidance (2026-08-28 07:05:04 +0530)
+- Generated: 2026-08-30T06:33:51.387Z
 
 ### Uncommitted work (preserve)
 
-- _None_
+- `M	.gitignore`
+- `?? docs/VEEMAP_FLOW_AGENT_INSTRUCTIONS_V2.md`
+- `?? docs/VEEMAP_FLOW_ASSEMBLY_V2.md`
+- `?? site/public/images/flow-assembly-keyframes-v2/00-exploded-master.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/01-foundation-only.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/02-frame-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/03-tooling-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/04-vision-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/05-motion-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/06-hmi-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/07-monitoring-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/08-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/00-exploded-master.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/01-foundation-only.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/02-frame-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/03-tooling-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/04-vision-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/05-motion-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/06-hmi-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/07-monitoring-detached.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/normalized-1920x1080/08-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-assembled.png`
+- `?? site/public/images/flow-assembly-keyframes-v2/reference-approved-exploded.png`
 
 ### Recent commits
 
+- `74ae050 chore: add portable agent handoff guidance`
 - `591a740 docs: add website implementation plan`
 - `fb8c0e5 assets: add exploded machine master`
 - `2ca414e feat: add spinning VEEMAP vector mark`
 - `878cf2c assets: add Flow assembly frame pack`
-- `29af437 design: add VEEMAP logo overdrive concepts`
 
 ## Architecture map
 

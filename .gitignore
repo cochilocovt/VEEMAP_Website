@@ -3,3 +3,13 @@ node_modules/
 .DS_Store
 dist/
 build/
+
+# Agent worktrees are created under .claude/worktrees/. They are full checkouts
+# nested inside this working tree, so anything walking the repository would
+# otherwise hash media/ twice. Indexing LFS-tracked video through the clean
+# filter is what filled .git/lfs/tmp with 57 GB of scratch files on 2026-08-29.
+.claude/
+
+# Local source footage is intentionally untracked. Ignoring it also prevents
+# Codex review scans from routing every video through the Git LFS clean filter.
+media/Web_resources/
