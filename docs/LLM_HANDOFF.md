@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `a3adddfe1dab2e672a8e1d4cc039a9e8ec6effc8` — Prevent agent scans from processing local media (2026-08-30 12:08:54 +0530)
-- Generated: 2026-08-30T09:51:04.359Z
+- Base commit when generated: `29e0b296e6550c903e3d4f665ec9d58184d219ec` — feat: launch scroll-scrubbed assembly hero (2026-08-30 15:21:04 +0530)
+- Generated: 2026-08-30T09:56:42.199Z
 
 ### Uncommitted work (preserve)
 
@@ -61,11 +61,11 @@
 
 ### Recent commits
 
+- `29e0b29 feat: launch scroll-scrubbed assembly hero`
 - `a3adddf Prevent agent scans from processing local media`
 - `74ae050 chore: add portable agent handoff guidance`
 - `591a740 docs: add website implementation plan`
 - `fb8c0e5 assets: add exploded machine master`
-- `2ca414e feat: add spinning VEEMAP vector mark`
 
 ## Architecture map
 
