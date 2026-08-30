@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "handoff": "node ../tools/update-handoff.mjs",
-    "prepare": "node ../tools/install-git-hooks.mjs",
+    "prepare": "node scripts/prepare.mjs",
     "video:prepare": "python video/process-layers.py",
     "video:render:desktop": "remotion render video/index.ts VEEMAPAssemblyDesktop video/output/desktop-source.mp4 --codec=h264 --crf=8 --pixel-format=yuv420p",
     "video:render:portrait": "remotion render video/index.ts VEEMAPAssemblyPortrait video/output/portrait-source.mp4 --codec=h264 --crf=8 --pixel-format=yuv420p"

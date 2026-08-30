@@ -25,8 +25,8 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `29e0b296e6550c903e3d4f665ec9d58184d219ec` — feat: launch scroll-scrubbed assembly hero (2026-08-30 15:21:04 +0530)
-- Generated: 2026-08-30T09:56:42.199Z
+- Base commit when generated: `634eee4f2d7acf42778859c9a0072db41b6a0cee` — chore: exclude source media from vercel uploads (2026-08-30 15:26:42 +0530)
+- Generated: 2026-08-30T10:01:34.793Z
 
 ### Uncommitted work (preserve)
 
@@ -61,11 +61,11 @@
 
 ### Recent commits
 
+- `634eee4 chore: exclude source media from vercel uploads`
 - `29e0b29 feat: launch scroll-scrubbed assembly hero`
 - `a3adddf Prevent agent scans from processing local media`
 - `74ae050 chore: add portable agent handoff guidance`
 - `591a740 docs: add website implementation plan`
-- `fb8c0e5 assets: add exploded machine master`
 
 ## Architecture map
 
