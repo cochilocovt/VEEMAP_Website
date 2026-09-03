@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowUpRight,
@@ -88,7 +88,6 @@ const icons: Record<string, LucideIcon> = {
 };
 
 const mechanicalEndTime = 31.333333;
-const totalDuration = 62.833333;
 const frameDuration = 1 / 24;
 
 export default function CommissioningVideoSequence() {
@@ -98,17 +97,22 @@ export default function CommissioningVideoSequence() {
 
   const [phase, setPhase] = useState<AssemblyPhase>('idle');
   const [loadMedia, setLoadMedia] = useState(false);
-  const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const phaseRef = useRef<AssemblyPhase>('idle');
-  phaseRef.current = phase;
   const activeIdxRef = useRef(0);
-  activeIdxRef.current = activeIdx;
   const transitionActiveRef = useRef(false);
+
+  useEffect(() => {
+    phaseRef.current = phase;
+  }, [phase]);
+
+  useEffect(() => {
+    activeIdxRef.current = activeIdx;
+  }, [activeIdx]);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -252,10 +256,8 @@ export default function CommissioningVideoSequence() {
     const isForward = targetIdx >= currentIdx;
     const duration = 1.6;
 
-    let watchdog: NodeJS.Timeout | undefined;
-
     const onFinish = () => {
-      if (watchdog) clearTimeout(watchdog);
+      clearTimeout(watchdog);
       transitionActiveRef.current = false;
       setIsTransitioning(false);
       video.pause();
@@ -269,7 +271,7 @@ export default function CommissioningVideoSequence() {
       }
     };
 
-    watchdog = setTimeout(() => {
+    const watchdog = setTimeout(() => {
       onFinish();
     }, (duration + 0.3) * 1000);
 
@@ -429,7 +431,6 @@ export default function CommissioningVideoSequence() {
                 aria-label="Special purpose assembly machine executing commissioning sequence"
                 disablePictureInPicture
                 controlsList="nodownload noplaybackrate noremoteplayback"
-                onCanPlay={() => setReady(true)}
                 onError={() => setFailed(true)}
               />
             ) : null}
@@ -477,7 +478,7 @@ export default function CommissioningVideoSequence() {
                 aria-hidden="true"
               >
                 <span className="reticle-crosshair" />
-                <span className="reticle-label">{activeStep.code} // {activeStep.tag}</span>
+                <span className="reticle-label">{`${activeStep.code} // ${activeStep.tag}`}</span>
               </div>
             )}
 
@@ -501,7 +502,7 @@ export default function CommissioningVideoSequence() {
           <div className="intelligence-narrative" aria-live="polite">
             <div className="narrative-meta">
               <ActiveIcon size={14} className="narrative-icon" aria-hidden="true" />
-              <span>{activeStep.code} / 04 // {activeStep.tag}</span>
+              <span>{`${activeStep.code} / 04 // ${activeStep.tag}`}</span>
             </div>
             <h2 className="narrative-title">{activeStep.title}</h2>
             <p className="narrative-desc">{activeStep.subtitle}</p>

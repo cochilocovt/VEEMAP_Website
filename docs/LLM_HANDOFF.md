@@ -25,11 +25,13 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `3859578fb2bc86a6d8bcb290416d0e9346c2e83b` — feat: publish refreshed VEEMAP website (2026-09-03 10:28:22 +0530)
-- Generated: 2026-09-03T04:58:32.624Z
+- Base commit when generated: `e57ff6d9cd05bbdf1ee3bf4f06fb0b4dd3321285` — docs: refresh project handoff (2026-09-03 10:28:32 +0530)
+- Generated: 2026-09-03T05:06:03.523Z
 
 ### Uncommitted work (preserve)
 
+- `M	site/app/CommissioningVideoSequence.tsx`
+- `M	site/next.config.ts`
 - `D	media/Picture10.png`
 - `D	media/Picture14.jpg`
 - `D	media/Picture8.png`
@@ -168,11 +170,11 @@
 
 ### Recent commits
 
+- `e57ff6d docs: refresh project handoff`
 - `3859578 feat: publish refreshed VEEMAP website`
 - `417e98c fix: carry a visible release distance past pin`
 - `58db17b fix: carry boundary gesture beyond assembly pin`
 - `f67a296 feat: compress assembly chapters to two seconds`
-- `61667e4 fix: play assembly on entry scroll`
 
 ## Architecture map
 

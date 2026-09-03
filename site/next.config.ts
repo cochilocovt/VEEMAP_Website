@@ -1,4 +1,8 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { NextConfig } from 'next';
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * The previous Wix site used opaque `/blank-*` addresses. It is no longer
@@ -24,7 +28,7 @@ const legacyRedirects: { source: string; destination: string }[] = [
 
 const nextConfig: NextConfig = {
   turbopack: {
-    root: __dirname,
+    root: projectRoot,
   },
   async redirects() {
     return legacyRedirects.map((redirect) => ({ ...redirect, permanent: true }));
