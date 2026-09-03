@@ -25,11 +25,13 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `9af098bc9a834db65f0c4a849f6ffecbf41d455d` — fix: clear production verification gates (2026-09-03 10:36:03 +0530)
-- Generated: 2026-09-03T05:06:11.826Z
+- Base commit when generated: `606adb134dab10f346c5ff5ce4022ab48589e9c9` — docs: record verified release state (2026-09-03 10:36:11 +0530)
+- Generated: 2026-09-03T05:09:38.353Z
 
 ### Uncommitted work (preserve)
 
+- `M	docs/CI_CD.md`
+- `M	tools/update-handoff.mjs`
 - `D	media/Picture10.png`
 - `D	media/Picture14.jpg`
 - `D	media/Picture8.png`
@@ -168,11 +170,11 @@
 
 ### Recent commits
 
+- `606adb1 docs: record verified release state`
 - `9af098b fix: clear production verification gates`
 - `e57ff6d docs: refresh project handoff`
 - `3859578 feat: publish refreshed VEEMAP website`
 - `417e98c fix: carry a visible release distance past pin`
-- `58db17b fix: carry boundary gesture beyond assembly pin`
 
 ## Architecture map
 
@@ -184,7 +186,7 @@
 | Dependencies and checks | `site/package.json` | Next.js 16, React 19, GSAP, lint and production build commands. |
 | Brand truth | `docs/brand-context/` | Source-cited identity, contacts, capability and claim authority. |
 | Product requirements | `PRODUCT.md` | Audience, conversion goal, constraints and open decisions. |
-| CI/CD | `.github/workflows/ci.yml`, `docs/CI_CD.md`, `site/vercel.json` | CI verifies the site; Vercel project `veemap-technologies` deploys production from `main`. |
+| CI/CD | `.github/workflows/ci.yml`, `docs/CI_CD.md`, `site/vercel.json` | CI verifies the site; linked Vercel project `veemap-technologies` receives Git deployments from `main`. |
 | Image provenance | `site/public/**/*.json` | Keep each shipped raster paired with its provenance file. |
 
 ## Commands
@@ -222,7 +224,7 @@ Node.js 22.13 or newer is required.
 
 ## Known open decisions
 
-- Production is hosted by the linked Vercel project `veemap-technologies`; `main` is the production branch and `site/` is the project root.
+- The linked Vercel project deploys `main` successfully, but its current URL is protected and the documented public alias returns `NOT_FOUND`; dashboard authentication is required to promote it and attach a public domain.
 - Lead submission destination, consent wording, and response expectations are
   undecided; the current experience intentionally prepares an email only.
 - Official website design rules and production-ready 3D assets have not been
