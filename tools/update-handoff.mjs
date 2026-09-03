@@ -127,7 +127,6 @@ Node.js 22.13 or newer is required.
 
 ## Known open decisions
 
-- The linked Vercel project deploys \`main\` successfully, but its current URL is protected and the documented public alias returns \`NOT_FOUND\`; dashboard authentication is required to promote it and attach a public domain.
 - Lead submission destination, consent wording, and response expectations are
   undecided; the current experience intentionally prepares an email only.
 - Official website design rules and production-ready 3D assets have not been

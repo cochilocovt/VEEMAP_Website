@@ -9,18 +9,19 @@ Vercel dashboard.
 - Vercel project: `veemap-technologies`
 - Project root: `site`
 - Git branch deployed: `main`
-- Current deployment: successful, but protected by Vercel Authentication
-- Public alias: not currently attached; <https://veemap-technologies.vercel.app>
-  returns Vercel `NOT_FOUND`
-
-Promoting the latest deployment and attaching a public alias requires an
-authenticated Vercel account session.
+- Current production deployment: `dpl_9REgPMC587WAiET7Gct1UiBr8bXb`
+- Source commit: `205f8a9`
+- Public domains: <https://www.veemap.com> and
+  <https://veemap-technologies.vercel.app>
+- Verification: both public domains and all application routes returned HTTP
+  `200` on 2026-09-03
 
 ## Vercel project configuration
 
 The project imports `cochilocovt/VEEMAP_Website`, uses `site` as its Root
 Directory, and detects Next.js. Git pushes receive Vercel deployments; confirm
-the Production Branch and public-domain assignment in the Vercel dashboard.
+the Production Branch and public-domain assignment in the Vercel dashboard
+after changing project settings.
 
 No GitHub deployment secrets are required for this Git-integration approach.
 Vercel stores its deployment credentials and environment values in the Vercel

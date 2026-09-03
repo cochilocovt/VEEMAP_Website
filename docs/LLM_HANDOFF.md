@@ -25,11 +25,13 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `f2d6cdbade6b10fea1ac3f6d90b3f4f15e6c6086` — docs: record Vercel promotion requirement (2026-09-03 10:39:38 +0530)
-- Generated: 2026-09-03T05:09:39.409Z
+- Base commit when generated: `205f8a9da0b35288cf66e167144ac5012945db6c` — docs: refresh handoff after deploy check (2026-09-03 10:39:39 +0530)
+- Generated: 2026-09-03T05:52:16.580Z
 
 ### Uncommitted work (preserve)
 
+- `M	docs/CI_CD.md`
+- `M	tools/update-handoff.mjs`
 - `D	media/Picture10.png`
 - `D	media/Picture14.jpg`
 - `D	media/Picture8.png`
@@ -168,11 +170,11 @@
 
 ### Recent commits
 
+- `205f8a9 docs: refresh handoff after deploy check`
 - `f2d6cdb docs: record Vercel promotion requirement`
 - `606adb1 docs: record verified release state`
 - `9af098b fix: clear production verification gates`
 - `e57ff6d docs: refresh project handoff`
-- `3859578 feat: publish refreshed VEEMAP website`
 
 ## Architecture map
 
@@ -222,7 +224,6 @@ Node.js 22.13 or newer is required.
 
 ## Known open decisions
 
-- The linked Vercel project deploys `main` successfully, but its current URL is protected and the documented public alias returns `NOT_FOUND`; dashboard authentication is required to promote it and attach a public domain.
 - Lead submission destination, consent wording, and response expectations are
   undecided; the current experience intentionally prepares an email only.
 - Official website design rules and production-ready 3D assets have not been
