@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="100%" height="100%">
+  <g transform="translate(40, 35)">
+    <path d="M 10,95 Q 60,15 110,35 L 100,50 Q 60,35 25,105 Z" fill="#0277BD"/>
+  </g>
+  <g transform="translate(170, 95)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="44" fill="#0277BD" letter-spacing="2">WIPE INDIA</text>
+    <text y="26" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="13" fill="#546E7A" letter-spacing="3">WIPER SYSTEMS</text>
+  </g>
+</svg>

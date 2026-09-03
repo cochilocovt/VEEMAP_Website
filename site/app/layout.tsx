@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Barlow_Condensed, Bodoni_Moda, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import './editorial.css';
 
 const display = Bodoni_Moda({
   variable: '--font-display',

@@ -1,0 +1,22 @@
+/*
+ * Contact route layout. Shared chrome lives in app/editorial.css. The real
+ * EnquiryForm (mailto handoff) is reused; this module frames it with direct
+ * contact details and a facility figure. Ground background keeps the form
+ * legible.
+ */
+
+.section { position: relative; padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.bg { position: absolute; top: -12%; right: -8%; width: 34%; z-index: -1; opacity: .22; animation: ed-driftDown linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+.grid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr); gap: 7vw; align-items: start; }
+
+.contactMeta { display: grid; gap: .5rem; margin-top: 2rem; font-family: var(--font-mono), monospace; font-size: .82rem; line-height: 1.9; color: var(--muted); }
+.contactMeta a { color: var(--signal); }
+
+.figure { position: relative; margin: 2.6rem 0 0; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--line); }
+.figureCap { position: absolute; bottom: 1rem; left: 1rem; display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-mono), monospace; font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text); }
+
+.note { margin: 0 0 1.6rem; max-width: 52ch; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 960px) {
+  .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" width="100%" height="100%">
+  <g transform="translate(35, 35)">
+    <circle cx="55" cy="55" r="50" fill="#E60000"/>
+    <path d="M 30,30 L 55,80 L 80,30 Z" fill="#FFFFFF"/>
+  </g>
+  <g transform="translate(160, 85)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#1C2D42" letter-spacing="1">MUNJAL KIRIU</text>
+    <text y="30" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#E60000" letter-spacing="3">AUTOMOTIVE COMPONENTS</text>
+  </g>
+</svg>

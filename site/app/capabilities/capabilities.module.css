@@ -1,0 +1,85 @@
+/*
+ * Capabilities route layout. Shared chrome is in app/editorial.css; this module
+ * owns the scale cards, discipline rows, the connected-production dashboard and
+ * the flexible-automation split. Tokenised for the light theme.
+ */
+
+.section { padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); }
+.sectionBordered { border-top: 1px solid var(--line); }
+
+.scaleHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, .75fr);
+  gap: 6vw;
+  align-items: end;
+}
+.scaleHead p { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.55; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+.card { background: var(--ground); }
+.cardMedia { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--line); }
+.cardMedia img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cardIndex { position: absolute; top: 1rem; left: 1rem; font-family: var(--font-mono), monospace; font-size: .55rem; letter-spacing: .1em; color: var(--signal); }
+.cardBody { padding: 1.8rem; }
+.cardTitle { margin: 0 0 .7rem; font-family: var(--font-utility), sans-serif; font-size: 1.15rem; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+.cardText { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+.cardMeta { margin: 1.4rem 0 0; font-family: var(--font-mono), monospace; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); }
+
+/* Engineering disciplines: two columns of numbered rows. */
+.disciplines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 5rem; }
+.disciplineRow { display: flex; gap: 1.5rem; align-items: baseline; padding: 1.35rem 0; border-top: 1px solid var(--line); }
+.disciplineNum { font-family: var(--font-mono), monospace; font-size: .6rem; color: var(--signal); }
+.disciplineText { font-size: 1.1rem; }
+
+/* High-speed and flexible: split with the exploded machine. */
+.flex { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); min-height: 760px; align-items: stretch; border-top: 1px solid var(--line); }
+.flexBody { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 7vw, 7rem) var(--page-gutter); }
+.flexFigure { min-height: 680px; }
+.rail { display: grid; margin-top: 3rem; border-top: 1px solid var(--line-strong); }
+.railRow { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line-strong); font-family: var(--font-mono), monospace; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Quality and inspection. */
+.quality { position: relative; padding: clamp(5rem, 9vw, 9rem) var(--page-gutter); border-top: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.qualityBg { position: absolute; top: 0; left: -14%; width: 52%; z-index: -1; opacity: .32; animation: ed-driftDown linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+.qualityGrid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 6vw; align-items: start; }
+.visionFrame { position: relative; margin: 0; aspect-ratio: 16 / 10; background: radial-gradient(circle at 50% 45%, #151515 0, #000 70%); border: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
+.visionFrame img { position: absolute; width: 280%; height: 280%; left: -59%; top: -43%; object-fit: contain; }
+
+/* Connected production: orange band with the illustrative dashboard. */
+.connected { border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 680px; }
+.connectedBody { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 7vw, 7rem) var(--page-gutter); }
+.connectedBody p { max-width: 50ch; color: rgba(0, 0, 0, .74); font-size: 1.1rem; line-height: 1.55; }
+.dashWrap { background: var(--ground); padding: clamp(2.5rem, 4vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
+.dashStats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.dashCell { background: var(--ground); padding: 1.4rem; }
+.dashLabel { margin: 0 0 .8rem; font-family: var(--font-mono), monospace; font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.dashValue { margin: 0; font-family: var(--font-utility), sans-serif; font-size: 1.5rem; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: .5rem; }
+.dashPanel { border: 1px solid var(--line); border-top: 0; background: var(--ground); padding: 1.4rem; }
+.bars { display: flex; align-items: flex-end; gap: .6rem; height: 110px; }
+.bar { flex: 1; background: rgba(250, 76, 20, .28); border-top: 2px solid var(--signal); transform-origin: bottom; animation: ed-drawY .8s cubic-bezier(.2, .8, .2, 1) both; animation-timeline: view(); animation-range: entry 0% cover 25%; }
+.barLabels { margin: .8rem 0 0; display: flex; justify-content: space-between; font-family: var(--font-mono), monospace; font-size: .5rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+.dashNote { margin: 1.2rem 0 0; font-family: var(--font-mono), monospace; font-size: .55rem; line-height: 1.7; color: var(--faint); max-width: 62ch; }
+
+/* Start a project. */
+.start { border-top: 1px solid var(--line); padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); position: relative; overflow: hidden; }
+.startBg { position: absolute; bottom: -20%; right: -6%; width: 38%; opacity: .28; animation: ed-driftUp linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+.startGrid { max-width: 1600px; margin: 0 auto; position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6vw; align-items: end; }
+.startMeta { display: grid; gap: .45rem; font-family: var(--font-mono), monospace; font-size: .72rem; color: var(--muted); line-height: 1.8; justify-items: end; text-align: right; }
+.startMeta a { color: var(--signal); }
+
+.sectorList { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; }
+
+@media (max-width: 960px) {
+  .scaleHead, .cards, .disciplines, .qualityGrid, .connected, .startGrid { grid-template-columns: 1fr; }
+  .flex { grid-template-columns: 1fr; min-height: 0; }
+  .flexFigure { min-height: 380px; }
+  .dashStats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .startMeta { justify-items: start; text-align: left; }
+}

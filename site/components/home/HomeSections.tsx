@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { sectors } from '@/content/sectors';
+import { SectorOrbit } from './SectorOrbit';
 import styles from './home.module.css';
 
 /**
@@ -9,7 +10,7 @@ import styles from './home.module.css';
  * Section 7.1 prohibits.
  */
 
-const [medical, ...otherSectors] = sectors;
+const [medical] = sectors;
 
 export function MedicalLeadFeature() {
   return (
@@ -20,6 +21,11 @@ export function MedicalLeadFeature() {
           <h2 className={styles.leadTitle}>
             Quality-critical assembly,<br />proven part by part.
           </h2>
+          <figure className={styles.leadFigure}>
+            <img src="/images/library/med-dispensing-pump-line.jpg" alt="VEEMAP dispensing-pump assembly line — multi-station feeding, joining, testing and transfer" loading="lazy" />
+            <span className={styles.leadScrim} aria-hidden="true" />
+            <figcaption className={styles.leadFigureCap}><i className={styles.leadDot} aria-hidden="true" />Dispensing-pump assembly line</figcaption>
+          </figure>
         </div>
         <div>
           <p className={styles.leadBody}>
@@ -42,26 +48,9 @@ export function MedicalLeadFeature() {
   );
 }
 
+/** Five-sector index (plan 7.1 item 4): the orbit of sector names with the detail card. */
 export function SectorIndex() {
-  return (
-    <section className={styles.section}>
-      <h2 className={styles.heading}>Five sectors, one engineering method</h2>
-      <div className={styles.sectorGrid}>
-        <Link className={`${styles.sectorCard} ${styles.sectorLead}`} href={`/industries/${medical.slug}`}>
-          <span className={styles.sectorIndex}>01 / PRIORITY</span>
-          <h3 className={styles.sectorName}>{medical.name}</h3>
-          <p className={styles.sectorBody}>{medical.audienceProblem}</p>
-        </Link>
-        {otherSectors.map((sector, index) => (
-          <Link key={sector.slug} className={styles.sectorCard} href={`/industries/${sector.slug}`}>
-            <span className={styles.sectorIndex}>0{index + 2}</span>
-            <h3 className={styles.sectorName}>{sector.name}</h3>
-            <p className={styles.sectorBody}>{sector.audienceProblem}</p>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
+  return <SectorOrbit />;
 }
 
 const deliverySteps = [

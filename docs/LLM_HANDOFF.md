@@ -25,11 +25,258 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `58db17bfd86d74364d517300ae55656e815519ed` — fix: carry boundary gesture beyond assembly pin (2026-08-30 19:22:21 +0530)
-- Generated: 2026-08-30T13:55:06.893Z
+- Base commit when generated: `417e98c61ac5c459907da41e67362ec6e5e0ac8b` — fix: carry a visible release distance past pin (2026-08-30 19:25:06 +0530)
+- Generated: 2026-09-03T04:58:22.487Z
 
 ### Uncommitted work (preserve)
 
+- `M	docs/CI_CD.md`
+- `A	docs/MEDIA_REFRESH_HANDOFF.md`
+- `A	docs/REMODEL_PLAN.md`
+- `M	docs/WEBSITE_IMPLEMENTATION_PLAN.md`
+- `M	docs/hero-film-brief.md`
+- `M	docs/hero-film-prompt-pack.md`
+- `A	docs/superpowers/plans/2026-09-01-hero-scroll-scene.md`
+- `M	site/DESIGN.md`
+- `M	site/app/CommissioningVideoSequence.tsx`
+- `A	site/app/capabilities/capabilities.module.css`
+- `M	site/app/capabilities/page.tsx`
+- `A	site/app/careers/careers.module.css`
+- `M	site/app/careers/page.tsx`
+- `A	site/app/company/company.module.css`
+- `M	site/app/company/page.tsx`
+- `A	site/app/contact/contact.module.css`
+- `M	site/app/contact/page.tsx`
+- `A	site/app/editorial.css`
+- `M	site/app/globals.css`
+- `M	site/app/industries/[sector]/page.tsx`
+- `A	site/app/industries/[sector]/sector.module.css`
+- `A	site/app/industries/industries.module.css`
+- `M	site/app/industries/page.tsx`
+- `M	site/app/layout.tsx`
+- `M	site/app/page.tsx`
+- `A	site/components/editorial/anim.ts`
+- `A	site/components/home/ClientLogoCarousel.tsx`
+- `M	site/components/home/HomeSections.tsx`
+- `A	site/components/home/SectorOrbit.tsx`
+- `A	site/components/home/SectorOrbitProduct.tsx`
+- `A	site/components/home/clientLogoCarousel.module.css`
+- `M	site/components/home/home.module.css`
+- `A	site/components/home/sectorOrbit.module.css`
+- `M	site/content/sectors.ts`
+- `A	site/data/clients.ts`
+- `M	site/eslint.config.mjs`
+- `M	site/package-lock.json`
+- `M	site/package.json`
+- `A	site/public/clients/automotive/aisin.svg`
+- `A	site/public/clients/automotive/allied-jb.svg`
+- `A	site/public/clients/automotive/anand-mando.svg`
+- `A	site/public/clients/automotive/ask-automotive.svg`
+- `A	site/public/clients/automotive/asti.svg`
+- `A	site/public/clients/automotive/belrise.svg`
+- `A	site/public/clients/automotive/continental.svg`
+- `A	site/public/clients/automotive/denso.svg`
+- `A	site/public/clients/automotive/fcc.svg`
+- `A	site/public/clients/automotive/hella.svg`
+- `A	site/public/clients/automotive/honda.svg`
+- `A	site/public/clients/automotive/kamal-rubber.svg`
+- `A	site/public/clients/automotive/marelli.svg`
+- `A	site/public/clients/automotive/maruti-suzuki.svg`
+- `A	site/public/clients/automotive/mindarika.svg`
+- `A	site/public/clients/automotive/munjal-kiriu.svg`
+- `A	site/public/clients/automotive/napino.svg`
+- `A	site/public/clients/automotive/shriram-pistons.svg`
+- `A	site/public/clients/automotive/ts-tech.svg`
+- `A	site/public/clients/automotive/uno-minda.svg`
+- `A	site/public/clients/automotive/victora.svg`
+- `A	site/public/clients/automotive/wipe-india.svg`
+- `A	site/public/clients/clients-manifest.json`
+- `A	site/public/clients/consumer_goods/alpla.svg`
+- `A	site/public/clients/consumer_goods/aptar-beauty.svg`
+- `A	site/public/clients/consumer_goods/manjushree-technopack.svg`
+- `A	site/public/clients/consumer_goods/palam-plastics.svg`
+- `A	site/public/clients/consumer_goods/perfetti-van-melle.svg`
+- `A	site/public/clients/consumer_goods/rieke.svg`
+- `A	site/public/clients/consumer_goods/takahata.svg`
+- `A	site/public/clients/electronics/amd.svg`
+- `A	site/public/clients/electronics/legrand.svg`
+- `A	site/public/clients/electronics/panasonic.svg`
+- `A	site/public/clients/electronics/proterial-hitachi.svg`
+- `A	site/public/clients/electronics/syrma-sgs.svg`
+- `A	site/public/clients/ev/exide.svg`
+- `A	site/public/clients/ev/livguard.svg`
+- `A	site/public/clients/ev/sterling-gtake.svg`
+- `A	site/public/clients/industrial_machinery/bettinelli-cds.svg`
+- `A	site/public/clients/industrial_machinery/bucher-hydraulics.svg`
+- `A	site/public/clients/industrial_machinery/keyence.svg`
+- `A	site/public/clients/industrial_machinery/makino.svg`
+- `A	site/public/clients/industrial_machinery/sasaa-venture.svg`
+- `A	site/public/clients/industrial_machinery/sce.svg`
+- `A	site/public/clients/medical_pharma/aptar-pharma.svg`
+- `A	site/public/clients/medical_pharma/hollister.svg`
+- `A	site/public/clients/medical_pharma/kokoku.svg`
+- `A	site/public/clients/medical_pharma/sterimed.svg`
+- `A	site/public/clients/medical_pharma/stryker.svg`
+- `A	site/public/draco-gltf/draco_decoder.js`
+- `A	site/public/draco-gltf/draco_decoder.wasm`
+- `A	site/public/draco-gltf/draco_wasm_wrapper.js`
+- `A	site/public/images/library/auto-brake-disc-inspection.jpg`
+- `A	site/public/images/library/auto-brake-shoe-inspection.jpg`
+- `A	site/public/images/library/auto-clutch-line.jpg`
+- `A	site/public/images/library/auto-engine-no-inspection.jpg`
+- `A	site/public/images/library/auto-fuel-rail-line.jpg`
+- `A	site/public/images/library/auto-hood-polishing.jpg`
+- `A	site/public/images/library/auto-piston-inspection.jpg`
+- `A	site/public/images/library/auto-radiator-line.jpg`
+- `A	site/public/images/library/consumer-glue-station.jpg`
+- `A	site/public/images/library/elec-breaker-product.jpg`
+- `A	site/public/images/library/elec-rfid-machine.jpg`
+- `A	site/public/images/library/elec-robotic-solder-front.jpg`
+- `A	site/public/images/library/elec-robotic-solder.jpg`
+- `A	site/public/images/library/elec-smart-screwing.jpg`
+- `A	site/public/images/library/elec-switch-line.jpg`
+- `A	site/public/images/library/elec-switch-product.jpg`
+- `A	site/public/images/library/elec-terminal-screwing.jpg`
+- `A	site/public/images/library/ev-hub-motor-line.jpg`
+- `A	site/public/images/library/ev-hub-motor.jpg`
+- `A	site/public/images/library/ev-motor-exploded.jpg`
+- `A	site/public/images/library/hmi-dashboard.jpg`
+- `A	site/public/images/library/hmi-floor-counter.jpg`
+- `A	site/public/images/library/hmi-floor-kiosk.jpg`
+- `A	site/public/images/library/hmi-floor-monitoring.jpg`
+- `A	site/public/images/library/med-dispensing-pump-line.jpg`
+- `A	site/public/images/library/med-et-tube-machine.jpg`
+- `A	site/public/images/library/med-iv-drip-machine.jpg`
+- `A	site/public/images/library/med-pipe-assembly-machine.jpg`
+- `A	site/public/images/library/med-spine-needle-machine.jpg`
+- `A	site/public/images/library/scale-complete-plant.jpg`
+- `A	site/public/images/library/scale-high-speed-line.jpg`
+- `A	site/public/images/library/scale-semi-auto-machine.jpg`
+- `A	site/public/images/library/vision-inspection-cell.jpg`
+- `A	site/public/images/library/vision-keyence-rig.jpg`
+- `A	site/public/models/veemap-consumer-pump.glb`
+- `A	site/public/models/veemap-hub-motor.glb`
+- `A	site/public/models/veemap-medical-pump.glb`
+- `A	site/public/models/veemap-stepper-driver.glb`
+- `A	site/public/models/veemap-urine-catheter.glb`
+- `A	site/public/models/veemap-v8-engine.glb`
+- `A	site/public/video/delta-robot.mp4`
+- `A	site/public/video/library/lib-clutch-inspection.mp4`
+- `A	site/public/video/library/lib-delta-robot.mp4`
+- `A	site/public/video/library/lib-hmi-analytics.mp4`
+- `A	site/public/video/library/lib-machine-flow.mp4`
+- `A	site/public/video/library/lib-oring-assembly.mp4`
+- `A	site/public/video/library/lib-precision-speed.mp4`
+- `A	site/public/video/library/lib-wire-winding.mp4`
+- `A	tools/build-client-logos.mjs`
+- `M	tools/update-handoff.mjs`
+- `D	media/Picture10.png`
+- `D	media/Picture14.jpg`
+- `D	media/Picture8.png`
+- `D	media/Rieke_pump.png`
+- `D	media/hub motor line.png`
+- `D	media/smartscrewiing.jpg`
+- `?? media/Clients/Client_list.txt`
+- `?? media/Clients/_legacy_backup/automotive/Picture1.png`
+- `?? media/Clients/_legacy_backup/automotive/Picture3.png`
+- `?? media/Clients/_legacy_backup/automotive/Picture4.png`
+- `?? media/Clients/_legacy_backup/automotive/Picture5.png`
+- `?? media/Clients/_legacy_backup/automotive/Picture6.png`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture21.png`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture22.png`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture23.png`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture24.png`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture25.jpg`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture26.png`
+- `?? media/Clients/_legacy_backup/consumer_goods/Picture27.png`
+- `?? media/Clients/_legacy_backup/electronics/Picture13.png`
+- `?? media/Clients/_legacy_backup/electronics/Picture14.png`
+- `?? media/Clients/_legacy_backup/electronics/Picture15.gif`
+- `?? media/Clients/_legacy_backup/electronics/Picture16.png`
+- `?? media/Clients/_legacy_backup/electronics/Picture17.png`
+- `?? media/Clients/_legacy_backup/electronics/Picture18.png`
+- `?? media/Clients/_legacy_backup/electronics/Picture19.jpg`
+- `?? media/Clients/_legacy_backup/electronics/Picture20.png`
+- `?? media/Clients/_legacy_backup/ev/Picture10.png`
+- `?? media/Clients/_legacy_backup/ev/Picture11.jpg`
+- `?? media/Clients/_legacy_backup/ev/Picture12.png`
+- `?? media/Clients/_legacy_backup/ev/Picture7.png`
+- `?? media/Clients/_legacy_backup/ev/Picture8.png`
+- `?? media/Clients/_legacy_backup/ev/Picture9.png`
+- `?? media/Clients/_legacy_backup/medical_pharma/Picture28.png`
+- `?? media/Clients/_legacy_backup/medical_pharma/Picture29.jpg`
+- `?? media/Clients/_legacy_backup/medical_pharma/Picture30.png`
+- `?? media/Clients/_legacy_backup/medical_pharma/Picture31.jpg`
+- `?? media/Clients/_legacy_backup/medical_pharma/Picture32.png`
+- `?? media/Clients/automotive/aisin.svg`
+- `?? media/Clients/automotive/allied-jb.svg`
+- `?? media/Clients/automotive/anand-mando.svg`
+- `?? media/Clients/automotive/ask-automotive.svg`
+- `?? media/Clients/automotive/asti.svg`
+- `?? media/Clients/automotive/belrise.svg`
+- `?? media/Clients/automotive/continental.svg`
+- `?? media/Clients/automotive/denso.svg`
+- `?? media/Clients/automotive/fcc.svg`
+- `?? media/Clients/automotive/hella.svg`
+- `?? media/Clients/automotive/honda.svg`
+- `?? media/Clients/automotive/kamal-rubber.svg`
+- `?? media/Clients/automotive/marelli.svg`
+- `?? media/Clients/automotive/maruti-suzuki.svg`
+- `?? media/Clients/automotive/mindarika.svg`
+- `?? media/Clients/automotive/munjal-kiriu.svg`
+- `?? media/Clients/automotive/napino.svg`
+- `?? media/Clients/automotive/shriram-pistons.svg`
+- `?? media/Clients/automotive/ts-tech.svg`
+- `?? media/Clients/automotive/uno-minda.svg`
+- `?? media/Clients/automotive/victora.svg`
+- `?? media/Clients/automotive/wipe-india.svg`
+- `?? media/Clients/clients-manifest.json`
+- `?? media/Clients/consumer_goods/alpla.svg`
+- `?? media/Clients/consumer_goods/aptar-beauty.svg`
+- `?? media/Clients/consumer_goods/manjushree-technopack.svg`
+- `?? media/Clients/consumer_goods/palam-plastics.svg`
+- `?? media/Clients/consumer_goods/perfetti-van-melle.svg`
+- `?? media/Clients/consumer_goods/rieke.svg`
+- `?? media/Clients/consumer_goods/takahata.svg`
+- `?? media/Clients/electronics/amd.svg`
+- `?? media/Clients/electronics/legrand.svg`
+- `?? media/Clients/electronics/panasonic.svg`
+- `?? media/Clients/electronics/proterial-hitachi.svg`
+- `?? media/Clients/electronics/syrma-sgs.svg`
+- `?? media/Clients/ev/exide.svg`
+- `?? media/Clients/ev/livguard.svg`
+- `?? media/Clients/ev/sterling-gtake.svg`
+- `?? media/Clients/industrial_machinery/bettinelli-cds.svg`
+- `?? media/Clients/industrial_machinery/bucher-hydraulics.svg`
+- `?? media/Clients/industrial_machinery/keyence.svg`
+- `?? media/Clients/industrial_machinery/makino.svg`
+- `?? media/Clients/industrial_machinery/sasaa-venture.svg`
+- `?? media/Clients/industrial_machinery/sce.svg`
+- `?? media/Clients/medical_pharma/aptar-pharma.svg`
+- `?? media/Clients/medical_pharma/hollister.svg`
+- `?? media/Clients/medical_pharma/kokoku.svg`
+- `?? media/Clients/medical_pharma/sterimed.svg`
+- `?? media/Clients/medical_pharma/stryker.svg`
+- `?? media/Industry_4.0/Picture33.png`
+- `?? media/Industry_4.0/Picture34.jpg`
+- `?? media/Media1.mp4`
+- `?? media/cad screenshot to real/Picture14.jpg`
+- `?? media/cad screenshot to real/Rieke_pump.png`
+- `?? media/cad screenshot to real/cap liner automation.jpg`
+- `?? media/cad screenshot to real/hub motor line.png`
+- `?? media/cad screenshot to real/smartscrewiing.jpg`
+- `?? site/app/lab/machine/page.tsx`
+- `?? site/app/sectors-3d/page.tsx`
+- `?? site/components/hero3d/AssemblyMachine.tsx`
+- `?? site/components/hero3d/ClayStage.tsx`
+- `?? site/components/hero3d/FlowLine.tsx`
+- `?? site/components/hero3d/GroundGrid.tsx`
+- `?? site/components/hero3d/SceneProbe.tsx`
+- `?? site/components/hero3d/clayPalette.ts`
+- `?? site/components/hero3d/flowState.ts`
+- `?? site/components/sectors3d/SectorProduct3D.tsx`
+- `?? site/components/sectors3d/SectorsSection3D.tsx`
+- `?? site/components/sectors3d/sectors3d.module.css`
 - `?? site/public/images/flow-assembly-keyframes-v2/00-exploded-master.png`
 - `?? site/public/images/flow-assembly-keyframes-v2/01-foundation-only.png`
 - `?? site/public/images/flow-assembly-keyframes-v2/02-frame-detached.png`
@@ -61,23 +308,23 @@
 
 ### Recent commits
 
+- `417e98c fix: carry a visible release distance past pin`
 - `58db17b fix: carry boundary gesture beyond assembly pin`
 - `f67a296 feat: compress assembly chapters to two seconds`
 - `61667e4 fix: play assembly on entry scroll`
 - `557c6b3 Merge pull request #1 from cochilocovt/claude/website-implementation-review-2f2c6d`
-- `096b29f chore: regenerate handoff after merging origin/main`
 
 ## Architecture map
 
 | Area | Location | Notes |
 | --- | --- | --- |
-| Public site | `site/app/page.tsx` | Client-side single-page homepage: navigation, motion, enquiry form. |
+| Public site | `site/app/` | Next.js App Router homepage, capability, industry, sector, company, careers and contact pages. |
 | Site shell | `site/app/layout.tsx` | Metadata, fonts, theme bootstrap. |
 | Visual system | `site/app/globals.css`, `site/DESIGN.md` | Responsive layout, motion presentation, accessibility conventions. |
 | Dependencies and checks | `site/package.json` | Next.js 16, React 19, GSAP, lint and production build commands. |
 | Brand truth | `docs/brand-context/` | Source-cited identity, contacts, capability and claim authority. |
 | Product requirements | `PRODUCT.md` | Audience, conversion goal, constraints and open decisions. |
-| CI/CD | `.github/workflows/ci.yml`, `docs/CI_CD.md`, `site/vercel.json` | CI verifies the site; deployment connection remains an external setup decision. |
+| CI/CD | `.github/workflows/ci.yml`, `docs/CI_CD.md`, `site/vercel.json` | CI verifies the site; Vercel project `veemap-technologies` deploys production from `main`. |
 | Image provenance | `site/public/**/*.json` | Keep each shipped raster paired with its provenance file. |
 
 ## Commands
@@ -115,7 +362,7 @@ Node.js 22.13 or newer is required.
 
 ## Known open decisions
 
-- Deployment target and its external configuration are not fully settled.
+- Production is hosted by the linked Vercel project `veemap-technologies`; `main` is the production branch and `site/` is the project root.
 - Lead submission destination, consent wording, and response expectations are
   undecided; the current experience intentionally prepares an email only.
 - Official website design rules and production-ready 3D assets have not been

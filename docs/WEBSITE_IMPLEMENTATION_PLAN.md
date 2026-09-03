@@ -683,6 +683,16 @@ Every factual claim must be traceable to `docs/brand-context/` or a later writte
 - Tailwind was installed and wired into PostCSS but never imported by any stylesheet. It was removed on 2026-08-29 so that exactly two mechanisms exist: the global token/shell sheet and route-scoped CSS Modules.
 - Shared shell styles move out of `globals.css` during the Phase 1 shell extraction, not after the Hero merge checkpoint. See Section 15.
 - Do not introduce any further styling paradigm or a component-library dependency.
+- Added 2026-09-01: `site/app/editorial.css` is a third stylesheet — a shared,
+  global, plain-CSS sheet holding the editorial routes' keyframes and reusable
+  page-chrome classes (`.ed-*`). It is the same paradigm as `globals.css`, not a
+  new one, and it is kept separate deliberately: the editorial motion and chrome
+  are entangled with no Hero selectors, and holding them outside `globals.css`
+  keeps the Hero-sensitive global sheet (Section 15) untouched. Tokens, element
+  defaults and the shared shell still belong to `globals.css`; route-scoped
+  composition still belongs to CSS Modules. Reconcile at the Hero checkpoint:
+  either ratify `editorial.css` as sanctioned shared page-chrome or fold it into
+  `globals.css` once the Hero lane is final.
 
 ### Media delivery
 
@@ -987,6 +997,18 @@ characters of text with scripts stripped, including the dashboard's values and
 its illustrative-data caption; all motion is CSS-only and every animated element
 holds its final state under `prefers-reduced-motion`.
 
+#### Status — 2026-09-01: visual system and machinery evidence added
+
+The flagship route (served by the sector template) received the full editorial
+design imported from Claude Design (Section 21, 2026-09-01): a video-backed hero,
+scroll-linked reveals, the approach split, a four-column solution-family grid, a
+horizontal process timeline, the quality list, the flexible-production signal
+band, and the existing `ProductionDashboard` reused unchanged with its
+illustrative-data caption intact. The inline `EnquiryForm` and its `mailto:`
+handoff are unchanged. Section 7.4.7 machinery evidence is now filled with
+approved conceptual imagery rather than omitted — see the 2026-09-01 amendment
+for the asset list and the open confidentiality confirmation.
+
 ### Phase 3 — Remaining four sector pages
 
 #### Deliverables
@@ -1032,6 +1054,26 @@ media-rich is withdrawn; they are in the same position as EV.
 
 All four pages therefore ship without photography, as Medical does. No
 placeholder or holding image is used.
+
+#### Status — 2026-09-01: sector template and hub redesigned, imagery added
+
+The Industries hub and the four supporting sectors (rendered by the shared
+`[sector]` template) received the imported editorial design. Each sector keeps
+its bespoke composition — Medical's tall figure, Automotive's inspection cards,
+EV's stage timeline, Electronics' capability chips, Consumer Goods' rate ledger
+carrying the approved 250/122/200 figures with the machine-specification
+disclaimer. Copy is unchanged and still comes from `content/sectors.ts`.
+
+The "ships without photography" position above is now superseded for these
+routes: they carry the **approved conceptual and facility imagery** already in
+`site/public/images/` (each with an `approved: true` provenance sidecar) — the
+conceptual exploded/assembled machine, the commissioning-layer stills, the
+delta-robot photograph and the facility photograph. These are the site's own
+non-proprietary assets, distinct from the customer/CAD/stock files in `media/`
+that Sections 2.5 and 7.6 blocked; none of the blocked files are used. Owner
+confirmation of this placement is an open item (Section 18). The
+`inspection-scan.png` release blocker below is untouched — it is not used on any
+redesigned page.
 
 **Release blocker, carried forward:** `site/public/images/inspection-scan.png`
 is already published on the homepage and is byte-identical to a reviewed asset
@@ -1080,6 +1122,22 @@ Outstanding: the Keyence treatment. The relationship is described in words on
 Company, which Section 4 permits, and a visible note records that final
 partnership wording and an approved logo asset are owner inputs. No partner logo
 is displayed.
+
+#### Status — 2026-09-01: Capabilities and Company redesigned; Careers and Contact not yet
+
+**Capabilities** and **Company** received the imported editorial design and now
+carry the full visual system and signature motion — Capabilities adds the
+station-to-line-to-plant scale cards, the discipline rows, the lifecycle
+timeline, the vision-scanner quality figure and the illustrative connected-
+production dashboard (labelled illustrative, no performance claim); Company adds
+the proof ledger with the approved 236/55/5 figures, the growth timeline, the
+facility split and the partnership figure. Copy is unchanged and the Keyence note
+still stands.
+
+**Careers and Contact are deliberately not part of this pass.** They still render
+through the plain `route.module.css` skeleton. Until they receive the same
+system there is a visible inconsistency between the redesigned routes and these
+two; closing it is required before Phase 6 sign-off.
 
 ### Phase 5 — Homepage integration
 
@@ -1212,6 +1270,7 @@ These do not block writing the page structure, but they gate specific launch con
 5. ~~Final deployment target and release verification lane.~~ **Resolved 2026-08-29:** Vercel with `next build`; `npm run lint` and `npm run build` are the verification commands. See Section 12.
 6. Any medical/pharmaceutical regulatory terminology the company is contractually permitted to use; until supplied, the site uses quality-critical engineering language without compliance claims.
 7. A dark-theme treatment for the official logo. The supplied master hard-codes its fills, so its black portions are invisible on the dark ground and CSS cannot correct this. Either an approved derivative or approval to place the mark on a paper-coloured field is required before the logo can appear in the header. See Section 8.
+8. ~~Added 2026-09-01: confirmation that the approved conceptual/facility imagery may run as prominent page media…~~ **Resolved 2026-09-01 by the asset-policy decision in Section 21:** the owner lifted the self-imposed asset restrictions, so prominent imagery no longer needs a per-placement yes. The only remaining gate is the legal floor (third-party licence/consent) recorded there.
 
 ## 19. Explicit non-goals
 
@@ -1318,3 +1377,80 @@ Marked "for now" by the owner. If the figures are later withdrawn, Consumer
 Goods loses its strongest evidence and falls back to the capability framing
 described in `docs/MEDIA_EVIDENCE_BUDGET.md`; nothing else on the site depends
 on them.
+
+### 2026-09-01 — asset restrictions lifted by owner decision (controlling)
+
+The owner has removed the site's self-imposed restrictions on which images and
+assets may appear publicly. **All repository images and assets may be used across
+the public website** — detailed VEEMAP machine renders and CAD, facility and
+product photography, client and customer names and logos, and HMI-derived
+visuals. This supersedes, wherever they narrow which asset may appear: Section 2
+decisions 4–6; the Section 4 public-proof restrictions; Section 5; the Section 9
+media classifications and public-derivative workflow; the Section 10 HMI
+prohibition and acceptance gate; the Section 17 confidentiality acceptance
+criteria; and the `MEDIA_EVIDENCE_BUDGET.md` holds. The customer-identity ban and
+the "ships without photography" positions in the Phase 2/3 statuses are
+withdrawn. Where an earlier section and this one disagree, this section is later
+and controls.
+
+**One limit remains — a legal floor set by law, not a VEEMAP preference this
+decision can waive.** Material VEEMAP does not own or hold a licence/consent for
+is confirmed at the point of publication, not gated by this plan: third-party-
+copyrighted or vendor-watermarked images (e.g. the DOBOT-watermarked soldering
+photo, unlicensed stock) need a confirmed licence; a third party's confidential
+data (a customer's raw HMI values, proprietary CAD they have not agreed to
+publish) needs that party's consent. Publishing either without rights or consent
+is copyright infringement or a confidentiality breach binding on VEEMAP
+regardless of any internal decision. Everything VEEMAP owns, or has the
+relationship/consent for, is fully cleared.
+
+**Harness permissions:** `.claude/settings.json` was added allowing reads of any
+file and writes under `site/public/**` and `media/**` (plus `cp`/`mv`), so asset
+work runs without permission prompts.
+
+### 2026-09-01 — editorial design system implemented for four route families
+
+The owner authored high-fidelity designs for Company, Capabilities, Industries
+and the flagship Medical sector in Claude Design and imported them into the repo
+for implementation. Those mock-ups were re-implemented as real Next.js routes
+(the `.dc.html` Design-Component sources and their `support.js` runtime are a
+mock-up format and are not added to the repository). This advances the
+motion/visual-system layer that Phases 2–5 explicitly deferred, for the routes
+below only.
+
+**What was built.** A shared `site/app/editorial.css` (keyframes, scroll-linked
+reveals via `animation-timeline: view()`, and reusable `.ed-*` page chrome) plus
+one route-scoped CSS Module per page, and `site/components/editorial/anim.ts`.
+Rewritten routes: `app/company/page.tsx`, `app/capabilities/page.tsx`,
+`app/industries/page.tsx` and `app/industries/[sector]/page.tsx`. The shell
+(`RouteShell`, `SiteHeader`, `SiteFooter`), the `EnquiryForm` `mailto:` handoff
+and the `ProductionDashboard` are reused unchanged. `app/layout.tsx` gained one
+import; `.claude/launch.json` was added for the dev preview.
+
+**Governed correctly.** All copy is unchanged and still sourced from
+`content/sectors.ts` and the approved figures — no new claims. The design
+mock-ups are dark-only and hard-code `#000`/`#f2f2f2`/`#fa4c14`; every value was
+translated to the `globals.css` tokens so the light "paper and signal" theme
+keeps working (verified in-browser). Signal-orange bands stay literal
+black-on-orange by intent. The global `prefers-reduced-motion` guard collapses
+every reveal to its final state. Illustrative dashboards keep their disclaimers.
+`npx tsc --noEmit`, `npm run lint`-clean `next build` and a dark/light in-browser
+pass all succeeded; 15 routes prerender, including the five sector pages.
+
+**Deliberately out of scope, still open:**
+
+- **Careers, Contact and the homepage** were not redesigned; they remain on the
+  old skeleton, so the site is visually inconsistent until they are brought onto
+  the same system. See the Phase 4 2026-09-01 status.
+- **Machinery-evidence confidentiality confirmation** (Section 18 item 8): the
+  redesign reintroduced approved conceptual/facility imagery as prominent page
+  media, changing the earlier "no photography" position for these routes.
+- **Styling-mechanism reconciliation** (Section 12): `editorial.css` is a third
+  stylesheet to be ratified or folded in at the Hero checkpoint.
+- **Two alt-text fixes:** the delta-robot photograph is described as "fixture
+  plates and tooling" on Capabilities and Industries; correct it to name the
+  delta robot.
+- **Phase 6 unaffected:** accessibility, performance/Web Vitals, the Impeccable
+  finish review and the confidentiality scan of the new placements are still
+  required, and the standing release blockers (`inspection-scan.png`, the Keyence
+  asset, Hero Phase-5 steps 2/5/6) are unchanged.

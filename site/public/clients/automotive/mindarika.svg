@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="100%" height="100%">
+  <g transform="translate(30, 35)">
+    <rect x="0" y="10" width="90" height="90" rx="16" fill="#002D62"/>
+    <text x="45" y="70" font-family="'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#E60012" text-anchor="middle">MKL</text>
+  </g>
+  <g transform="translate(145, 80)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="38" fill="#002D62" letter-spacing="1.5">MINDARIKA</text>
+    <text y="30" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#555555" letter-spacing="1">UNO MINDA &amp; TOKAI RIKA JV</text>
+  </g>
+</svg>

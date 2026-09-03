@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="100%" height="100%">
+  <g transform="translate(35, 35)">
+    <rect x="0" y="0" width="105" height="105" rx="20" fill="#00838F"/>
+    <!-- Medical Cross -->
+    <rect x="40" y="20" width="25" height="65" rx="4" fill="#FFFFFF"/>
+    <rect x="20" y="40" width="65" height="25" rx="4" fill="#FFFFFF"/>
+  </g>
+  <g transform="translate(160, 85)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="38" fill="#006064" letter-spacing="1">STERIMED</text>
+    <text y="30" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#00838F" letter-spacing="3">MEDICAL DEVICES</text>
+  </g>
+</svg>

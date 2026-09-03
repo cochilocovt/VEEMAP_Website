@@ -2,702 +2,579 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import {
-  Box,
+  ArrowDown,
+  ArrowUpRight,
   Camera,
-  Columns3,
   HeartPulse,
   MonitorUp,
   Move3d,
-  Waypoints,
-  Wrench,
+  RotateCcw,
   type LucideIcon,
 } from 'lucide-react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+export type AssemblyPhase =
+  | 'idle'
+  | 'expanding'
+  | 'mechanical-build'
+  | 'awaiting-scroll'
+  | 'intelligence'
+  | 'completed';
 
-type StepId = 'foundation' | 'flow' | 'frame' | 'tooling' | 'vision' | 'motion' | 'hmi' | 'condition';
-type FocusPoint = { x: number; y: number };
-type SequenceDirection = -1 | 0 | 1;
-type SequenceStatus = 'idle' | 'loading' | 'playing' | 'buffering' | 'complete';
-
-export interface CommissioningStep {
-  id: StepId;
+export interface IntelligenceStep {
+  id: 'vision' | 'motion' | 'hmi' | 'condition';
   code: string;
-  label: string;
+  tag: string;
   title: string;
+  subtitle: string;
   body: string;
-  startProgress: number;
-  endProgress: number;
-  focusStart: FocusPoint;
-  focusEnd: FocusPoint;
+  start: number;
+  end: number;
+  focus: { x: number; y: number };
 }
 
-const stepProgress = (index: number) => index / 8;
-
-const steps: CommissioningStep[] = [
-  {
-    id: 'foundation',
-    code: 'DATUM / 01',
-    label: 'Foundation',
-    title: 'Establish the load path.',
-    body: 'The base, cabinets and support structure come together first—creating the stable datum every downstream station depends on.',
-    startProgress: stepProgress(0),
-    endProgress: stepProgress(1),
-    focusStart: { x: 37, y: 76 },
-    focusEnd: { x: 48, y: 68 },
-  },
-  {
-    id: 'flow',
-    code: 'FLOW / 02',
-    label: 'Material flow',
-    title: 'Bring the product path into the build.',
-    body: 'Infeed, transfer and outfeed structures settle around the process so the machine is shaped by how the product must move.',
-    startProgress: stepProgress(1),
-    endProgress: stepProgress(2),
-    focusStart: { x: 19, y: 65 },
-    focusEnd: { x: 35, y: 61 },
-  },
-  {
-    id: 'frame',
-    code: 'STRUCTURE / 03',
-    label: 'Machine frame',
-    title: 'Close the structure around the work.',
-    body: 'The frame and guarding architecture locate the working envelope while keeping access, service and changeover in view.',
-    startProgress: stepProgress(2),
-    endProgress: stepProgress(3),
-    focusStart: { x: 67, y: 36 },
-    focusEnd: { x: 61, y: 38 },
-  },
-  {
-    id: 'tooling',
-    code: 'PROCESS / 04',
-    label: 'Process tooling',
-    title: 'Seat each station around the part.',
-    body: 'Fixtures, nests and working elements assemble around the product path as one coordinated mechanism.',
-    startProgress: stepProgress(3),
-    endProgress: stepProgress(4),
-    focusStart: { x: 49, y: 46 },
-    focusEnd: { x: 49, y: 58 },
-  },
+export const intelligenceSteps: IntelligenceStep[] = [
   {
     id: 'vision',
-    code: 'OPTICAL / 05',
-    label: 'AI vision',
-    title: 'See the process before it becomes a problem.',
-    body: 'Machine vision can verify presence, orientation and critical geometry before a component advances—bringing inspection into the motion sequence.',
-    startProgress: stepProgress(4),
-    endProgress: stepProgress(5),
-    focusStart: { x: 46, y: 14 },
-    focusEnd: { x: 42, y: 34 },
+    code: '01',
+    tag: 'OPTICAL INSPECTION',
+    title: 'AI Vision Inspection',
+    subtitle: 'See the defect before the cycle advances.',
+    body: 'Telecentric machine vision verifies part presence, critical seating, and sub-millimeter geometry inline before components advance.',
+    start: 31.333333,
+    end: 39.166666,
+    focus: { x: 42, y: 34 },
   },
   {
     id: 'motion',
-    code: 'KINETIC / 06',
-    label: 'High-speed motion',
-    title: 'Move faster without losing control.',
-    body: 'In-house pick-and-place mechanisms, indexing systems and motion studies are designed around the real product, cycle and changeover requirement.',
-    startProgress: stepProgress(5),
-    endProgress: stepProgress(6),
-    focusStart: { x: 48, y: 15 },
-    focusEnd: { x: 49, y: 37 },
+    code: '02',
+    tag: 'HIGH-SPEED MOTION',
+    title: 'High-Speed Motion',
+    subtitle: 'Move at production cadence without losing precision.',
+    body: 'Custom servo linkages and synchronized electronic cam profiles drive 170 PPM cycles with controlled jerk-limited acceleration.',
+    start: 39.166666,
+    end: 47.0,
+    focus: { x: 49, y: 37 },
   },
   {
     id: 'hmi',
-    code: 'CONNECTED / 07',
-    label: 'Industry 4.0 HMI',
-    title: 'Turn machine activity into operating context.',
-    body: 'Connected HMI and SCADA layers bring production trends, traceability and machine state into one commissioning view for operators and leaders.',
-    startProgress: stepProgress(6),
-    endProgress: stepProgress(7),
-    focusStart: { x: 79, y: 44 },
-    focusEnd: { x: 69, y: 44 },
+    code: '03',
+    tag: 'INDUSTRY 4.0 HMI',
+    title: 'Industry 4.0 HMI',
+    subtitle: 'Real-time operating context for every station.',
+    body: 'Edge telemetry and integrated SCADA stream shift performance, part counts, and station genealogy directly to operators.',
+    start: 47.0,
+    end: 54.833333,
+    focus: { x: 69, y: 44 },
   },
   {
     id: 'condition',
-    code: 'CONDITION / 08',
-    label: 'Predictive health',
-    title: 'Act on drift before it becomes downtime.',
-    body: 'Condition signals, machine-health logic and preventive alerts give maintenance teams earlier context for investigation and intervention.',
-    startProgress: stepProgress(7),
-    endProgress: stepProgress(8),
-    focusStart: { x: 86, y: 43 },
-    focusEnd: { x: 78, y: 42 },
+    code: '04',
+    tag: 'PREDICTIVE HEALTH',
+    title: 'Predictive Health',
+    subtitle: 'Intervene on mechanical drift before it causes downtime.',
+    body: 'Continuous vibration FFT analysis and thermal gradient tracking detect wear signatures hundreds of operating hours early.',
+    start: 54.833333,
+    end: 62.833333,
+    focus: { x: 78, y: 42 },
   },
 ];
 
-const icons: Record<StepId, LucideIcon> = {
-  foundation: Box,
-  flow: Waypoints,
-  frame: Columns3,
-  tooling: Wrench,
+const icons: Record<string, LucideIcon> = {
   vision: Camera,
   motion: Move3d,
   hmi: MonitorUp,
   condition: HeartPulse,
 };
 
-const segmentBoundaries = [0, 7.833333, 15.666666, 23.5, 31.333333, 39.166666, 47, 54.833333, 62.833333] as const;
-const finalBoundary = segmentBoundaries[segmentBoundaries.length - 1];
+const mechanicalEndTime = 31.333333;
+const totalDuration = 62.833333;
 const frameDuration = 1 / 24;
-const segmentPlaybackDurationSeconds = 2;
-const playbackWatchdogMs = 15_000;
-
-const clamp = (value: number) => Math.min(1, Math.max(0, value));
-const lerp = (start: number, end: number, progress: number) => start + (end - start) * progress;
-const easeFocus = (progress: number) => 1 - Math.pow(1 - clamp(progress), 3);
-
-function StaticFallback() {
-  return (
-    <section id="commissioning" className="commissioning commissioning-fallback">
-      <div className="commissioning-fallback-visual">
-        <img
-          src="/video/veemap-assembly-sequence-final.webp"
-          alt="Conceptual special-purpose machine in its assembled state"
-        />
-      </div>
-      <div className="commissioning-fallback-copy">
-        <h2>Build the machine.<br /><em>Reveal the intelligence.</em></h2>
-        <div className="commissioning-fallback-list">
-          {steps.map((step) => {
-            const Icon = icons[step.id];
-            return (
-              <article key={step.id}>
-                <span><Icon aria-hidden="true" />{step.code}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-                <strong>{step.label}</strong>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function CommissioningVideoSequence() {
   const sectionRef = useRef<HTMLElement>(null);
-  const pinRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const boundaryIndexRef = useRef(0);
-  const activeIndexRef = useRef(0);
-  const mediaReadyRef = useRef<() => void>(() => undefined);
-  const mediaEventRef = useRef<(event: 'playing' | 'waiting') => void>(() => undefined);
-  const stageJumpRef = useRef<(index: number) => void>(() => undefined);
-  const [activeIndex, setActiveIndex] = useState(0);
+
+  const [phase, setPhase] = useState<AssemblyPhase>('idle');
   const [loadMedia, setLoadMedia] = useState(false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [sequenceStatus, setSequenceStatus] = useState<SequenceStatus>('idle');
+  const [activeIdx, setActiveIdx] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const phaseRef = useRef<AssemblyPhase>('idle');
+  phaseRef.current = phase;
+  const activeIdxRef = useRef(0);
+  activeIdxRef.current = activeIdx;
+  const transitionActiveRef = useRef(false);
+
+  // Check reduced motion preference
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReducedMotion(preference.matches);
+    const update = () => {
+      const matches = preference.matches;
+      setReducedMotion(matches);
+      if (matches) setPhase('completed');
+    };
     update();
     preference.addEventListener('change', update);
     return () => preference.removeEventListener('change', update);
   }, []);
 
+  // Eagerly connect intersection observer to load media in background
   useEffect(() => {
     const section = sectionRef.current;
     if (!section || reducedMotion) return;
 
-    let observer: IntersectionObserver | undefined;
-    const begin = () => {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setLoadMedia(true);
-            observer?.disconnect();
-          }
-        },
-        { rootMargin: '150% 0px' },
-      );
-      observer.observe(section);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadMedia(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' },
+    );
+    observer.observe(section);
 
-    if (window.scrollY > 16) begin();
-    else window.addEventListener('scroll', begin, { once: true, passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', begin);
-      observer?.disconnect();
-    };
+    return () => observer.disconnect();
   }, [reducedMotion]);
 
   useEffect(() => {
     if (loadMedia) videoRef.current?.load();
   }, [loadMedia]);
 
-  useGSAP(
-    () => {
-      const section = sectionRef.current;
-      const pin = pinRef.current;
-      if (reducedMotion || failed || !section || !pin) return;
+  // Trigger: "Click to assemble"
+  const handleStartAssembly = () => {
+    if (phaseRef.current !== 'idle') return;
+    setLoadMedia(true);
+    setPhase('expanding');
 
-      let trigger: ScrollTrigger | null = null;
-      let transitionFrame = 0;
-      let watchdog = 0;
-      let reverseTween: gsap.core.Tween | null = null;
-      let pendingDirection: SequenceDirection = 0;
-      let currentDirection: SequenceDirection = 0;
-      let currentSegment = 0;
-      let transitionActive = false;
-      let inputActive = false;
-      let gestureArmed = true;
-      let pinActive = false;
-      let lastGestureDelta = 0;
+    // Smoothly center the section in viewport
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      const updateActiveIndex = (index: number) => {
-        const next = Math.min(steps.length - 1, Math.max(0, index));
-        if (next === activeIndexRef.current) return;
-        activeIndexRef.current = next;
-        setActiveIndex(next);
-      };
-
-      const applyPresentation = (time: number, segmentIndex: number) => {
-        const boundedTime = Math.min(finalBoundary, Math.max(0, time));
-        const step = steps[segmentIndex];
-        const start = segmentBoundaries[segmentIndex];
-        const end = segmentBoundaries[segmentIndex + 1];
-        const localProgress = easeFocus((boundedTime - start) / (end - start));
-        const focusX = lerp(step.focusStart.x, step.focusEnd.x, localProgress);
-        const focusY = lerp(step.focusStart.y, step.focusEnd.y, localProgress);
-
-        pin.style.setProperty('--sequence-progress', String(boundedTime / finalBoundary));
-        pin.style.setProperty('--focus-x', `${focusX}%`);
-        pin.style.setProperty('--focus-y', `${focusY}%`);
-        updateActiveIndex(segmentIndex);
-      };
-
-      const clearMotion = () => {
-        if (transitionFrame) cancelAnimationFrame(transitionFrame);
-        transitionFrame = 0;
-        if (watchdog) window.clearTimeout(watchdog);
-        watchdog = 0;
-        reverseTween?.kill();
-        reverseTween = null;
-        if (videoRef.current) videoRef.current.playbackRate = 1;
-      };
-
-      const failSequence = () => {
-        clearMotion();
-        videoRef.current?.pause();
-        transitionActive = false;
-        setIsTransitioning(false);
-        setFailed(true);
-      };
-
-      const startWatchdog = () => {
-        if (watchdog) window.clearTimeout(watchdog);
-        watchdog = window.setTimeout(failSequence, playbackWatchdogMs);
-      };
-
-      const finishTransition = (targetBoundary: number) => {
-        const video = videoRef.current;
-        clearMotion();
-        video?.pause();
-
-        if (video) {
-          try {
-            video.currentTime = segmentBoundaries[targetBoundary];
-          } catch {
-            failSequence();
-            return;
-          }
-        }
-
-        boundaryIndexRef.current = targetBoundary;
-        currentDirection = 0;
-        transitionActive = false;
-        setIsTransitioning(false);
-        const restingStep = targetBoundary === 0 ? 0 : targetBoundary - 1;
-        applyPresentation(segmentBoundaries[targetBoundary], restingStep);
-        setSequenceStatus(targetBoundary === steps.length ? 'complete' : 'idle');
-        gestureArmed = !inputActive;
-      };
-
-      const monitorForwardPlayback = (targetBoundary: number) => {
-        const video = videoRef.current;
-        if (!video || !transitionActive || currentDirection !== 1) return;
-        applyPresentation(video.currentTime, currentSegment);
-
-        if (video.currentTime >= segmentBoundaries[targetBoundary] - frameDuration) {
-          finishTransition(targetBoundary);
-          return;
-        }
-
-        transitionFrame = requestAnimationFrame(() => monitorForwardPlayback(targetBoundary));
-      };
-
-      const playSegment = (direction: Exclude<SequenceDirection, 0>) => {
-        const video = videoRef.current;
-        const boundary = boundaryIndexRef.current;
-        if (!video || transitionActive) return;
-
-        currentSegment = direction === 1 ? boundary : boundary - 1;
-        const targetBoundary = boundary + direction;
-        const start = segmentBoundaries[currentSegment];
-        const end = segmentBoundaries[currentSegment + 1];
-        currentDirection = direction;
-        transitionActive = true;
-        setIsTransitioning(true);
-        setSequenceStatus('playing');
-        updateActiveIndex(currentSegment);
-        startWatchdog();
-
-        try {
-          video.pause();
-          video.currentTime = direction === 1 ? start : end;
-        } catch {
-          failSequence();
-          return;
-        }
-
-        if (direction === -1) {
-          video.playbackRate = 1;
-          reverseTween = gsap.to(video, {
-            currentTime: start,
-            duration: segmentPlaybackDurationSeconds,
-            ease: 'none',
-            overwrite: true,
-            onUpdate: () => applyPresentation(video.currentTime, currentSegment),
-            onComplete: () => finishTransition(targetBoundary),
-          });
-          return;
-        }
-
-        video.playbackRate = (end - start) / segmentPlaybackDurationSeconds;
-        void video.play().then(
-          () => {
-            setSequenceStatus('playing');
-            transitionFrame = requestAnimationFrame(() => monitorForwardPlayback(targetBoundary));
+    const stage = stageRef.current;
+    if (stage) {
+      gsap.fromTo(
+        stage,
+        { scale: 0.94, opacity: 0.85 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power3.out',
+          onComplete: () => {
+            startMechanicalTimelapse();
           },
-          failSequence,
-        );
-      };
-
-      const observer = ScrollTrigger.observe({
-        target: window,
-        type: 'wheel,touch',
-        preventDefault: true,
-        wheelSpeed: -1,
-        tolerance: 34,
-        dragMinimum: 8,
-        lockAxis: true,
-        onChangeY: (self) => {
-          inputActive = true;
-          lastGestureDelta = Math.abs(self.deltaY || 0);
         },
-        onUp: () => requestTransition(1),
-        onDown: () => requestTransition(-1),
-        onStop: () => {
-          inputActive = false;
-          if (!transitionActive && pendingDirection === 0) {
-            gestureArmed = true;
-            lastGestureDelta = 0;
-          }
-        },
-        onStopDelay: 0.25,
-      });
-      observer.disable();
-
-      const releasePin = (direction: Exclude<SequenceDirection, 0>) => {
-        if (!trigger) return;
-        observer.disable();
-        pinActive = false;
-        gestureArmed = true;
-        inputActive = false;
-        // The current wheel/touch event is prevented by Observer. Carry a
-        // bounded portion of that gesture past the pin boundary so the same
-        // input actually releases the visitor into the adjacent section.
-        const releaseDistance = Math.max(
-          96,
-          Math.min(window.innerHeight * 0.5, lastGestureDelta || window.innerHeight * 0.35),
-        );
-        const destination = direction === 1
-          ? trigger.end + releaseDistance
-          : Math.max(0, trigger.start - releaseDistance);
-        lastGestureDelta = 0;
-        trigger.scroll(destination);
-      };
-
-      const requestTransition = (direction: Exclude<SequenceDirection, 0>, gestureInput = true) => {
-        if (!pinActive || transitionActive || !gestureArmed) return;
-        inputActive = gestureInput;
-        gestureArmed = false;
-
-        const boundary = boundaryIndexRef.current;
-        if ((direction === -1 && boundary === 0) || (direction === 1 && boundary === steps.length)) {
-          releasePin(direction);
-          return;
-        }
-
-        const video = videoRef.current;
-        if (!video || video.readyState < HTMLMediaElement.HAVE_FUTURE_DATA) {
-          if (pendingDirection === 0) pendingDirection = direction;
-          setLoadMedia(true);
-          setSequenceStatus('loading');
-          startWatchdog();
-          return;
-        }
-
-        playSegment(direction);
-      };
-
-      const activatePin = (fromBelow: boolean, playOnEntry = false) => {
-        pinActive = true;
-        gestureArmed = true;
-        inputActive = false;
-        setLoadMedia(true);
-        observer.enable();
-        if (trigger) trigger.scroll(fromBelow ? trigger.end - 1 : trigger.start + 1);
-        if (playOnEntry) requestTransition(fromBelow ? -1 : 1, false);
-      };
-
-      trigger = ScrollTrigger.create({
-        id: 'commissioning-video-sequence',
-        trigger: section,
-        start: 'top top',
-        end: () => `+=${Math.max(640, window.innerHeight)}`,
-        pin,
-        pinSpacing: true,
-        invalidateOnRefresh: true,
-        onEnter: () => activatePin(false, true),
-        onEnterBack: () => activatePin(true, true),
-        onLeave: () => {
-          pinActive = false;
-          observer.disable();
-        },
-        onLeaveBack: () => {
-          pinActive = false;
-          observer.disable();
-        },
-      });
-      if (trigger.isActive) activatePin(trigger.direction < 0);
-
-      const onKeyDown = (event: KeyboardEvent) => {
-        if (!pinActive || event.repeat) return;
-        const target = event.target;
-        if (target instanceof HTMLElement && target.closest('button, a, input, textarea, select, [contenteditable="true"]')) return;
-
-        let direction: Exclude<SequenceDirection, 0> | null = null;
-        if (event.key === 'ArrowDown' || event.key === 'PageDown' || (event.key === ' ' && !event.shiftKey)) direction = 1;
-        if (event.key === 'ArrowUp' || event.key === 'PageUp' || (event.key === ' ' && event.shiftKey)) direction = -1;
-        if (!direction) return;
-
-        event.preventDefault();
-        requestTransition(direction, false);
-      };
-
-      const onVisibilityChange = () => {
-        if (!transitionActive) return;
-        const video = videoRef.current;
-        if (document.hidden) {
-          if (watchdog) window.clearTimeout(watchdog);
-          watchdog = 0;
-          if (currentDirection === 1) {
-            video?.pause();
-            if (transitionFrame) cancelAnimationFrame(transitionFrame);
-            transitionFrame = 0;
-          } else {
-            reverseTween?.pause();
-          }
-          return;
-        }
-
-        startWatchdog();
-        if (currentDirection === -1) {
-          reverseTween?.resume();
-          return;
-        }
-
-        if (currentDirection === 1 && video) {
-          const targetBoundary = boundaryIndexRef.current + 1;
-          void video.play().then(
-            () => {
-              setSequenceStatus('playing');
-              transitionFrame = requestAnimationFrame(() => monitorForwardPlayback(targetBoundary));
-            },
-            failSequence,
-          );
-        }
-      };
-
-      mediaReadyRef.current = () => {
-        const video = videoRef.current;
-        if (!video || !Number.isFinite(video.duration)) return;
-        if (Math.abs(video.duration - finalBoundary) > 0.2) {
-          failSequence();
-          return;
-        }
-
-        setReady(true);
-        if (pendingDirection !== 0 && pinActive && !transitionActive) {
-          const direction = pendingDirection as Exclude<SequenceDirection, 0>;
-          pendingDirection = 0;
-          playSegment(direction);
-        } else if (!transitionActive) {
-          setSequenceStatus(boundaryIndexRef.current === steps.length ? 'complete' : 'idle');
-        }
-      };
-
-      mediaEventRef.current = (event) => {
-        if (!transitionActive) return;
-        setSequenceStatus(event === 'waiting' ? 'buffering' : 'playing');
-        if (event === 'waiting') startWatchdog();
-      };
-
-      stageJumpRef.current = (index) => {
-        if (transitionActive) return;
-        const video = videoRef.current;
-        const targetBoundary = index + 1;
-        if (!video || video.readyState < HTMLMediaElement.HAVE_METADATA) {
-          setLoadMedia(true);
-          return;
-        }
-
-        try {
-          video.pause();
-          video.currentTime = segmentBoundaries[targetBoundary];
-          boundaryIndexRef.current = targetBoundary;
-          applyPresentation(segmentBoundaries[targetBoundary], index);
-          setSequenceStatus(targetBoundary === steps.length ? 'complete' : 'idle');
-          gestureArmed = true;
-          inputActive = false;
-        } catch {
-          failSequence();
-        }
-      };
-
-      document.addEventListener('keydown', onKeyDown);
-      document.addEventListener('visibilitychange', onVisibilityChange);
-      applyPresentation(segmentBoundaries[boundaryIndexRef.current], activeIndexRef.current);
-
-      return () => {
-        clearMotion();
-        videoRef.current?.pause();
-        observer.kill();
-        trigger?.kill();
-        document.removeEventListener('keydown', onKeyDown);
-        document.removeEventListener('visibilitychange', onVisibilityChange);
-        mediaReadyRef.current = () => undefined;
-        mediaEventRef.current = () => undefined;
-        stageJumpRef.current = () => undefined;
-      };
-    },
-    { scope: sectionRef, dependencies: [failed, reducedMotion], revertOnUpdate: true },
-  );
-
-  if (reducedMotion || failed) return <StaticFallback />;
-
-  const active = steps[activeIndex];
-  const ActiveIcon = icons[active.id];
-  const instruction = sequenceStatus === 'playing'
-    ? 'Sequence in motion. Further input is held.'
-    : sequenceStatus === 'buffering'
-      ? 'Buffering assembly sequence.'
-      : sequenceStatus === 'loading'
-        ? 'Preparing assembly sequence.'
-        : sequenceStatus === 'complete'
-          ? 'Assembly complete. Scroll to continue.'
-          : 'Scroll once to install the next system.';
-
-  const prepareFirstSeek = () => {
-    const video = videoRef.current;
-    if (!video || !Number.isFinite(video.duration)) return;
-    try {
-      video.pause();
-      video.currentTime = segmentBoundaries[boundaryIndexRef.current];
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    } catch {
-      setFailed(true);
+      );
+    } else {
+      startMechanicalTimelapse();
     }
   };
+
+  // Pure Visual Mechanical Timelapse (0s to 31.33s, NO subtitles, NO titles, NO progress bar)
+  const startMechanicalTimelapse = () => {
+    setPhase('mechanical-build');
+    const video = videoRef.current;
+    if (!video) {
+      setPhase('awaiting-scroll');
+      return;
+    }
+
+    try {
+      video.pause();
+      video.currentTime = 0;
+    } catch {}
+
+    const buildDurationSeconds = 3.2;
+    video.playbackRate = mechanicalEndTime / buildDurationSeconds;
+
+    let frameId = 0;
+    const monitorBuild = () => {
+      if (!video) return;
+      if (video.currentTime >= mechanicalEndTime - frameDuration) {
+        cancelAnimationFrame(frameId);
+        video.pause();
+        video.currentTime = mechanicalEndTime;
+        video.playbackRate = 1;
+        setPhase('awaiting-scroll');
+        return;
+      }
+      frameId = requestAnimationFrame(monitorBuild);
+    };
+
+    const watchdog = setTimeout(() => {
+      cancelAnimationFrame(frameId);
+      if (video) {
+        video.pause();
+        try { video.currentTime = mechanicalEndTime; } catch {}
+        video.playbackRate = 1;
+      }
+      setPhase('awaiting-scroll');
+    }, (buildDurationSeconds + 0.5) * 1000);
+
+    void video.play().then(
+      () => {
+        frameId = requestAnimationFrame(monitorBuild);
+      },
+      () => {
+        clearTimeout(watchdog);
+        setPhase('awaiting-scroll');
+      },
+    );
+  };
+
+  // Step through intelligence layers (Vision, Motion, HMI, Health)
+  const playIntelligenceStep = (targetIdx: number) => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Allow user clicks to interrupt any ongoing animation
+    gsap.killTweensOf(video);
+
+    const currentIdx = activeIdxRef.current;
+    if (targetIdx < 0) return;
+
+    if (targetIdx >= intelligenceSteps.length) {
+      completeSequence();
+      return;
+    }
+
+    transitionActiveRef.current = true;
+    setIsTransitioning(true);
+    setPhase('intelligence');
+    setActiveIdx(targetIdx);
+
+    const step = intelligenceSteps[targetIdx];
+    const isForward = targetIdx >= currentIdx;
+    const duration = 1.6;
+
+    let watchdog: NodeJS.Timeout | undefined;
+
+    const onFinish = () => {
+      if (watchdog) clearTimeout(watchdog);
+      transitionActiveRef.current = false;
+      setIsTransitioning(false);
+      video.pause();
+      try {
+        video.currentTime = step.end;
+      } catch {}
+
+      if (targetIdx === intelligenceSteps.length - 1) {
+        // Last step completed: transition smoothly to completed state
+        completeSequence();
+      }
+    };
+
+    watchdog = setTimeout(() => {
+      onFinish();
+    }, (duration + 0.3) * 1000);
+
+    if (!isForward) {
+      video.playbackRate = 1;
+      gsap.to(video, {
+        currentTime: step.start,
+        duration: 1.2,
+        ease: 'power2.out',
+        overwrite: true,
+        onComplete: onFinish,
+      });
+      return;
+    }
+
+    try {
+      video.pause();
+      video.currentTime = step.start;
+    } catch {}
+
+    video.playbackRate = (step.end - step.start) / duration;
+    let frameId = 0;
+    const monitor = () => {
+      if (!video || !transitionActiveRef.current) return;
+      if (video.currentTime >= step.end - frameDuration) {
+        cancelAnimationFrame(frameId);
+        onFinish();
+        return;
+      }
+      frameId = requestAnimationFrame(monitor);
+    };
+
+    void video.play().then(
+      () => {
+        frameId = requestAnimationFrame(monitor);
+      },
+      () => {
+        transitionActiveRef.current = false;
+        setIsTransitioning(false);
+      },
+    );
+  };
+
+  // Direct jump from capability card or milestone tab
+  const jumpToIntelligence = (idx: number) => {
+    transitionActiveRef.current = false;
+    setIsTransitioning(false);
+    const video = videoRef.current;
+    setActiveIdx(idx);
+
+    const step = intelligenceSteps[idx];
+    if (video) {
+      try {
+        video.pause();
+        video.currentTime = step.end;
+      } catch {}
+    }
+  };
+
+  // Transition to completed state: smooth machine reduction and capability deck
+  const completeSequence = () => {
+    setPhase('completed');
+    const stage = stageRef.current;
+    if (stage) {
+      gsap.to(stage, {
+        duration: 0.7,
+        ease: 'power3.out',
+      });
+    }
+  };
+
+  // Reset / Replay
+  const handleReplay = () => {
+    const video = videoRef.current;
+    if (video) {
+      try {
+        video.pause();
+        video.currentTime = 0;
+      } catch {}
+    }
+    setActiveIdx(0);
+    setPhase('idle');
+  };
+
+  // Contained Wheel interaction on the stage
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || reducedMotion || failed) return;
+
+    let wheelAcc = 0;
+    let timer: number | undefined;
+
+    const onWheel = (e: WheelEvent) => {
+      if (e.ctrlKey || e.metaKey) return;
+      const currentPhase = phaseRef.current;
+
+      // In idle, mechanical-build, or completed states: do NOT hijack scroll!
+      if (currentPhase === 'idle' || currentPhase === 'mechanical-build' || currentPhase === 'completed') {
+        return;
+      }
+
+      const isDown = e.deltaY > 0;
+      const currIdx = activeIdxRef.current;
+
+      // When at boundary: let window scroll freely
+      if (isDown && currIdx === intelligenceSteps.length - 1) {
+        completeSequence();
+        return;
+      }
+      if (!isDown && currIdx === 0 && currentPhase === 'awaiting-scroll') {
+        return;
+      }
+
+      e.preventDefault();
+      wheelAcc += e.deltaY;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        wheelAcc = 0;
+      }, 160);
+
+      if (Math.abs(wheelAcc) >= 30) {
+        const dir = wheelAcc > 0 ? 1 : -1;
+        wheelAcc = 0;
+        playIntelligenceStep(currIdx + dir);
+      }
+    };
+
+    stage.addEventListener('wheel', onWheel, { passive: false });
+    return () => {
+      stage.removeEventListener('wheel', onWheel);
+      if (timer) window.clearTimeout(timer);
+    };
+  }, [reducedMotion, failed]);
+
+  const activeStep = intelligenceSteps[activeIdx];
+  const ActiveIcon = icons[activeStep.id] || Camera;
 
   return (
     <section id="commissioning" ref={sectionRef} className="commissioning">
       <div
-        ref={pinRef}
-        className={`commissioning-pin ${ready ? 'is-ready' : ''} ${sequenceStatus === 'loading' || sequenceStatus === 'buffering' ? 'is-buffering' : ''} ${isTransitioning ? 'is-playing' : ''}`}
-        style={{ '--focus-x': '37%', '--focus-y': '76%' } as CSSProperties}
-        aria-busy={isTransitioning || sequenceStatus === 'loading' || sequenceStatus === 'buffering'}
-        aria-label="Assembly sequence. Use scroll, swipe, or the arrow keys to move one stage at a time."
-        tabIndex={0}
+        ref={stageRef}
+        className={`assembly-stage phase-${phase} ${isTransitioning ? 'is-playing' : ''}`}
+        aria-label="Interactive machine commissioning showcase"
       >
-        <header className="commissioning-heading">
-          <div className="commissioning-status">
-            <span>Assembly</span>
-            <strong>{String(activeIndex + 1).padStart(2, '0')} / {String(steps.length).padStart(2, '0')}</strong>
-          </div>
-          <h2>Build the machine.<br /><em>Reveal the intelligence.</em></h2>
-          <p className="commissioning-instruction" aria-live="polite">{instruction}</p>
-        </header>
+        {/* The Machine Video / Viewport Shell */}
+        <div className="assembly-viewport">
+          <div className="assembly-video-frame">
+            {loadMedia ? (
+              <video
+                ref={videoRef}
+                className="assembly-video"
+                muted
+                playsInline
+                preload="auto"
+                src="/video/veemap-assembly-sequence.mp4"
+                poster="/video/veemap-assembly-sequence-start.webp"
+                aria-label="Special purpose assembly machine executing commissioning sequence"
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                onCanPlay={() => setReady(true)}
+                onError={() => setFailed(true)}
+              />
+            ) : null}
 
-        <div className="commissioning-video-shell">
-          {loadMedia ? (
-            <video
-              ref={videoRef}
-              className="commissioning-video"
-              muted
-              playsInline
-              preload="auto"
-              src="/video/veemap-assembly-sequence.mp4"
-              poster="/video/veemap-assembly-sequence-start.webp"
-              aria-label="Conceptual special-purpose machine assembling one system at a time"
-              disablePictureInPicture
-              controlsList="nodownload noplaybackrate noremoteplayback"
-              onLoadedMetadata={prepareFirstSeek}
-              onCanPlay={() => mediaReadyRef.current()}
-              onPlaying={() => mediaEventRef.current('playing')}
-              onWaiting={() => mediaEventRef.current('waiting')}
-              onStalled={() => mediaEventRef.current('waiting')}
-              onError={() => setFailed(true)}
+            {/* Poster for initial state */}
+            <img
+              className={`assembly-poster ${phase !== 'idle' ? 'is-hidden' : ''}`}
+              src="/video/veemap-assembly-sequence-start.webp"
+              alt="VEEMAP special-purpose machinery exploded view"
             />
-          ) : null}
-          <img
-            className="commissioning-poster"
-            src="/video/veemap-assembly-sequence-start.webp"
-            alt=""
-          />
-          <span className="commissioning-loader" aria-live="polite">
-            {sequenceStatus === 'buffering' ? 'Buffering assembly sequence' : 'Preparing assembly sequence'}
-          </span>
-          <span className="commissioning-focus" aria-hidden="true"><span>{activeIndex + 1}</span></span>
-          <span className="machine-state">Concept machine / non-proprietary</span>
-        </div>
 
-        <article className="commissioning-active-step" aria-live="polite" key={active.id}>
-          <div><ActiveIcon aria-hidden="true" /><span>{active.code}</span></div>
-          <h3>{active.title}</h3>
-          <p>{active.body}</p>
-          <strong>{active.label}</strong>
-        </article>
-
-        <ol className="commissioning-index" aria-label="Assembly stages">
-          {steps.map((step, index) => (
-            <li key={step.id} className={index === activeIndex ? 'is-active' : ''}>
+            {/* In Idle State: Lucrative 'Click to assemble' Trigger */}
+            {phase === 'idle' && (
               <button
                 type="button"
-                aria-label={`Inspect completed stage ${index + 1}: ${step.label}`}
-                aria-current={index === activeIndex ? 'step' : undefined}
-                disabled={!ready || isTransitioning || sequenceStatus === 'loading' || sequenceStatus === 'buffering'}
-                onClick={() => stageJumpRef.current(index)}
+                className="assembly-trigger"
+                onClick={handleStartAssembly}
+                aria-label="Click to assemble the machine"
               >
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <span className="commissioning-index-label">{step.label}</span>
+                <span className="trigger-beacon" aria-hidden="true" />
+                <span className="trigger-text">CLICK TO ASSEMBLE</span>
+                <ArrowUpRight size={14} className="trigger-icon" aria-hidden="true" />
               </button>
-            </li>
-          ))}
-        </ol>
-        <div className="sequence-track" aria-hidden="true"><span /></div>
+            )}
+
+            {/* In Awaiting-Scroll State: Prompt user to scroll */}
+            {phase === 'awaiting-scroll' && (
+              <button
+                type="button"
+                className="assembly-scroll-prompt"
+                onClick={() => playIntelligenceStep(0)}
+                aria-label="Scroll to commission intelligence"
+              >
+                <span className="prompt-dot" aria-hidden="true" />
+                <span className="prompt-text">SCROLL TO COMMISSION INTELLIGENCE</span>
+                <ArrowDown size={14} className="prompt-arrow" aria-hidden="true" />
+              </button>
+            )}
+
+            {/* During Intelligence Phase: Optical Targeting Reticle */}
+            {(phase === 'awaiting-scroll' || phase === 'intelligence' || phase === 'completed') && (
+              <div
+                className="assembly-reticle"
+                style={{ left: `${activeStep.focus.x}%`, top: `${activeStep.focus.y}%` }}
+                aria-hidden="true"
+              >
+                <span className="reticle-crosshair" />
+                <span className="reticle-label">{activeStep.code} // {activeStep.tag}</span>
+              </div>
+            )}
+
+            {/* Replay Button in completed phase */}
+            {phase === 'completed' && (
+              <button
+                type="button"
+                className="assembly-replay-btn"
+                onClick={handleReplay}
+                aria-label="Replay assembly sequence"
+              >
+                <RotateCcw size={12} aria-hidden="true" />
+                <span>REPLAY ASSEMBLY</span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Intelligence Phase Header / Title (Only visible during intelligence commissioning) */}
+        {(phase === 'awaiting-scroll' || phase === 'intelligence') && (
+          <div className="intelligence-narrative" aria-live="polite">
+            <div className="narrative-meta">
+              <ActiveIcon size={14} className="narrative-icon" aria-hidden="true" />
+              <span>{activeStep.code} / 04 // {activeStep.tag}</span>
+            </div>
+            <h2 className="narrative-title">{activeStep.title}</h2>
+            <p className="narrative-desc">{activeStep.subtitle}</p>
+          </div>
+        )}
+
+        {/* 4-Segment Progress Bar (Dedicated strictly to the 4 Intelligence Layers) */}
+        {(phase === 'awaiting-scroll' || phase === 'intelligence') && (
+          <div className="assembly-progress-bar" role="tablist" aria-label="Intelligence Layers">
+            <div className="progress-track" aria-hidden="true">
+              <span
+                className="progress-fill"
+                style={{ transform: `scaleX(${(activeIdx + 1) / intelligenceSteps.length})` }}
+              />
+            </div>
+            <div className="progress-milestones">
+              {intelligenceSteps.map((step, idx) => {
+                const isActive = idx === activeIdx;
+                const isPassed = idx < activeIdx;
+                return (
+                  <button
+                    key={step.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    className={`progress-pill ${isActive ? 'is-active' : isPassed ? 'is-passed' : ''}`}
+                    onClick={() => playIntelligenceStep(idx)}
+                  >
+                    <span className="pill-code">{step.code}</span>
+                    <span className="pill-label">{step.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Completed State: The 4 Capability Deck Below Reduced Machine */}
+        {phase === 'completed' && (
+          <div className="assembly-capability-deck" aria-label="Machine Intelligence Capabilities">
+            {intelligenceSteps.map((step, idx) => {
+              const Icon = icons[step.id];
+              const isActive = idx === activeIdx;
+              return (
+                <article
+                  key={step.id}
+                  className={`capability-card ${isActive ? 'is-active' : ''}`}
+                  onClick={() => jumpToIntelligence(idx)}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`${step.title}: ${step.subtitle}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      jumpToIntelligence(idx);
+                    }
+                  }}
+                >
+                  <div className="capability-card-top">
+                    <span className="capability-code">{step.code}</span>
+                    <Icon size={16} className="capability-icon" aria-hidden="true" />
+                  </div>
+                  <h3 className="capability-title">{step.title}</h3>
+                  <p className="capability-subtitle">{step.subtitle}</p>
+                  <p className="capability-body">{step.body}</p>
+                  <span className="capability-action">
+                    <span>INSPECT SUBSYSTEM</span>
+                    <ArrowUpRight size={12} aria-hidden="true" />
+                  </span>
+                </article>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -19,11 +19,8 @@ import CommissioningVideoSequence from './CommissioningVideoSequence';
 import SiteHeader from '@/components/site-shell/SiteHeader';
 import SiteFooter from '@/components/site-shell/SiteFooter';
 import EnquiryForm from '@/components/enquiry/EnquiryForm';
+import ClientLogoCarousel from '@/components/home/ClientLogoCarousel';
 import { DeliverySequence, MedicalLeadFeature, SectorIndex } from '@/components/home/HomeSections';
-
-// Medical leads every sector list (plan 2.2). Short labels: the tape is a
-// typographic rail, not a navigation list.
-const sectors = ['Medical', 'Automotive', 'EV solutions', 'Electronics', 'Consumer goods'];
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -159,12 +156,11 @@ export default function Home() {
         <div className="proof-ledger">
           <div><strong className="proof-number">236</strong><span>projects delivered</span></div>
           <div><strong className="proof-number">55</strong><span>clients in India and overseas</span></div>
-          <div><strong className="proof-number">5</strong><span>manufacturing sectors</span></div>
-        </div>
-        <div className="sector-tape" aria-label="Markets served">
-          {sectors.map((sector) => <span key={sector}>{sector}<i aria-hidden="true" /></span>)}
+          <div><strong className="proof-number">5</strong><span><a href="#sectors">manufacturing sectors</a></span></div>
         </div>
       </section>
+
+      <ClientLogoCarousel />
 
       <MedicalLeadFeature />
 
@@ -193,7 +189,9 @@ export default function Home() {
           <a className="text-link depth-line" href="#enquiry">Bring us the process constraint <ArrowRight aria-hidden="true" /></a>
         </div>
         <figure className="engineering-visual depth-line">
-          <Image src="/images/motion-delta-robot.png" alt="High-speed in-house motion mechanism under development" fill sizes="(max-width: 900px) 100vw, 52vw" />
+          <video autoPlay muted loop playsInline poster="/images/motion-delta-robot.png" aria-hidden="true">
+            <source src="/video/delta-robot.mp4" type="video/mp4" />
+          </video>
           <figcaption><Bot aria-hidden="true" /> High-speed pick-and-place R&amp;D</figcaption>
         </figure>
       </section>

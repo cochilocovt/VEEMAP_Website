@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="100%" height="100%">
+  <g transform="translate(40, 35)">
+    <rect x="0" y="0" width="105" height="105" rx="18" fill="#1565C0"/>
+    <text x="52" y="72" font-family="'Arial Black', sans-serif" font-weight="900" font-size="48" fill="#FFFFFF" text-anchor="middle">P</text>
+  </g>
+  <g transform="translate(165, 85)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="36" fill="#1565C0" letter-spacing="2">PALAM</text>
+    <text y="30" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" fill="#424242" letter-spacing="3">PLASTICS</text>
+  </g>
+</svg>

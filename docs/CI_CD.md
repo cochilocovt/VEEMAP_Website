@@ -4,14 +4,18 @@ GitHub Actions validates every pull request and every relevant push to `main`.
 Vercel deploys the same GitHub repository after it is connected through the
 Vercel dashboard.
 
-## One-time Vercel setup
+## Production
 
-1. In Vercel, import `cochilocovt/VEEMAP_Website` as a new project.
-2. Set the project's Root Directory to `site`.
-3. Leave the detected framework as Next.js and use the repository's install and
-   build commands.
-4. Link the `main` branch to Production. Pull requests then receive Vercel
-   preview deployments automatically.
+- Vercel project: `veemap-technologies`
+- Project root: `site`
+- Production branch: `main`
+- Production alias: <https://veemap-technologies.vercel.app>
+
+## Vercel project configuration
+
+The project imports `cochilocovt/VEEMAP_Website`, uses `site` as its Root
+Directory, detects Next.js, and links `main` to Production. Pull requests receive
+Vercel preview deployments automatically.
 
 No GitHub deployment secrets are required for this Git-integration approach.
 Vercel stores its deployment credentials and environment values in the Vercel

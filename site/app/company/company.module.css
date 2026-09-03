@@ -1,0 +1,194 @@
+/*
+ * Company route layout. Shared chrome (hero, kicker, headings, ledger, marquee,
+ * figures, band, CTAs) lives in app/editorial.css; this module owns only the
+ * grids and pieces unique to the Company story. Colours resolve to the shell
+ * tokens so the light theme keeps working.
+ */
+
+.section {
+  padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Indigenous engineering: editorial split with the facility photograph. */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-height: 760px;
+  border-bottom: 1px solid var(--line);
+}
+.splitBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(4rem, 7vw, 7rem) var(--page-gutter);
+}
+.splitFigure { min-height: 700px; }
+
+.rail {
+  display: grid;
+  margin-top: 3rem;
+  border-top: 1px solid var(--line-strong);
+}
+.railRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--line-strong);
+  font-family: var(--font-mono), monospace;
+  font-size: .68rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* YES and NO signal band. */
+.band { padding: clamp(5rem, 10vw, 9rem) var(--page-gutter); }
+.bandGrid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 6vw;
+  align-items: end;
+}
+.bandGrid p { margin: 0; max-width: 52ch; color: rgba(0, 0, 0, .76); font-size: 1.2rem; line-height: 1.5; }
+
+/* Capability-growth timeline. */
+.timelineSection {
+  position: relative;
+  padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  isolation: isolate;
+}
+.timelineBgImg {
+  position: absolute;
+  top: 6%;
+  right: -18%;
+  width: 52%;
+  z-index: -1;
+  opacity: .3;
+  animation: ed-driftUp linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 100%;
+}
+.timeline { position: relative; margin-top: clamp(3rem, 6vw, 5rem); padding-left: 3.5rem; }
+.timelineRail { position: absolute; top: 0; bottom: 0; left: 5px; width: 1px; background: var(--line); }
+.timelineRailFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  width: 1px;
+  background: var(--signal);
+  transform-origin: top;
+  animation: ed-drawY 1s linear both;
+  animation-timeline: view();
+  animation-range: entry 25% cover 75%;
+}
+.tlItem { position: relative; padding: 0 0 2.8rem; }
+.tlItem:last-child { padding-bottom: 0; }
+.tlNode { position: absolute; left: -3.5rem; top: .35rem; width: 11px; height: 11px; background: var(--signal); transform: rotate(45deg); }
+.tlNode.pulse { animation: ed-signalPulse 1.9s ease-in-out infinite; }
+.tlYear {
+  display: block;
+  font-family: var(--font-mono), monospace;
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: .7rem;
+}
+.tlText { margin: 0; max-width: 54ch; font-size: 1.15rem; line-height: 1.45; }
+
+/* Full-bleed capability band image. */
+.fullFigure {
+  position: relative;
+  margin: 0;
+  height: clamp(360px, 48vh, 600px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  animation: ed-wipeRight 1.2s cubic-bezier(.2, .8, .2, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 28%;
+}
+.fullFigureCap { position: absolute; bottom: 1.6rem; left: var(--page-gutter); display: grid; gap: .5rem; max-width: 34ch; }
+
+/* Technology partnership. */
+.partnership {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 6vw;
+  align-items: start;
+}
+.visionFrame {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  background: radial-gradient(circle at 50% 45%, #151515 0, #000 70%);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.visionFrame img { position: absolute; width: 320%; height: 320%; left: -75%; top: -65%; object-fit: contain; }
+.note {
+  margin: 2rem 0 0;
+  max-width: 40rem;
+  font-family: var(--font-mono), monospace;
+  font-size: .72rem;
+  line-height: 1.7;
+  color: var(--muted);
+  border-left: 2px solid var(--signal);
+  padding-left: 1rem;
+}
+
+/* Contact. */
+.contact {
+  position: relative;
+  padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter);
+  overflow: hidden;
+  isolation: isolate;
+}
+.contactBgImg {
+  position: absolute;
+  bottom: -24%;
+  right: -4%;
+  width: 36%;
+  z-index: -1;
+  opacity: .26;
+  animation: ed-driftDown linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 100%;
+}
+.contactGrid {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 6vw;
+  align-items: end;
+}
+.contactMeta {
+  display: grid;
+  gap: .5rem;
+  font-family: var(--font-mono), monospace;
+  font-size: .78rem;
+  line-height: 1.8;
+  justify-items: end;
+  text-align: right;
+}
+.contactMeta a { color: var(--signal); }
+
+@media (max-width: 960px) {
+  .split { grid-template-columns: 1fr; min-height: 0; }
+  .splitFigure { min-height: 380px; }
+  .bandGrid,
+  .partnership,
+  .contactGrid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contactMeta { justify-items: start; text-align: left; }
+  .fullFigureCap { left: var(--page-gutter); right: var(--page-gutter); }
+}

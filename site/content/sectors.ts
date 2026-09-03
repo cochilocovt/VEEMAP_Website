@@ -23,6 +23,8 @@ export type Sector = {
   order: number;
   audienceProblem: string;
   thesis: string;
+  /** Two to three lines for the homepage sector orbit: what VEEMAP builds for the sector. */
+  homeSummary: string;
   solutionFamilies: SolutionFamily[];
   processSteps: string[];
   qualityCapabilities: string[];
@@ -49,6 +51,8 @@ export const sectors: Sector[] = [
       'Quality-critical medical products are assembled from small components at high volume, and every unit has to be proven rather than sampled.',
     thesis:
       'VEEMAP engineers product-specific automation for medical device and pharmaceutical assembly: feeding, orientation, joining, testing, inspection and traceability designed around one product and its variants.',
+    homeSummary:
+      'Assembly machines for endotracheal tubes, IV drip chambers, spine needles, insulin pens and valves, with leak testing, vision inspection and traceability built in.',
     solutionFamilies: [
       { name: 'Endotracheal tube assembly', detail: 'Multi-component assembly with in-line verification.' },
       { name: 'IV drip chamber assembly', detail: 'Component feeding, joining and leak verification.' },
@@ -105,6 +109,8 @@ export const sectors: Sector[] = [
       'Automotive volumes make an undetected defect expensive fast, and a part that leaves the line unverified is a part that comes back.',
     thesis:
       'Most of what VEEMAP builds for automotive exists to verify. Dimensional checking, vision inspection, functional test and part identification are designed into the line rather than bolted onto the end of it.',
+    homeSummary:
+      'Vision and dimensional inspection for pistons, engine numbers and brake discs, plus radiator, fuel-rail and clutch assembly with results logged to the part.',
     solutionFamilies: [
       { name: 'Verification and inspection', detail: 'Piston vision inspection, engine number inspection, brake shoe inspection, piston liner inspection and brake disc vision inspection.' },
       { name: 'Assembly and joining', detail: 'Radiator assembly, fuel rail assembly, complete clutch assembly, and pipe and component handling.' },
@@ -155,6 +161,8 @@ export const sectors: Sector[] = [
       'Electric drivetrain production is a sequence of processes, each with its own quality gate, that all have to agree on the same part record.',
     thesis:
       'VEEMAP builds the individual stations of electric vehicle manufacturing and the flow that connects them, from winding through controller and charger build to end-of-line test.',
+    homeSummary:
+      'Stations and lines for electric drivetrains: wire winding, motor and hub-motor assembly, controller and charger build, and end-of-line test on one part record.',
     solutionFamilies: [
       { name: 'Motor and hub-motor assembly', detail: 'Multi-station assembly for motor and hub-motor builds.' },
       { name: 'Wire winding', detail: 'Controlled winding as a production process rather than a bench operation.' },
@@ -205,6 +213,8 @@ export const sectors: Sector[] = [
       'Electronics assembly is judged on repeatability: the same joint, the same placement, the same verified result, every cycle.',
     thesis:
       'VEEMAP builds electronics assembly automation around process precision and verification — controlled joining, controlled tightening, and an electrical or visual check on every unit.',
+    homeSummary:
+      'Switch and circuit-breaker assembly, robotic soldering, servo-controlled tightening, RFID processing and electrical test, with every unit verified in line.',
     solutionFamilies: [
       { name: 'Electrical switch assembly', detail: 'Multi-component switch assembly with in-line checking.' },
       { name: 'Circuit-breaker automation', detail: 'Assembly and verification for breaker builds.' },
@@ -257,6 +267,8 @@ export const sectors: Sector[] = [
       'Consumer goods lines succeed on rate, changeover and consistency — a small assembly of many small parts, built by the million.',
     thesis:
       'VEEMAP builds high-rate consumer goods assembly that holds quality at speed, segregates what is not good in line, and converts to the next product variant without a rebuild.',
+    homeSummary:
+      'High-rate assembly for dispensing pumps, caps and liners, valves and packaging components, with in-line quality control and tooling that converts between variants.',
     solutionFamilies: [
       { name: 'Dispensing pump assembly', detail: 'Eleven parts assembled into one pump at above 122 parts per minute, with quality control segregating non-conforming parts in line. Linear link conveyor carrying 50 stations across 11 tracks, more than 200 sensors feeding the production data layer, and dashboards built on Zenon. Convertible to another pump type.' },
       { name: 'Cap and liner insertion', detail: 'Two-part assembly with in-line quality control at a target output above 250 parts per minute. Rotary indexing across eight stations on a single track, convertible to another cap type without a rebuild.' },

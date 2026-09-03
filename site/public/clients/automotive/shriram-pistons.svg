@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" width="100%" height="100%">
+  <!-- Icon: Interlocking Piston Rings -->
+  <g transform="translate(30, 35)">
+    <circle cx="55" cy="55" r="45" fill="none" stroke="#003876" stroke-width="12"/>
+    <circle cx="55" cy="55" r="28" fill="none" stroke="#E31837" stroke-width="8"/>
+    <text x="55" y="64" font-family="'Arial Black', sans-serif" font-weight="900" font-size="20" fill="#003876" text-anchor="middle">SPR</text>
+  </g>
+  <!-- Typography -->
+  <g transform="translate(155, 75)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="800" font-size="28" fill="#003876" letter-spacing="1">SHRIRAM PISTONS</text>
+    <text y="32" font-family="'Montserrat', sans-serif" font-weight="700" font-size="22" fill="#E31837" letter-spacing="2">&amp; RINGS LTD.</text>
+  </g>
+</svg>

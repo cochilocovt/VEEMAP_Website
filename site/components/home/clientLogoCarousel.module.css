@@ -1,0 +1,230 @@
+.carouselSection {
+  border-top: 1px solid var(--line);
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--ground);
+}
+
+.intro {
+  padding: 0 var(--page-gutter);
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.kicker {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--signal);
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.title {
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 auto 1rem;
+  max-width: 860px;
+  color: var(--text);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+.subtitle {
+  font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Tabs */
+.tabsNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 2.75rem;
+  padding: 0 var(--page-gutter);
+}
+
+.tabBtn {
+  position: relative;
+  appearance: none;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-family: var(--font-utility), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.tabBtn:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tabBtnActive {
+  background: var(--signal);
+  color: #ffffff;
+  border-color: var(--signal);
+  box-shadow: 0 4px 20px rgba(250, 76, 20, 0.35);
+  transform: scale(1.04);
+}
+
+.tabBtnActive:hover {
+  background: var(--signal);
+  color: #ffffff;
+  border-color: var(--signal);
+}
+
+.badge {
+  font-size: 0.68rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.16);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tabBtnActive .badge {
+  background: rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+
+/* Marquee Container */
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(3rem, 12vw, 10rem);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--ground) 0%, transparent 100%);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, var(--ground) 0%, transparent 100%);
+}
+
+.trackStage {
+  display: flex;
+  width: 100%;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+  animation-name: marqueeInfinite;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marqueeTrack:hover,
+.marqueeTrack:focus-within {
+  animation-play-state: paused !important;
+}
+
+@keyframes marqueeInfinite {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Logo Cards */
+.logoCard {
+  position: relative;
+  width: clamp(140px, 15vw, 205px);
+  height: clamp(86px, 9vw, 115px);
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 0.9rem 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  cursor: pointer;
+}
+
+.logoCard:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(250, 76, 20, 0.45);
+}
+
+.logoInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.logoCard:hover .logoImg {
+  transform: scale(1.06);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none !important;
+    overflow-x: auto;
+    width: 100%;
+    padding: 0 var(--page-gutter);
+    scroll-snap-type: x mandatory;
+  }
+  .logoCard {
+    scroll-snap-align: start;
+  }
+}

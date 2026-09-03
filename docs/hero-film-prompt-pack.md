@@ -1,6 +1,33 @@
 # VEEMAP Hero Film — Production Prompt Pack
 
-Every image and video asset in `docs/hero-film-brief.md`, as a paste-ready prompt.
+> ## ⚠️ Mostly retired — 2026-09-01
+>
+> This pack was written for the v2 film brief. The hero is now a real-time WebGL
+> scene (`docs/hero-film-brief.md` v3, built by
+> `docs/superpowers/plans/2026-09-01-hero-scroll-scene.md`), so there are no
+> generated machine shots, no generated plant plates and no Veo clips in the
+> shipping design.
+>
+> **Still live — use these:**
+>
+> | Asset | Why it survives |
+> |---|---|
+> | `IMG-06a` · machine wide, brand + people removal | Needed for the proof section's clearances |
+> | `IMG-07a` · SCARA brand removal | Same. Prefer reframing over patching — see the spec's §9 note |
+> | `IMG-07b` · HMI legibility pass | Optional, and only if the values are cleared for publication |
+> | §0.3, §0.4 · GPT Image parameters and the preserve clause | The discipline that makes those three edits safe |
+> | §9 · Prompts you should never write | Still binding |
+>
+> **Retired:** every Nano Banana Pro plate (`IMG-01`–`IMG-05`, `IMG-08`, `IMG-09`),
+> every Veo prompt (`VID-01`–`VID-08`), the four-product opening, the CAD-to-real
+> reveal, and the plant reveal. The 3D scene does all of it, cheaper and without
+> a generated machine for an engineer to disbelieve.
+>
+> Kept rather than deleted: if the hero ever needs a pre-rendered OG/social still
+> or a video export for a trade show, the craft notes below are worth having.
+> Read the retired sections as reference, not as a work order.
+
+Every image and video asset in the **v2** film brief, as a paste-ready prompt.
 
 **Tools:** Veo 3.1 (motion) · Nano Banana Pro / Gemini 3 Pro Image (stills) · GPT Image 1.5 (edits on real frames, linework, transparent plates)
 **Asset IDs** map 1:1 to the shot bible. Generate in the order of §12.

@@ -1,6 +1,7 @@
 /*
  * Homepage non-Hero sections (plan 7.1). Route-scoped composition, so it lives
- * in a module rather than globals.css. Nothing here styles Hero markup.
+ * in a module rather than globals.css. Nothing here styles Hero markup. The
+ * sector orbit has its own module (sectorOrbit.module.css).
  */
 
 .section {
@@ -62,58 +63,42 @@
   break-inside: avoid;
 }
 
-/* Five-sector index */
-
-.sectorGrid {
-  max-width: 1600px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: 1px;
-  background: var(--line);
+.leadFigure {
+  position: relative;
+  margin: 1.8rem 0 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
   border: 1px solid var(--line);
-}
-
-.sectorCard {
   background: var(--ground);
-  padding: clamp(1.5rem, 2.6vw, 2.2rem);
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: .8rem;
-  min-height: 12rem;
-  transition: background-color .25s;
 }
-
-.sectorCard:hover {
-  background: color-mix(in srgb, var(--signal) 8%, var(--ground));
+.leadFigure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
-
-.sectorLead {
-  grid-column: span 2;
+.leadScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, .7) 100%);
 }
-
-.sectorIndex {
+.leadFigureCap {
+  position: absolute;
+  bottom: .9rem;
+  left: .9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   font-family: var(--font-mono), monospace;
-  font-size: .68rem;
-  letter-spacing: .14em;
-  color: var(--signal);
-}
-
-.sectorName {
-  font-family: var(--font-utility), sans-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-  font-weight: 600;
-  letter-spacing: -.005em;
-  margin: 0;
+  font-size: .55rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
+  color: var(--text);
 }
-
-.sectorBody {
-  color: var(--muted);
-  font-size: .92rem;
-  line-height: 1.5;
-  margin: 0;
+.leadDot {
+  width: 6px;
+  height: 6px;
+  background: var(--signal);
 }
 
 /* Engineering delivery sequence */
@@ -175,9 +160,5 @@
 
   .leadList {
     columns: 1;
-  }
-
-  .sectorLead {
-    grid-column: span 1;
   }
 }

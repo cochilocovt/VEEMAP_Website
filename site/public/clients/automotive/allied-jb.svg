@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="100%" height="100%">
+  <g transform="translate(35, 35)">
+    <rect x="0" y="0" width="105" height="105" rx="14" fill="#0D47A1"/>
+    <text x="52" y="68" font-family="'Arial Black', sans-serif" font-weight="900" font-size="42" fill="#FFFFFF" text-anchor="middle">JB</text>
+  </g>
+  <g transform="translate(160, 85)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#0D47A1" letter-spacing="2">ALLIED JB</text>
+    <text y="30" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#D32F2F" letter-spacing="2">FRICTION MATERIALS</text>
+  </g>
+</svg>

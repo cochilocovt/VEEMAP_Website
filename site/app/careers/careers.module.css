@@ -1,0 +1,39 @@
+/*
+ * Careers route layout. Shared chrome (hero, kicker, headings, figures, CTAs)
+ * lives in app/editorial.css; this module owns the discipline split, the problem
+ * rail and the facility band. Media is engineering-work led per plan 7.10.
+ */
+
+.section { padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); }
+.wrap { max-width: 1600px; margin: 0 auto; }
+
+/* The work: text + disciplines rail | engineering figure. */
+.split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); min-height: 640px; border-bottom: 1px solid var(--line); }
+.splitBody { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 7vw, 7rem) var(--page-gutter); }
+.splitFigure { min-height: 560px; border-left: 1px solid var(--line); }
+.rail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; margin-top: 2.6rem; border-top: 1px solid var(--line-strong); }
+.railRow { display: flex; align-items: center; gap: 1rem; padding: 1.05rem 0; border-bottom: 1px solid var(--line); font-family: var(--font-mono), monospace; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Problems: drifting machine image behind a diamond list. */
+.problems { position: relative; padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.problemsBg { position: absolute; top: -8%; right: -16%; width: 48%; z-index: -1; opacity: .28; animation: ed-driftUp linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+.problemList { display: grid; margin-top: 2.6rem; border-top: 1px solid var(--line-strong); max-width: 60rem; }
+.problemRow { display: flex; gap: 1.2rem; align-items: baseline; padding: 1.1rem 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; line-height: 1.4; }
+
+/* Training: prose | vision figure. */
+.training { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 6vw; align-items: center; max-width: 1600px; margin: 0 auto; }
+.trainingFigure { position: relative; margin: 0; aspect-ratio: 4 / 3; background: radial-gradient(circle at 50% 45%, #151515 0, #000 70%); border: 1px solid var(--line); overflow: hidden; }
+.trainingFigure img { position: absolute; width: 260%; height: 260%; left: -55%; top: -40%; object-fit: contain; }
+
+/* Facility band: full-bleed engineering base. */
+.facility { position: relative; margin: 0; height: clamp(360px, 52vh, 640px); overflow: hidden; border-bottom: 1px solid var(--line); animation: ed-wipeRight 1.2s cubic-bezier(.2, .8, .2, 1) both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+.facilityCap { position: absolute; bottom: 1.6rem; left: var(--page-gutter); display: grid; gap: .5rem; max-width: 40ch; }
+
+.apply { padding: clamp(4rem, 8vw, 7rem) var(--page-gutter); }
+
+@media (max-width: 960px) {
+  .split { grid-template-columns: 1fr; min-height: 0; }
+  .splitFigure { min-height: 340px; border-left: 0; border-top: 1px solid var(--line); }
+  .rail, .training { grid-template-columns: 1fr; }
+  .facilityCap { left: var(--page-gutter); right: var(--page-gutter); }
+}

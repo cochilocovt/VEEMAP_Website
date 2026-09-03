@@ -1,0 +1,66 @@
+/*
+ * Industries index layout. Each sector keeps its own bespoke composition from
+ * the approved design. Shared chrome (hero, marquee, steps, ledger, band,
+ * figures, CTAs) is in app/editorial.css. Tokenised for the light theme.
+ */
+
+.sector { position: relative; padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.sectorWrap { max-width: 1600px; margin: 0 auto; }
+.driftBg { position: absolute; z-index: -1; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+
+.big { font-family: var(--font-display), serif; font-size: clamp(3.2rem, 6vw, 6rem); line-height: .8; color: var(--signal); display: block; }
+.tag { display: inline-block; font-family: var(--font-mono), monospace; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.leadPara { margin: 0; max-width: 56ch; color: var(--text); font-size: 1.15rem; line-height: 1.5; }
+.subPara { margin: 1.4rem 0 0; max-width: 52ch; color: var(--muted); font-size: 1.05rem; line-height: 1.55; }
+
+/* Medical: text | tall figure. */
+.medicalGrid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: 6vw; align-items: start; }
+.medicalHead { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; }
+.familyList { display: grid; margin-top: 2.8rem; border-top: 1px solid var(--line); }
+.familyList span { padding: .9rem 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+.mediaTall { position: relative; margin: 0; aspect-ratio: 4 / 5; background: var(--ground); border: 1px solid var(--line); overflow: hidden; }
+
+/* Two/one-col heads used by automotive, EV, consumer. */
+.splitHead { display: grid; grid-template-columns: minmax(0, .42fr) minmax(0, 1fr); gap: 5vw; align-items: start; }
+
+/* Automotive 2x2 card grid. */
+.cards2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.8rem; }
+.card { background: var(--ground); padding: 1.6rem; }
+.cardTitle { margin: 0 0 .7rem; font-family: var(--font-utility), sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+.cardText { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+
+/* EV stages block. */
+.stages { position: relative; margin-top: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--line-strong); padding-top: 2.5rem; }
+.stagesFill { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--signal); transform-origin: 0; animation: ed-drawX 1s linear both; animation-timeline: view(); animation-range: entry 15% cover 50%; }
+
+/* Electronics: text (chips) | figure. */
+.electronics { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); min-height: 700px; border-bottom: 1px solid var(--line); }
+.electronicsBody { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 7vw, 7rem) var(--page-gutter); }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2.5rem; }
+.chip { border: 1px solid var(--line-strong); padding: .5rem .9rem; font-family: var(--font-mono), monospace; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.electronicsFigure { position: relative; margin: 0; background: var(--ground); overflow: hidden; }
+
+/* Consumer goods rate ledger. */
+.rateLedger { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); margin-top: clamp(3rem, 6vw, 5rem); }
+.rateCell { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; padding: 1.4rem 1.5rem 1.6rem; }
+.rateCell:first-child { padding-left: 0; }
+.rateCell + .rateCell { border-left: 1px solid var(--line-strong); }
+.rateNum { font-family: var(--font-display), serif; font-weight: 400; font-size: clamp(3.6rem, 8vw, 7.5rem); line-height: .8; letter-spacing: -.04em; color: var(--signal); }
+.rateNum span { font-size: .34em; }
+.disclaimer { margin: 1.4rem 0 0; font-family: var(--font-mono), monospace; font-size: .6rem; line-height: 1.7; color: var(--faint); max-width: 70ch; border-left: 2px solid var(--signal); padding-left: 1rem; }
+
+/* Across every sector band. */
+.band { padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); }
+.bandList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 3rem; margin-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid rgba(0, 0, 0, .35); }
+.bandList span { padding: 1.2rem 0; border-bottom: 1px solid rgba(0, 0, 0, .35); font-size: 1.1rem; }
+
+.sectorLinks { list-style: none; margin: 3rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; }
+
+@media (max-width: 960px) {
+  .medicalGrid, .splitHead, .cards2, .bandList { grid-template-columns: 1fr; }
+  .electronics { grid-template-columns: 1fr; min-height: 0; }
+  .electronicsFigure { min-height: 340px; }
+  .rateLedger { grid-template-columns: 1fr; }
+  .rateCell { min-height: 0; padding: 1.4rem 0; }
+  .rateCell + .rateCell { border-left: 0; border-top: 1px solid var(--line-strong); }
+}

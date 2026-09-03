@@ -18,16 +18,23 @@ try {
   revision = run(['log', '-1', '--format=%H%n%ad%n%s', '--date=iso']);
   recent = run(['log', '--oneline', '-5']);
   const unstaged = run(['diff', '--name-status']);
+  const staged = run(['diff', '--cached', '--name-status']);
   const untracked = run(['ls-files', '--others', '--exclude-standard'])
     .split(/\r?\n/)
     .filter(Boolean)
     .map((line) => `?? ${line}`)
     .join('\n');
-  status = [unstaged, untracked]
+  const pending = [staged, unstaged, untracked]
     .filter(Boolean)
     .join('\n')
     .split(/\r?\n/)
-    .filter((line) => !line.endsWith('docs/LLM_HANDOFF.md'))
+    .filter(Boolean);
+  const localOnly = /^(?:\.agent\/|\.agents\/|\.codex\/|\.cursor\/(?:agents|skills)\/|\.cursor\/hooks\.json|\.github\/(?:agents|hooks|skills)\/|\.impeccable\/critique\/|graphify-out\/|site\/graphify-out\/|site\/tsconfig\.tsbuildinfo$)/;
+  status = [...new Set(pending)]
+    .filter((line) => {
+      const path = line.replace(/^(?:\?\?|[A-Z]+)\s+/, '');
+      return path !== 'docs/LLM_HANDOFF.md' && !localOnly.test(path);
+    })
     .join('\n');
 } catch {
   // The document remains useful if copied outside a Git checkout.
@@ -76,13 +83,13 @@ ${lines(recent)}
 
 | Area | Location | Notes |
 | --- | --- | --- |
-| Public site | \`site/app/page.tsx\` | Client-side single-page homepage: navigation, motion, enquiry form. |
+| Public site | \`site/app/\` | Next.js App Router homepage, capability, industry, sector, company, careers and contact pages. |
 | Site shell | \`site/app/layout.tsx\` | Metadata, fonts, theme bootstrap. |
 | Visual system | \`site/app/globals.css\`, \`site/DESIGN.md\` | Responsive layout, motion presentation, accessibility conventions. |
 | Dependencies and checks | \`site/package.json\` | Next.js 16, React 19, GSAP, lint and production build commands. |
 | Brand truth | \`docs/brand-context/\` | Source-cited identity, contacts, capability and claim authority. |
 | Product requirements | \`PRODUCT.md\` | Audience, conversion goal, constraints and open decisions. |
-| CI/CD | \`.github/workflows/ci.yml\`, \`docs/CI_CD.md\`, \`site/vercel.json\` | CI verifies the site; deployment connection remains an external setup decision. |
+| CI/CD | \`.github/workflows/ci.yml\`, \`docs/CI_CD.md\`, \`site/vercel.json\` | CI verifies the site; Vercel project \`veemap-technologies\` deploys production from \`main\`. |
 | Image provenance | \`site/public/**/*.json\` | Keep each shipped raster paired with its provenance file. |
 
 ## Commands
@@ -120,7 +127,7 @@ Node.js 22.13 or newer is required.
 
 ## Known open decisions
 
-- Deployment target and its external configuration are not fully settled.
+- Production is hosted by the linked Vercel project \`veemap-technologies\`; \`main\` is the production branch and \`site/\` is the project root.
 - Lead submission destination, consent wording, and response expectations are
   undecided; the current experience intentionally prepares an email only.
 - Official website design rules and production-ready 3D assets have not been

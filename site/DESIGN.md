@@ -37,7 +37,8 @@ Large headings use tight leading and deliberate line breaks. Supporting copy sta
 - Each chapter is deliberately compressed to a two-second playback window in both directions, keeping the interaction decisive while preserving the source video's exact frame boundaries.
 - The assembled video, focus marker, progress line, and HTML capability copy move together at fixed chapter boundaries; extra input is held until the active chapter finishes.
 - Motion favors opacity, transforms, and clipped reveals to protect frame rate.
-- `prefers-reduced-motion` removes the scroll choreography and preserves all content in a readable static state.
+- The sector orbit on the homepage spins the five sector names around a tilted ellipse at a steady pace (one revolution every 28 seconds). Names are pure type with no box or shadow; depth is expressed only through scale and opacity. Engaging a name eases it to the front and holds the orbit still until the pointer leaves the stage, the card is closed, or the section leaves the viewport.
+- `prefers-reduced-motion` removes the scroll choreography and preserves all content in a readable static state. The sector orbit rests with Medical & Pharmaceutical in front and does not rotate.
 
 ## Imagery
 
@@ -52,6 +53,7 @@ Large headings use tight leading and deliberate line breaks. Supporting copy sta
 - Keyboard focus is clearly visible with the signal color.
 - The enquiry form collects requirement context and prepares an email to VEEMAP; it never asks for sensitive file uploads.
 - Navigation and calls to action stay concise and action-led.
+- Sector orbit: hover previews, click pins, focus follows the keyboard. The detail card sits in the hub of the ring on desktop and rises as a bottom sheet on mobile. It carries the sector's product model on one persistent WebGL canvas, a two-to-three line summary of what VEEMAP builds for the sector, and the link to the sector route. Escape, the close control, an outside tap, or leaving the stage releases the orbit.
 
 ## Content Guardrails
 

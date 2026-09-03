@@ -1,0 +1,431 @@
+/*
+ * Editorial page system. Shared motion and a few reusable, theme-aware
+ * component classes for the interior marketing routes (Company, Capabilities,
+ * Industries, and the sector template). Imported once from layout.tsx.
+ *
+ * Ported from the approved Claude Design mockups. The mockups are dark-only and
+ * hard-code #000 / #f2f2f2 / #fa4c14; here those become the shell tokens so the
+ * light "paper and signal" theme (globals.css :root[data-theme=light]) keeps
+ * working. Orange signal fields stay literal on purpose: a signal band is the
+ * same in both themes, black text on signal.
+ *
+ * Keyframes are global (not module-scoped) so the page markup can drive them
+ * from inline styles the way the mockups did — including scroll-linked reveals
+ * via `animation-timeline: view()`, which simply play once on load where the
+ * browser has no scroll timeline. The global reduced-motion guard in
+ * globals.css (`prefers-reduced-motion`) already collapses all of these to
+ * their held final state, so no per-element guard is needed here.
+ */
+
+:root {
+  /* Dimmer than --muted: decorative mono micro-labels (step numbers, captions). */
+  --faint: #70706e;
+}
+:root[data-theme='light'] {
+  --faint: #787874;
+}
+
+@keyframes ed-riseIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ed-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ed-drawX {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes ed-drawY {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes ed-wipeUp {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes ed-wipeRight {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes ed-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes ed-driftUp {
+  from { transform: translateY(70px); }
+  to { transform: translateY(-70px); }
+}
+@keyframes ed-driftDown {
+  from { transform: translateY(-60px); }
+  to { transform: translateY(60px); }
+}
+@keyframes ed-zoomOut {
+  from { transform: scale(1.16); }
+  to { transform: scale(1.02); }
+}
+@keyframes ed-signalPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .2; }
+}
+@keyframes ed-scanLine {
+  from { transform: translateY(-10%); }
+  to { transform: translateY(110%); }
+}
+@keyframes ed-countUp {
+  from { opacity: 0; transform: translateY(30px) scale(.94); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes ed-drawTrend {
+  from { stroke-dashoffset: 1400; }
+  to { stroke-dashoffset: 0; }
+}
+
+/*
+ * Reusable button/link chrome. The header/footer come from the shared shell;
+ * these are for the calls-to-action and links that live inside page content.
+ */
+
+.ed-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.3rem;
+  min-width: 290px;
+  height: 52px;
+  padding: 0 1.2rem;
+  border: 1px solid var(--signal);
+  color: var(--signal);
+  font-family: var(--font-mono), monospace;
+  font-size: .7rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .2s, background-color .2s;
+}
+.ed-cta:hover {
+  background: var(--signal);
+  color: var(--ink);
+}
+.ed-cta svg { width: 17px; height: 17px; flex: none; }
+
+/* CTA on a signal-orange field: outlined in ink, inverts on hover. */
+.ed-cta--invert {
+  border-color: #000;
+  color: #000;
+}
+.ed-cta--invert:hover {
+  background: #000;
+  color: var(--signal);
+}
+
+/* Mono arrow link that sits inside content ("Automotive solutions →"). */
+.ed-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  font-family: var(--font-mono), monospace;
+  font-size: .68rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--signal);
+  text-decoration: none;
+  transition: gap .2s;
+}
+.ed-link:hover { gap: 1.1rem; }
+.ed-link svg { width: 17px; flex: none; }
+
+/* Underlined mono chip used in the sector index rows. */
+.ed-sector-link {
+  display: inline-block;
+  font-family: var(--font-mono), monospace;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: .25rem;
+  transition: color .2s, border-color .2s;
+}
+.ed-sector-link:hover {
+  color: var(--signal);
+  border-bottom-color: var(--signal);
+}
+
+/* ------------------------------------------------------------------ *
+ * Shared structural chrome for the editorial routes. Page modules add
+ * only the layout that is genuinely unique to a page.
+ * ------------------------------------------------------------------ */
+
+.ed-wrap { max-width: 1600px; margin: 0 auto; width: 100%; }
+
+/* Full-height hero with a faint commissioning video and machine-point grid. */
+.ed-hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  padding: calc(88px + 6rem) var(--page-gutter) 4rem;
+  isolation: isolate;
+  overflow: hidden;
+}
+.ed-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+  opacity: .28;
+  filter: grayscale(.8) contrast(1.2);
+  -webkit-mask-image: radial-gradient(120% 100% at 76% 42%, #000 0, transparent 70%);
+  mask-image: radial-gradient(120% 100% at 76% 42%, #000 0, transparent 70%);
+}
+.ed-hero__grid {
+  position: absolute;
+  inset: 88px 0 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: .14;
+  background-image: radial-gradient(circle, var(--text) 0 .65px, transparent .8px);
+  background-size: 19px 19px;
+  background-position: 1.5rem 1.5rem;
+  -webkit-mask-image: radial-gradient(circle at 36% 50%, #000 0, transparent 60%);
+  mask-image: radial-gradient(circle at 36% 50%, #000 0, transparent 60%);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .ed-hero__grid {
+    background-image: radial-gradient(circle, color-mix(in srgb, var(--text) 16%, transparent) 0 .65px, transparent .8px);
+  }
+}
+.ed-hero__inner { position: relative; max-width: 1600px; margin: 0 auto; width: 100%; }
+.ed-hero__rule {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line-strong);
+  transform-origin: 0;
+  animation: ed-drawX 1.4s cubic-bezier(.2, .8, .2, 1) .9s both;
+}
+
+/* Kickers and headings. */
+.ed-kicker {
+  display: block;
+  font-family: var(--font-mono), monospace;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 1.6rem;
+}
+.ed-serif {
+  margin: 0;
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  line-height: .93;
+  letter-spacing: -.03em;
+}
+.ed-serif em { font-style: normal; color: var(--signal); }
+.ed-cond {
+  margin: 0;
+  font-family: var(--font-utility), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+}
+
+.ed-hero__title { font-size: clamp(2.8rem, 7vw, 6.6rem); }
+.ed-hero__title span { display: block; }
+
+.ed-deck {
+  margin: 2.2rem 0 0;
+  max-width: 56ch;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: .9rem;
+  line-height: 1.68;
+  letter-spacing: -.02em;
+}
+.ed-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem 2.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.ed-hero__meta {
+  font-family: var(--font-mono), monospace;
+  font-size: .6rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Muted prose used across body sections. */
+.ed-prose { color: var(--muted); line-height: 1.55; }
+
+/* The 4px rotated signal square that marks list rows and timelines. */
+.ed-diamond {
+  width: 4px;
+  height: 4px;
+  flex: none;
+  background: var(--signal);
+  transform: rotate(45deg);
+}
+
+/* Scrolling capability tape. */
+.ed-marquee {
+  display: flex;
+  overflow: hidden;
+  padding: 1.1rem 0;
+}
+.ed-marquee__track {
+  display: flex;
+  flex: none;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  white-space: nowrap;
+  font-family: var(--font-mono), monospace;
+  font-size: .66rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: ed-marquee 34s linear infinite;
+}
+.ed-marquee__track > span { display: flex; align-items: center; gap: 2.5rem; }
+
+/* Image figures with a caption and optional scan line. */
+.ed-figure {
+  position: relative;
+  margin: 0;
+  background: var(--ground);
+  overflow: hidden;
+}
+.ed-figure__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: ed-zoomOut linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 100%;
+}
+.ed-figure__cap {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--font-mono), monospace;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.ed-figure__cap--right { left: auto; right: 1.5rem; }
+.ed-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--signal), transparent);
+  opacity: .5;
+  animation: ed-scanLine 5s linear infinite;
+}
+.ed-live-dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  background: var(--signal);
+  animation: ed-signalPulse 1.8s ease-in-out infinite;
+}
+
+/* Signal-orange full-bleed field. Always black-on-orange in both themes. */
+.ed-band { background: var(--signal); color: #000; }
+
+/* Numeric proof ledger. */
+.ed-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+.ed-ledger__cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  padding: 1.4rem 1.5rem 1.6rem;
+}
+.ed-ledger__cell:first-child { padding-left: 0; }
+.ed-ledger__cell + .ed-ledger__cell { border-left: 1px solid var(--line-strong); }
+.ed-ledger__label {
+  font-family: var(--font-mono), monospace;
+  font-size: .7rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ed-ledger__num {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: clamp(5rem, 10vw, 10rem);
+  line-height: .8;
+  letter-spacing: -.04em;
+  color: var(--signal);
+}
+.ed-ledger__foot {
+  font-family: var(--font-mono), monospace;
+  font-size: .6rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (max-width: 900px) {
+  .ed-ledger { grid-template-columns: 1fr; }
+  .ed-ledger__cell { min-height: 0; padding: 1.4rem 0; }
+  .ed-ledger__cell + .ed-ledger__cell { border-left: 0; border-top: 1px solid var(--line-strong); }
+}
+
+/* Horizontal process-step timeline (lifecycle, EV stages, medical process). */
+.ed-steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+.ed-steps__rail { position: absolute; top: 5px; left: 0; right: 0; height: 1px; background: var(--line); }
+.ed-steps__fill {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--signal);
+  transform-origin: 0;
+  animation: ed-drawX 1s linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 55%;
+}
+.ed-step__node { display: block; width: 11px; height: 11px; background: var(--signal); transform: rotate(45deg); margin-bottom: 2rem; }
+.ed-step__label {
+  display: block;
+  font-family: var(--font-mono), monospace;
+  font-size: .56rem;
+  letter-spacing: .1em;
+  color: var(--faint);
+  margin-bottom: .6rem;
+  text-transform: uppercase;
+}
+.ed-step__text { display: block; font-size: 1.05rem; line-height: 1.3; }
+
+@media (max-width: 900px) {
+  .ed-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; }
+  .ed-steps__rail, .ed-steps__fill { display: none; }
+}

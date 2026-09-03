@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="100%" height="100%">
+  <g transform="translate(40, 40)">
+    <polygon points="0,0 45,0 60,50 15,50" fill="#005BAC"/>
+    <polygon points="25,55 70,55 85,105 40,105" fill="#0099FF"/>
+  </g>
+  <g transform="translate(150, 95)">
+    <text font-family="'Arial Black', sans-serif" font-weight="900" font-size="54" fill="#005BAC" letter-spacing="6">ASTI</text>
+    <text y="28" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="13" fill="#666666" letter-spacing="3">ELECTRONICS INDIA</text>
+  </g>
+</svg>

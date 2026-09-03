@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="100%" height="100%">
+  <g transform="translate(35, 30)">
+    <circle cx="60" cy="60" r="55" fill="#1E3A8A"/>
+    <path d="M 35,60 C 35,40 60,35 80,45 C 85,65 60,85 35,60 Z" fill="#F59E0B"/>
+  </g>
+  <g transform="translate(170, 80)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="44" fill="#1E3A8A" letter-spacing="3">CDS</text>
+    <text y="32" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#F59E0B" letter-spacing="4">BETTINELLI</text>
+  </g>
+</svg>

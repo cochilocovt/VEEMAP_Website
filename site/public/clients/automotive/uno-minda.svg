@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="100%" height="100%">
+  <!-- Icon: Dual Chevron -->
+  <g transform="translate(30, 35)">
+    <!-- Left dark blue chevron -->
+    <polygon points="0,55 35,0 70,0 35,55 70,110 35,110" fill="#002D62"/>
+    <!-- Right cyan chevron -->
+    <polygon points="45,55 80,0 115,0 80,55 115,110 80,110" fill="#00A3E0"/>
+  </g>
+  <!-- Typography: UNO MINDA -->
+  <g transform="translate(170, 95)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="46" fill="#002D62" letter-spacing="2">UNO MINDA</text>
+    <text y="28" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#00A3E0" letter-spacing="4">DRIVING THE NEW</text>
+  </g>
+</svg>

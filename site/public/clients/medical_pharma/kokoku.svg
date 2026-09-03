@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="100%" height="100%">
+  <g transform="translate(40, 35)">
+    <circle cx="55" cy="55" r="50" fill="#002060"/>
+    <circle cx="55" cy="55" r="25" fill="#E60012"/>
+  </g>
+  <g transform="translate(165, 85)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="38" fill="#002060" letter-spacing="3">KOKOKU</text>
+    <text y="28" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#E60012" letter-spacing="2">INTECH CO., LTD.</text>
+  </g>
+</svg>

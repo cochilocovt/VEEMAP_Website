@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="100%" height="100%">
+  <g transform="translate(40, 35)">
+    <polygon points="55,5 105,95 5,95" fill="#37474F"/>
+    <polygon points="55,30 85,85 25,85" fill="#00ACC1"/>
+  </g>
+  <g transform="translate(165, 90)">
+    <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="36" fill="#37474F" letter-spacing="2">SASAA</text>
+    <text y="28" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#00ACC1" letter-spacing="3">VENTURE</text>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+/*
+ * Sector detail layout. Generalised from the approved Medical & Pharmaceutical
+ * design so every sector renders the same editorial template from content/
+ * sectors.ts. Shared chrome is in app/editorial.css. The real EnquiryForm and
+ * ProductionDashboard components are reused rather than the design's static
+ * mock-ups, so the mailto handoff and illustrative-data labelling are preserved.
+ */
+
+.section { padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); }
+.wrap { max-width: 1600px; margin: 0 auto; }
+
+/* Approach split. */
+.approach { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 680px; border-bottom: 1px solid var(--line); }
+.approachBody { display: flex; flex-direction: column; justify-content: center; padding: clamp(4rem, 7vw, 7rem) var(--page-gutter); }
+.approachFigure { min-height: 600px; border-left: 1px solid var(--line); }
+
+/* Solution-family cards. */
+.families { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.familyCard { background: var(--ground); padding: 1.7rem; }
+.familyIndex { display: block; font-family: var(--font-mono), monospace; font-size: .55rem; color: var(--signal); margin-bottom: 1.2rem; }
+.familyTitle { margin: 0 0 .7rem; font-family: var(--font-utility), sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+.familyText { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+.familyNote { background: color-mix(in srgb, var(--text) 3%, var(--ground)); display: flex; flex-direction: column; justify-content: flex-end; }
+.familyNote span { font-family: var(--font-mono), monospace; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); line-height: 1.8; }
+
+/* Quality and data layer. */
+.quality { position: relative; padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.qualityBg { position: absolute; bottom: -18%; left: -16%; width: 50%; z-index: -1; opacity: .3; animation: ed-driftDown linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+.qualityGrid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6vw; align-items: start; }
+.qualityList { display: grid; border-top: 1px solid var(--line-strong); }
+.qualityRow { display: flex; gap: 1.5rem; align-items: baseline; padding: 1.3rem 0; border-bottom: 1px solid var(--line-strong); }
+.qualityNum { font-family: var(--font-mono), monospace; font-size: .6rem; font-style: normal; color: var(--signal); }
+.qualityText { font-size: 1.15rem; line-height: 1.4; }
+
+/* Flexible production band. */
+.flex { padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); }
+.flexGrid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6vw; align-items: start; }
+.flexList { display: grid; border-top: 1px solid rgba(0, 0, 0, .35); }
+.flexList span { padding: 1.3rem 0; border-bottom: 1px solid rgba(0, 0, 0, .35); font-size: 1.15rem; line-height: 1.45; max-width: 70ch; }
+
+/* What the line reports. */
+.reports { position: relative; padding: clamp(4.5rem, 9vw, 8rem) var(--page-gutter); border-bottom: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.reportsBg { position: absolute; top: -14%; right: -10%; width: 40%; z-index: -1; opacity: .28; animation: ed-driftUp linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+.reportsHead { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 6vw; align-items: end; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.reportsHead p { margin: 0; max-width: 56ch; color: var(--muted); font-size: 1.1rem; line-height: 1.55; }
+
+/* Start a project (ground, so the real EnquiryForm stays legible). */
+.start { padding: clamp(5rem, 10vw, 9rem) var(--page-gutter); border-bottom: 1px solid var(--line); }
+.startGrid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr); gap: 8vw; align-items: start; }
+.startMeta { display: grid; gap: .45rem; margin-top: 2.5rem; font-family: var(--font-mono), monospace; font-size: .72rem; line-height: 1.9; color: var(--muted); }
+.startMeta a { color: var(--signal); }
+
+.otherSectors { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; }
+
+@media (max-width: 960px) {
+  .approach, .qualityGrid, .flexGrid, .reportsHead, .startGrid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .approach { min-height: 0; }
+  .approachFigure { min-height: 340px; border-left: 0; border-top: 1px solid var(--line); }
+  .families { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .families { grid-template-columns: 1fr; }
+}
