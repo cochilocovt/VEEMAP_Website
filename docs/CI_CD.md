@@ -9,8 +9,7 @@ Vercel dashboard.
 - Vercel project: `veemap-technologies`
 - Project root: `site`
 - Git branch deployed: `main`
-- Current production deployment: `dpl_9REgPMC587WAiET7Gct1UiBr8bXb`
-- Source commit: `205f8a9`
+- Production deployment: Ready and Current from `main`
 - Public domains: <https://www.veemap.com> and
   <https://veemap-technologies.vercel.app>
 - Verification: both public domains and all application routes returned HTTP

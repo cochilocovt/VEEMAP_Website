@@ -25,13 +25,12 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `205f8a9da0b35288cf66e167144ac5012945db6c` — docs: refresh handoff after deploy check (2026-09-03 10:39:39 +0530)
-- Generated: 2026-09-03T05:52:16.580Z
+- Base commit when generated: `487e7bc03fa770ad8a4ca8f48c8f784c73bc7f31` — docs: record live Vercel production (2026-09-03 11:22:16 +0530)
+- Generated: 2026-09-03T05:53:51.694Z
 
 ### Uncommitted work (preserve)
 
 - `M	docs/CI_CD.md`
-- `M	tools/update-handoff.mjs`
 - `D	media/Picture10.png`
 - `D	media/Picture14.jpg`
 - `D	media/Picture8.png`
@@ -170,11 +169,11 @@
 
 ### Recent commits
 
+- `487e7bc docs: record live Vercel production`
 - `205f8a9 docs: refresh handoff after deploy check`
 - `f2d6cdb docs: record Vercel promotion requirement`
 - `606adb1 docs: record verified release state`
 - `9af098b fix: clear production verification gates`
-- `e57ff6d docs: refresh project handoff`
 
 ## Architecture map
 
