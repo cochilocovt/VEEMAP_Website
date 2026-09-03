@@ -25,13 +25,11 @@
 ## Current repository state
 
 - Branch: `main`
-- Base commit when generated: `606adb134dab10f346c5ff5ce4022ab48589e9c9` — docs: record verified release state (2026-09-03 10:36:11 +0530)
-- Generated: 2026-09-03T05:09:38.353Z
+- Base commit when generated: `f2d6cdbade6b10fea1ac3f6d90b3f4f15e6c6086` — docs: record Vercel promotion requirement (2026-09-03 10:39:38 +0530)
+- Generated: 2026-09-03T05:09:39.409Z
 
 ### Uncommitted work (preserve)
 
-- `M	docs/CI_CD.md`
-- `M	tools/update-handoff.mjs`
 - `D	media/Picture10.png`
 - `D	media/Picture14.jpg`
 - `D	media/Picture8.png`
@@ -170,11 +168,11 @@
 
 ### Recent commits
 
+- `f2d6cdb docs: record Vercel promotion requirement`
 - `606adb1 docs: record verified release state`
 - `9af098b fix: clear production verification gates`
 - `e57ff6d docs: refresh project handoff`
 - `3859578 feat: publish refreshed VEEMAP website`
-- `417e98c fix: carry a visible release distance past pin`
 
 ## Architecture map
 
